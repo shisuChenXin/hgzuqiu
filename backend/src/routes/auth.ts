@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 import { query } from '../models/database';
 import { LoginRequest, UserCreateRequest, ApiResponse, LoginResponse, User } from '../types';
 import { authenticateToken } from '../middleware/auth';
+import { resolveWhitelabelForRequest, WhitelabelResolutionError } from '../services/whitelabel-service';
 import { emailService } from '../services/email.service';
 
 const router = Router();
@@ -134,6 +135,9 @@ router.post('/register', async (req, res) => {
             }
         }
 
+        // 注册请求必须先解析白标归属；未知域名直接拒绝，避免默认租户静默吞掉配置错误。
+        const whitelabel = await resolveWhitelabelForRequest(req);
+
         // 加密密码
         const saltRounds = parseInt(process.env.BCRYPT_ROUNDS || '10');
         const passwordHash = await bcrypt.hash(password, saltRounds);
@@ -152,8 +156,8 @@ router.post('/register', async (req, res) => {
 
         // 创建用户
         const result = await query(
-            'INSERT INTO users (username, email, password_hash, role, parent_id, agent_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id, username, email, role, parent_id, agent_id, created_at, updated_at',
-            [username, email, passwordHash, userRole, parent_id || null, agentId]
+            'INSERT INTO users (username, email, password_hash, role, parent_id, agent_id, whitelabel_id) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, username, email, role, parent_id, agent_id, whitelabel_id, created_at, updated_at',
+            [username, email, passwordHash, userRole, parent_id || null, agentId, whitelabel.id]
         );
 
         const user = result.rows[0];
@@ -166,7 +170,8 @@ router.post('/register', async (req, res) => {
                     email: user.email,
                     role: user.role,
                     parent_id: user.parent_id,
-                    agent_id: user.agent_id
+                    agent_id: user.agent_id,
+                    whitelabel_id: user.whitelabel_id
                 }
             },
             process.env.JWT_SECRET!,
@@ -220,7 +225,7 @@ router.post('/login', async (req, res) => {
 
         // 查找用户
         const result = await query(
-            'SELECT id, username, email, password_hash, role, parent_id, agent_id, email_verified, created_at, updated_at FROM users WHERE username = $1',
+            'SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1',
             [username]
         );
 
@@ -240,6 +245,16 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({
                 success: false,
                 error: '用户名或密码错误'
+            });
+        }
+
+        // 登录域名必须与用户归属一致。旧数据迁移后所有用户都有白标 ID。
+        const requestWhitelabel = await resolveWhitelabelForRequest(req);
+        if (user.whitelabel_id !== requestWhitelabel.id) {
+            await recordLoginHistory(user.id, clientIp, userAgent, false, false);
+            return res.status(403).json({
+                success: false,
+                error: '当前账号不属于该白标站点'
             });
         }
 
@@ -304,7 +319,8 @@ router.post('/login', async (req, res) => {
                     email: user.email,
                     role: user.role,
                     parent_id: user.parent_id,
-                    agent_id: user.agent_id
+                    agent_id: user.agent_id,
+                    whitelabel_id: user.whitelabel_id
                 }
             },
             process.env.JWT_SECRET!,
@@ -322,6 +338,7 @@ router.post('/login', async (req, res) => {
             role: user.role,
             parent_id: user.parent_id,
             agent_id: user.agent_id,
+            whitelabel_id: user.whitelabel_id,
             email_verified: user.email_verified,
             created_at: user.created_at,
             updated_at: user.updated_at
@@ -334,6 +351,13 @@ router.post('/login', async (req, res) => {
         } as ApiResponse<LoginResponse>);
 
     } catch (error) {
+        if (error instanceof WhitelabelResolutionError) {
+            return res.status(error.status || 400).json({
+                success: false,
+                error: error.message
+            });
+        }
+
         console.error('登录错误:', error);
         res.status(500).json({
             success: false,
@@ -348,7 +372,7 @@ router.get('/me', authenticateToken, async (req: any, res) => {
         const userId = req.user.id;
 
         const result = await query(
-            'SELECT id, username, email, role, parent_id, agent_id, created_at, updated_at FROM users WHERE id = $1',
+            'SELECT id, username, email, role, parent_id, agent_id, whitelabel_id, created_at, updated_at FROM users WHERE id = $1',
             [userId]
         );
 

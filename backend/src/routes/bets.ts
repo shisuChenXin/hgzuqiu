@@ -1,8 +1,16 @@
 import { Router } from 'express';
 import { authenticateToken } from '../middleware/auth';
-import { query } from '../models/database';
+import { pool, query } from '../models/database';
 import { BetCreateRequest, ApiResponse, Bet, AccountSelectionEntry, CrownAccount } from '../types';
 import { getCrownAutomation } from '../services/crown-automation';
+import {
+    buildAutomationMarketFields,
+    calculateSelectionMapping,
+    getMappingSettings,
+    SelectionMappingError,
+    type ResolvedSelectionMapping,
+} from '../services/selection-mapping-service';
+import { getUserWhitelabelContext } from '../services/whitelabel-service';
 import { selectAccounts } from '../services/account-selection';
 import {
     parseLimitRange,
@@ -264,6 +272,8 @@ router.post('/', async (req: any, res) => {
         const userRole = req.user.role;
         const agentId = req.user.agent_id; // 获取代理ID，用于金币扣费
         const betData: BetCreateRequest = req.body;
+        const dryRun = (betData as any).dry_run === true;
+        const whitelabelContext = await getUserWhitelabelContext(userId);
 
         console.log('📝 收到下注请求:', JSON.stringify(betData, null, 2));
 
@@ -316,19 +326,22 @@ router.post('/', async (req: any, res) => {
             });
         }
 
-        // 检查金币余额是否足够
-        const chargeUserId = (userRole === 'staff' && agentId) ? agentId : userId;
-        const coinBalanceResult = await query(
-            'SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1',
-            [chargeUserId]
-        );
-        const coinBalance = parseFloat(coinBalanceResult.rows[0].balance);
-        if (coinBalance < betData.total_amount) {
-            console.log('❌ 金币余额不足:', { coinBalance, required: betData.total_amount, chargeUserId });
-            return res.status(400).json({
-                success: false,
-                error: `金币余额不足，当前余额: ${coinBalance.toFixed(2)}，需要: ${betData.total_amount}`
-            });
+        // dry-run 只做本地校验，不检查/变动金币余额。
+        if (!dryRun) {
+            // 检查金币余额是否足够
+            const chargeUserId = (userRole === 'staff' && agentId) ? agentId : userId;
+            const coinBalanceResult = await query(
+                'SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1',
+                [chargeUserId]
+            );
+            const coinBalance = parseFloat(coinBalanceResult.rows[0].balance);
+            if (coinBalance < betData.total_amount) {
+                console.log('❌ 金币余额不足:', { coinBalance, required: betData.total_amount, chargeUserId });
+                return res.status(400).json({
+                    success: false,
+                    error: `金币余额不足，当前余额: ${coinBalance.toFixed(2)}，需要: ${betData.total_amount}`
+                });
+            }
         }
 
         let crownMatchIdRaw = (betData.crown_match_id || '').toString().trim();
@@ -736,6 +749,68 @@ router.post('/', async (req: any, res) => {
 		    );
 		}
 
+        // dry-run 到此为止：已完成账号、拆单和本地额度校验，绝不创建注单或触发上游下注。
+        if (dryRun) {
+            let dryRunMapping: ResolvedSelectionMapping;
+            try {
+                const dryRunSettings = await getMappingSettings(whitelabelContext.id);
+                dryRunMapping = calculateSelectionMapping({
+                    whitelabelId: whitelabelContext.id,
+                    settings: dryRunSettings,
+                    market_category: betData.market_category,
+                    market_side: betData.market_side,
+                    market_rtype: betData.market_rtype,
+                    market_chose_team: betData.market_chose_team,
+                });
+            } catch (error: any) {
+                if (error instanceof SelectionMappingError) {
+                    return res.status(error.status || 400).json({
+                        success: false,
+                        error: error.message,
+                    });
+                }
+                throw error;
+            }
+
+            const creditBlocks = Array.from(insufficientCreditAccounts.entries()).map(([accountId, info]) => ({
+                accountId,
+                required_virtual: info.required,
+                credit: info.credit,
+            }));
+            return res.status(creditBlocks.length > 0 ? 409 : 200).json({
+                success: true,
+                data: {
+                    dry_run: true,
+                    planned_splits: betQueue.map((split) => ({
+                        account_id: split.accountId,
+                        virtual_amount: split.virtualAmount,
+                        real_amount: split.realAmount,
+                        discount: split.discount,
+                    })),
+                    credit_blocks: creditBlocks,
+                    queued: 0,
+                    processing: 0,
+                    cancelled: creditBlocks.length,
+                    bet_ids: [],
+                    selection_mapping: {
+                        whitelabel_id: dryRunMapping.whitelabelId,
+                        mapping_mode: dryRunMapping.mappingMode,
+                        mapping_enabled: dryRunMapping.mappingEnabled,
+                        mapping_version: dryRunMapping.mappingVersion,
+                        mapping_applied: dryRunMapping.mappingApplied,
+                        displayed_market_side: dryRunMapping.displayedMarketSide,
+                        executed_market_side: dryRunMapping.executedMarketSide,
+                        displayed_market_rtype: dryRunMapping.displayedMarketRtype,
+                        executed_market_rtype: dryRunMapping.executedMarketRtype,
+                        displayed_market_chose_team: dryRunMapping.displayedMarketChoseTeam,
+                        executed_market_chose_team: dryRunMapping.executedMarketChoseTeam,
+                    },
+                },
+                message: creditBlocks.length > 0
+                    ? 'Dry-run 拦截：账号信用额度不足；未创建注单且未调用上游'
+                    : 'Dry-run 校验通过；未创建注单且未调用上游',
+            } as ApiResponse);
+        }
 		// 解析间隔时间范围
 		const intervalRange = parseIntervalRange(betData.interval_range);
 
@@ -744,11 +819,35 @@ router.post('/', async (req: any, res) => {
 		const marketLineValue =
 			betData.market_line === undefined || betData.market_line === null ? null : String(betData.market_line);
 		const marketIndexValue = Number.isFinite(betData.market_index as any) ? Number(betData.market_index) : null;
-		const scoreValue = betData.current_score || matchRecord.current_score || null;
 
-		// 预先创建下注记录（pending/cancelled），避免用户提交后短时间看不到下注记录
+		// 预先创建下注记录（pending/cancelled），并在同一事务内读取权威映射配置。
+		// FOR SHARE 阻止管理员切换配置与本次写入竞争，确保注单记录的映射版本可复现。
 		let createdBetRows: Array<{ id: number; account_id: number; status: string }> = [];
+		let selectionMapping: ResolvedSelectionMapping;
+		const insertClient = await pool.connect();
 		try {
+			await insertClient.query('BEGIN');
+			const mappingSettingsResult = await insertClient.query(
+				`SELECT s.*
+				 FROM selection_mapping_settings s
+				 JOIN whitelabels w ON w.id = s.whitelabel_id
+				 WHERE s.whitelabel_id = $1 AND w.status = 'active'
+				 FOR SHARE OF s
+				 LIMIT 1`,
+				[whitelabelContext.id],
+			);
+			if (mappingSettingsResult.rows.length === 0) {
+				throw new SelectionMappingError('白标不存在、已停用或缺少映射配置', 404);
+			}
+			selectionMapping = calculateSelectionMapping({
+				whitelabelId: whitelabelContext.id,
+				settings: mappingSettingsResult.rows[0],
+				market_category: betData.market_category,
+				market_side: betData.market_side,
+				market_rtype: betData.market_rtype,
+				market_chose_team: betData.market_chose_team,
+			});
+
 			const insertParams: any[] = [];
 			const insertValues: string[] = [];
 			let paramIndex = 1;
@@ -765,7 +864,7 @@ router.post('/', async (req: any, res) => {
 				const preStatus = creditInfo ? 'cancelled' : 'pending';
 
 				const placeholders: string[] = [];
-				for (let p = 0; p < 22; p++) {
+				for (let p = 0; p < 31; p++) {
 					placeholders.push(`$${paramIndex++}`);
 				}
 				insertValues.push(`(${placeholders.join(', ')})`);
@@ -782,7 +881,7 @@ router.post('/', async (req: any, res) => {
 					minOddsForRecord,
 					betData.market_category || null,
 					betData.market_scope || null,
-					betData.market_side || null,
+					selectionMapping.displayedMarketSide,
 					marketLineValue,
 					marketIndexValue,
 					singleLimitForRecord,
@@ -791,8 +890,17 @@ router.post('/', async (req: any, res) => {
 					preStatus,
 					null, // official_bet_id
 					null, // official_odds
-					scoreValue,
 					preErrorMessage,
+					whitelabelContext.id,
+					selectionMapping.displayedMarketSide,
+					selectionMapping.executedMarketSide,
+					selectionMapping.displayedMarketRtype,
+					selectionMapping.executedMarketRtype,
+					selectionMapping.displayedMarketChoseTeam,
+					selectionMapping.executedMarketChoseTeam,
+					selectionMapping.mappingMode,
+					selectionMapping.mappingVersion,
+					selectionMapping.mappingApplied,
 				);
 			}
 
@@ -800,22 +908,35 @@ router.post('/', async (req: any, res) => {
 				`INSERT INTO bets (` +
 				`user_id, account_id, match_id, bet_type, bet_option, bet_amount, virtual_bet_amount, odds, min_odds, ` +
 				`market_category, market_scope, market_side, market_line, market_index, ` +
-				`single_limit, interval_seconds, quantity, status, official_bet_id, official_odds, score, error_message` +
+				`single_limit, interval_seconds, quantity, status, official_bet_id, official_odds, error_message, ` +
+				`whitelabel_id, displayed_market_side, executed_market_side, ` +
+				`displayed_market_rtype, executed_market_rtype, displayed_market_chose_team, executed_market_chose_team, ` +
+				`mapping_mode, mapping_version, mapping_applied` +
 				`) VALUES ${insertValues.join(', ')} RETURNING id, account_id, status`;
 
-			const insertResult = await query(insertSql, insertParams);
+			const insertResult = await insertClient.query(insertSql, insertParams);
 			createdBetRows = insertResult.rows.map((row: any) => ({
 				id: Number(row.id),
 				account_id: Number(row.account_id),
 				status: String(row.status || ''),
 			}));
+			await insertClient.query('COMMIT');
 		} catch (insertError: any) {
+			await insertClient.query('ROLLBACK').catch(() => undefined);
+			if (insertError instanceof SelectionMappingError) {
+				return res.status(insertError.status || 400).json({
+					success: false,
+					error: insertError.message,
+				});
+			}
 			console.error('预创建下注记录失败:', insertError);
 			return res.status(500).json({
 				success: false,
 				error: '创建下注记录失败（预创建注单失败）',
 				details: insertError?.message,
 			});
+		} finally {
+			insertClient.release();
 		}
 
 		const betQueueWithIds: BetQueueItem[] = betQueue.map((split, idx) => ({
@@ -852,6 +973,12 @@ router.post('/', async (req: any, res) => {
 			validatedAccountIds,
 			actualAccountIds,
 			accountsById,
+			whitelabel: {
+				id: whitelabelContext.id,
+				name: whitelabelContext.name,
+				domain: whitelabelContext.domain,
+			},
+			selectionMapping,
 		};
 
 		if (processingQueue.length > 0) {
@@ -879,6 +1006,19 @@ router.post('/', async (req: any, res) => {
 				processing: processingQueue.length,
 				cancelled: cancelledCount,
 				bet_ids: createdBetRows.map((row) => row.id),
+				selection_mapping: {
+					whitelabel_id: selectionMapping.whitelabelId,
+					mapping_mode: selectionMapping.mappingMode,
+					mapping_enabled: selectionMapping.mappingEnabled,
+					mapping_version: selectionMapping.mappingVersion,
+					mapping_applied: selectionMapping.mappingApplied,
+					displayed_market_side: selectionMapping.displayedMarketSide,
+					executed_market_side: selectionMapping.executedMarketSide,
+					displayed_market_rtype: selectionMapping.displayedMarketRtype,
+					executed_market_rtype: selectionMapping.executedMarketRtype,
+					displayed_market_chose_team: selectionMapping.displayedMarketChoseTeam,
+					executed_market_chose_team: selectionMapping.executedMarketChoseTeam,
+				},
 			},
 			message: messageParts.join(' '),
 		} as ApiResponse);
@@ -906,6 +1046,12 @@ interface BetJobParams {
 	validatedAccountIds: number[];
 	actualAccountIds: number[];
 	accountsById: Map<number, CrownAccount>;
+	whitelabel: {
+		id: number;
+		name: string;
+		domain: string;
+	};
+	selectionMapping: ResolvedSelectionMapping;
 }
 
 interface BetQueueItem {
@@ -932,6 +1078,8 @@ async function processBetJob(params: BetJobParams): Promise<void> {
 		validatedAccountIds,
 		actualAccountIds,
 		accountsById,
+		whitelabel,
+		selectionMapping,
 	} = params;
 
 	if (!betQueue.length) {
@@ -1076,18 +1224,18 @@ async function processBetJob(params: BetJobParams): Promise<void> {
 				marketCategory: betData.market_category,
 				market_scope: betData.market_scope,
 				marketScope: betData.market_scope,
-				market_side: betData.market_side,
-				marketSide: betData.market_side,
+				market_side: selectionMapping.executedMarketSide ?? undefined,
+				marketSide: selectionMapping.executedMarketSide ?? undefined,
+				market_rtype: selectionMapping.executedMarketRtype ?? undefined,
+				marketRtype: selectionMapping.executedMarketRtype ?? undefined,
+				market_chose_team: selectionMapping.executedMarketChoseTeam ?? undefined,
+				marketChoseTeam: selectionMapping.executedMarketChoseTeam ?? undefined,
 				market_line: betData.market_line,
 				marketLine: betData.market_line,
 				market_index: betData.market_index,
 				marketIndex: betData.market_index,
 				market_wtype: betData.market_wtype,
 				marketWtype: betData.market_wtype,
-				market_rtype: betData.market_rtype,
-				marketRtype: betData.market_rtype,
-				market_chose_team: betData.market_chose_team,
-				marketChoseTeam: betData.market_chose_team,
 				spread_gid: betData.spread_gid,
 				spreadGid: betData.spread_gid,
 			});
@@ -1099,24 +1247,23 @@ async function processBetJob(params: BetJobParams): Promise<void> {
 			}
 
 			const finalOddsValue = betResult.actualOdds || betData.odds;
+			const officialOddsValue = betResult.success ? finalOddsValue : null;
 				const updateResult = await query(
 					`UPDATE bets SET
 					     status = $1::text,
 					     official_bet_id = $2,
 					     official_odds = $3,
 					     odds = $4,
-					     score = $5,
-					     error_message = $6,
+					     error_message = $5,
 					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
 					     updated_at = CURRENT_TIMESTAMP
-					 WHERE id = $7
+					 WHERE id = $6
 					 RETURNING *`,
 					[
 					initialStatus,
 					betResult.betId || null,
+					officialOddsValue,
 					finalOddsValue,
-					finalOddsValue,
-					betData.current_score || matchRecord.current_score || null,
 					errorMessage,
 					betId,
 				],

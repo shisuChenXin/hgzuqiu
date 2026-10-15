@@ -1,5 +1,74 @@
 // 用户角色类型
 export type UserRole = 'admin' | 'agent' | 'staff';
+// 白标 / 租户与下注选择映射类型
+export type SelectionMappingMode = 'identity' | 'inverse';
+
+export interface Whitelabel {
+  id: number;
+  name: string;
+  domain: string;
+  status: 'active' | 'disabled';
+  is_default: boolean;
+  owner_user_id?: number | null;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface WhitelabelListItem extends Whitelabel {
+  mapping_mode: SelectionMappingMode;
+  mapping_enabled: boolean;
+  mapping_version: number;
+  user_count: number;
+}
+
+export interface WhitelabelUser {
+  id: number;
+  username: string;
+  email: string | null;
+  role: UserRole;
+  created_at: string;
+}
+
+export interface SelectionMappingSettings {
+  id: number;
+  whitelabel_id: number;
+  mapping_mode: SelectionMappingMode;
+  enabled: boolean;
+  version: number;
+  updated_by?: number | null;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export interface SelectionMappingAuditLog {
+  id: number;
+  whitelabel_id: number;
+  from_mode: SelectionMappingMode;
+  to_mode: SelectionMappingMode;
+  from_enabled: boolean;
+  to_enabled: boolean;
+  from_version: number;
+  to_version: number;
+  operator_user_id?: number | null;
+  operator_username?: string | null;
+  reason?: string | null;
+  created_at: string;
+}
+
+export interface SelectionMappingSnapshot {
+  whitelabel_id: number;
+  mapping_mode: SelectionMappingMode;
+  mapping_enabled?: boolean;
+  mapping_version: number;
+  mapping_applied: boolean;
+  displayed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under' | null;
+  executed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under' | null;
+  displayed_market_rtype?: string | null;
+  executed_market_rtype?: string | null;
+  displayed_market_chose_team?: 'H' | 'C' | 'N' | null;
+  executed_market_chose_team?: 'H' | 'C' | 'N' | null;
+}
+
 
 // 用户认证相关类型
 export interface User {
@@ -9,6 +78,7 @@ export interface User {
   role: UserRole;
   parent_id?: number;
   agent_id?: number;
+  whitelabel_id?: number;
   credit_limit?: number;  // 信用额度（皇冠账号余额总和）
   created_at: string;
   updated_at: string;
@@ -215,7 +285,17 @@ export interface Bet {
   official_odds?: number;
   market_category?: 'moneyline' | 'handicap' | 'overunder';
   market_scope?: 'full' | 'half';
+  whitelabel_id?: number | null;
   market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+  displayed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+  executed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+  displayed_market_rtype?: string;
+  executed_market_rtype?: string;
+  displayed_market_chose_team?: 'H' | 'C' | 'N';
+  executed_market_chose_team?: 'H' | 'C' | 'N';
+  mapping_mode?: SelectionMappingMode;
+  mapping_version?: number;
+  mapping_applied?: boolean;
   market_line?: string;
   market_index?: number;
   market_wtype?: string;
@@ -246,6 +326,7 @@ export interface BetCreateResponse {
   processing?: number;
   cancelled?: number;
   bet_ids?: number[];
+  selection_mapping?: SelectionMappingSnapshot;
 }
 
 export interface BetCreateRequest {
@@ -275,6 +356,7 @@ export interface BetCreateRequest {
   market_wtype?: string;
   market_rtype?: string;
   market_chose_team?: 'H' | 'C' | 'N';
+  dry_run?: boolean;
 }
 
 // 金币交易类型

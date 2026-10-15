@@ -80,12 +80,14 @@ export function splitAmountForAccount(
 ): number[] {
   // 计算需要的虚数总额
   const targetVirtualAmount = targetRealAmount / discount;
-  
-  const bets: number[] = [];
-  let remaining = targetVirtualAmount;
-  
   // 最小下注金额（皇冠系统要求）
   const MIN_BET = 50;
+  if (targetVirtualAmount + Number.EPSILON < MIN_BET) {
+    throw new Error(`下注金额 ${targetVirtualAmount.toFixed(2)} 低于皇冠最低下注金额 ${MIN_BET}`);
+  }
+
+  const bets: number[] = [];
+  let remaining = targetVirtualAmount;
   const effectiveMin = Math.max(limitRange.min, MIN_BET);
   const effectiveMax = Math.max(limitRange.max, MIN_BET);
 

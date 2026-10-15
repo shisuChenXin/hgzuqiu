@@ -15,6 +15,68 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 白标 / OEM 租户表
+CREATE TABLE whitelabels (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    domain VARCHAR(255) NOT NULL UNIQUE,
+    status VARCHAR(20) NOT NULL DEFAULT 'active'
+        CHECK (status IN ('active', 'disabled')),
+    is_default BOOLEAN NOT NULL DEFAULT FALSE,
+    owner_user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+ALTER TABLE users
+    ADD COLUMN whitelabel_id INTEGER REFERENCES whitelabels(id) ON DELETE SET NULL;
+
+CREATE UNIQUE INDEX uq_whitelabels_single_default ON whitelabels (is_default) WHERE is_default;
+CREATE INDEX idx_users_whitelabel_id ON users (whitelabel_id);
+
+INSERT INTO whitelabels (id, name, domain, status, is_default)
+VALUES (1, 'Default Local', 'local.test', 'active', TRUE);
+SELECT setval(
+    pg_get_serial_sequence('whitelabels', 'id'),
+    GREATEST((SELECT COALESCE(MAX(id), 1) FROM whitelabels), 1),
+    TRUE
+);
+
+-- 租户级下注选择映射配置与审计
+CREATE TABLE selection_mapping_settings (
+    id SERIAL PRIMARY KEY,
+    whitelabel_id INTEGER NOT NULL UNIQUE
+        REFERENCES whitelabels(id) ON DELETE CASCADE,
+    mapping_mode VARCHAR(16) NOT NULL DEFAULT 'identity'
+        CHECK (mapping_mode IN ('identity', 'inverse')),
+    enabled BOOLEAN NOT NULL DEFAULT FALSE,
+    version BIGINT NOT NULL DEFAULT 1,
+    updated_by INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE selection_mapping_audit_logs (
+    id SERIAL PRIMARY KEY,
+    whitelabel_id INTEGER NOT NULL
+        REFERENCES whitelabels(id) ON DELETE CASCADE,
+    from_mode VARCHAR(16) NOT NULL,
+    to_mode VARCHAR(16) NOT NULL,
+    from_enabled BOOLEAN NOT NULL,
+    to_enabled BOOLEAN NOT NULL,
+    from_version BIGINT NOT NULL,
+    to_version BIGINT NOT NULL,
+    operator_user_id INTEGER REFERENCES users(id) ON DELETE SET NULL,
+    reason TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX idx_selection_mapping_audit_whitelabel_created
+    ON selection_mapping_audit_logs (whitelabel_id, created_at DESC);
+
+INSERT INTO selection_mapping_settings (whitelabel_id, mapping_mode, enabled, version)
+SELECT id, 'identity', FALSE, 1 FROM whitelabels;
+
 -- 分组表
 CREATE TABLE groups (
     id SERIAL PRIMARY KEY,
@@ -146,7 +208,17 @@ CREATE TABLE bets (
     official_odds DECIMAL(6,3), -- 皇冠返回的真实赔率
     market_category VARCHAR(32), -- 盘口类别：moneyline / handicap / overunder
     market_scope VARCHAR(16), -- 盘口范围：full / half
-    market_side VARCHAR(16), -- 下注方向：home/away/draw/over/under
+    market_side VARCHAR(16), -- 用户展示的下注方向：home/away/draw/over/under
+    whitelabel_id INTEGER REFERENCES whitelabels(id) ON DELETE SET NULL,
+    displayed_market_side VARCHAR(16), -- 用户看到的下注方向
+    executed_market_side VARCHAR(16), -- 实际提交到上游的下注方向
+    displayed_market_rtype VARCHAR(32), -- 用户看到的终端 API 侧位
+    executed_market_rtype VARCHAR(32), -- 实际提交到上游的终端 API 侧位
+    displayed_market_chose_team CHAR(1), -- 用户看到的 H/C/N
+    executed_market_chose_team CHAR(1), -- 实际提交到上游的 H/C/N
+    mapping_mode VARCHAR(16) CHECK (mapping_mode IS NULL OR mapping_mode IN ('identity', 'inverse')),
+    mapping_version BIGINT,
+    mapping_applied BOOLEAN,
     market_line VARCHAR(50), -- 对应盘口行数值，如 -0.5 或 2.5/3
     market_index INTEGER, -- 前端选择的盘口行索引
 
@@ -221,6 +293,8 @@ CREATE INDEX idx_bets_user_id ON bets(user_id);
 CREATE INDEX idx_bets_account_id ON bets(account_id);
 CREATE INDEX idx_bets_status ON bets(status);
 CREATE INDEX idx_bets_created_at ON bets(created_at);
+CREATE INDEX idx_bets_whitelabel_created ON bets(whitelabel_id, created_at DESC);
+CREATE INDEX idx_bets_mapping_version ON bets(mapping_version);
 CREATE INDEX idx_coin_transactions_user_id ON coin_transactions(user_id);
 CREATE INDEX idx_coin_transactions_created_at ON coin_transactions(created_at);
 

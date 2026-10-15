@@ -12,6 +12,7 @@ import { accountRoutes } from './routes/accounts';
 import { groupRoutes } from './routes/groups';
 import { matchRoutes } from './routes/matches';
 import { betRoutes } from './routes/bets';
+import { whitelabelRoutes } from './routes/whitelabels';
 import { coinRoutes } from './routes/coins';
 import { aliasRoutes } from './routes/aliases';
 import { crownMatchRoutes } from './routes/crown-matches';
@@ -70,6 +71,7 @@ app.use('/api/aliases', aliasRoutes);
 app.use('/api/crown-matches', crownMatchRoutes);
 app.use('/api/isports-matches', isportsMatchRoutes);
 app.use('/api/oddsapi', oddsapiRoutes);
+app.use('/api/whitelabels', whitelabelRoutes);
 
 // 错误处理中间件
 app.use(errorHandler);
@@ -82,7 +84,7 @@ app.use((req, res) => {
 export { app };
 
 // 启动服务器
-app.listen(PORT, async () => {
+app.listen(Number(PORT), process.env.HOST || '0.0.0.0', async () => {
     console.log(`🚀 智投后端服务启动成功！`);
     console.log(`📍 服务地址: http://localhost:${PORT}`);
     console.log(`🌍 环境: ${process.env.NODE_ENV || 'development'}`);

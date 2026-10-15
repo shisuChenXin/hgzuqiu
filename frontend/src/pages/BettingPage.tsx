@@ -22,6 +22,7 @@ import {
 import type { ColumnsType } from 'antd/es/table';
 import type { Bet, User, TablePagination } from '../types';
 import { betApi, agentApi } from '../services/api';
+import { useAuth } from '../contexts/AuthContext';
 import dayjs, { Dayjs } from 'dayjs';
 
 const { Title, Text } = Typography;
@@ -64,6 +65,9 @@ interface BetDetail {
   input_limit: number;
   time: string;
   error_message?: string;  // 失败原因
+  mapping_display: string;
+  mapping_detail?: string;
+  mapping_applied?: boolean;
 }
 
 const formatOdds = (value?: number | null | string) => {
@@ -98,7 +102,57 @@ const formatBetTime = (bet: Bet): string => {
   return parsed.format('HH:mm:ss');
 };
 
+const hasValue = (value: string | null | undefined): value is string =>
+  value !== undefined && value !== null && value !== '';
+
+const formatMappingValue = (value: string | null | undefined): string =>
+  hasValue(value) ? value : '-';
+
+const buildSelectionMappingDisplay = (bet: Bet) => {
+  const hasExplicitMappingMetadata =
+    bet.displayed_market_side !== undefined ||
+    bet.executed_market_side !== undefined ||
+    bet.displayed_market_rtype !== undefined ||
+    bet.executed_market_rtype !== undefined ||
+    bet.displayed_market_chose_team !== undefined ||
+    bet.executed_market_chose_team !== undefined ||
+    bet.mapping_mode !== undefined ||
+    bet.mapping_version !== undefined ||
+    bet.mapping_applied !== undefined;
+
+  if (!hasExplicitMappingMetadata) {
+    return { display: '-', detail: undefined, applied: undefined };
+  }
+
+  const displayedSide = bet.displayed_market_side ?? bet.market_side ?? null;
+  const executedSide = bet.executed_market_side ?? displayedSide;
+  const displayedRtype = bet.displayed_market_rtype ?? bet.market_rtype ?? null;
+  const executedRtype = bet.executed_market_rtype ?? displayedRtype;
+  const displayedChoseTeam = bet.displayed_market_chose_team ?? bet.market_chose_team ?? null;
+  const executedChoseTeam = bet.executed_market_chose_team ?? displayedChoseTeam;
+
+  const details = [
+    `side: ${formatMappingValue(displayedSide)} -> ${formatMappingValue(executedSide)}`,
+    `rtype: ${formatMappingValue(displayedRtype)} -> ${formatMappingValue(executedRtype)}`,
+    `chose_team: ${formatMappingValue(displayedChoseTeam)} -> ${formatMappingValue(executedChoseTeam)}`,
+  ];
+
+  if (bet.whitelabel_id !== undefined && bet.whitelabel_id !== null) {
+    details.push(`tenant: #${bet.whitelabel_id}`);
+  }
+  if (bet.mapping_mode !== undefined) details.push(`mode: ${bet.mapping_mode}`);
+  if (bet.mapping_version !== undefined) details.push(`version: v${bet.mapping_version}`);
+  if (bet.mapping_applied !== undefined) details.push(`mapping_applied: ${bet.mapping_applied}`);
+
+  return {
+    display: `${formatMappingValue(displayedSide)} -> ${formatMappingValue(executedSide)}`,
+    detail: details.join('\n'),
+    applied: bet.mapping_applied,
+  };
+};
+
 const BettingPage: React.FC = () => {
+  const { isAdmin } = useAuth();
   const [betGroups, setBetGroups] = useState<BetGroup[]>([]);
   const [agents, setAgents] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
@@ -535,6 +589,28 @@ const BettingPage: React.FC = () => {
       ),
     },
     {
+      title: '展示/执行',
+      dataIndex: 'mapping_display',
+      key: 'selection_mapping',
+      width: 150,
+      align: 'center',
+      render: (text: string, record: BetDetail) => record.mapping_detail ? (
+        <Tooltip
+          title={
+            <div style={{ whiteSpace: 'pre', fontFamily: 'monospace', fontSize: 12 }}>
+              {record.mapping_detail}
+            </div>
+          }
+        >
+          <Tag color={record.mapping_applied ? 'warning' : 'default'} style={{ fontFamily: 'monospace' }}>
+            {text}
+          </Tag>
+        </Tooltip>
+      ) : (
+        <Text type="secondary">-</Text>
+      ),
+    },
+    {
       title: '金额(实/虚)',
       dataIndex: 'amount_display',
       key: 'amount_display',
@@ -611,6 +687,7 @@ const BettingPage: React.FC = () => {
     const realLimit = Number(bet.single_limit ?? 0);
     const realProfit = Number(bet.profit_loss ?? 0);
     const virtualProfit = bet.virtual_profit_loss;
+    const selectionMapping = buildSelectionMappingDisplay(bet);
 
     const formatNumber = (value: number) => value.toFixed(2);
     const formatVirtual = (value: number | null | undefined, fallback = '虚') => {
@@ -640,12 +717,15 @@ const BettingPage: React.FC = () => {
       input_limit: realLimit,
       time: formatBetTime(bet),
       error_message: (bet as any).error_message || undefined,
+      mapping_display: selectionMapping.display,
+      mapping_detail: selectionMapping.detail,
+      mapping_applied: selectionMapping.applied,
     };
   });
 
     return (
       <Table
-        columns={expandedColumns}
+        columns={isAdmin ? expandedColumns : expandedColumns.filter(column => column.key !== 'selection_mapping')}
         dataSource={detailData}
         pagination={false}
         size="small"

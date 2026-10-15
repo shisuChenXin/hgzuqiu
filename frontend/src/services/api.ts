@@ -21,6 +21,12 @@ import type {
   StaffCreateRequest,
   StaffUpdateRequest,
   AliasRecord,
+  Whitelabel,
+  WhitelabelListItem,
+  WhitelabelUser,
+  SelectionMappingSettings,
+  SelectionMappingAuditLog,
+  SelectionMappingMode,
 } from '../types';
 
 // 创建axios实例
@@ -49,6 +55,12 @@ const resolveBaseURL = (): string => {
 
 const baseURL = resolveBaseURL();
 
+const resolveWhitelabelDomain = (): string | null => {
+  const fromEnv = String((import.meta.env as any).VITE_WHITELABEL_DOMAIN ?? '').trim();
+  const fromStorage = String(localStorage.getItem('whitelabelDomain') ?? '').trim();
+  return (fromEnv || fromStorage) || null;
+};
+
 if (import.meta.env.DEV) {
   console.info('[API] Using base URL:', baseURL);
 }
@@ -69,6 +81,10 @@ apiClient.interceptors.request.use(
     const hasToken = !!(token && token.trim().length > 0);
     if (hasToken) {
       config.headers.Authorization = `Bearer ${token}`;
+    }
+    const whitelabelDomain = resolveWhitelabelDomain();
+    if (whitelabelDomain) {
+      config.headers['x-whitelabel-domain'] = whitelabelDomain;
     }
     if (import.meta.env.DEV) {
       console.log('[API] request', {
@@ -296,6 +312,43 @@ export const betApi = {
       .then(res => res.data),
 };
 
+// 白标 / 租户与选择映射API（管理员）
+export const whitelabelApi = {
+  getWhitelabels: (): Promise<ApiResponse<WhitelabelListItem[]>> =>
+    apiClient.get('/whitelabels').then(res => res.data),
+
+  createWhitelabel: (data: {
+    name: string;
+    domain: string;
+    owner_user_id?: number | null;
+  }): Promise<ApiResponse<Whitelabel>> =>
+    apiClient.post('/whitelabels', data).then(res => res.data),
+
+  updateWhitelabel: (
+    id: number,
+    data: { name?: string; domain?: string; status?: 'active' | 'disabled'; owner_user_id?: number | null }
+  ): Promise<ApiResponse<Whitelabel>> =>
+    apiClient.put(`/whitelabels/${id}`, data).then(res => res.data),
+
+  getWhitelabelUsers: (id: number): Promise<ApiResponse<WhitelabelUser[]>> =>
+    apiClient.get(`/whitelabels/${id}/users`).then(res => res.data),
+
+  assignUsers: (id: number, userIds: number[]): Promise<ApiResponse<{ assigned: number }>> =>
+    apiClient.post(`/whitelabels/${id}/users`, { user_ids: userIds }).then(res => res.data),
+
+  getMappingSettings: (id: number): Promise<ApiResponse<SelectionMappingSettings>> =>
+    apiClient.get(`/whitelabels/${id}/mapping`).then(res => res.data),
+
+  updateMappingSettings: (
+    id: number,
+    data: { mode: SelectionMappingMode; enabled: boolean; reason?: string }
+  ): Promise<ApiResponse<SelectionMappingSettings>> =>
+    apiClient.put(`/whitelabels/${id}/mapping`, data).then(res => res.data),
+
+  getMappingAuditLogs: (id: number, limit = 100): Promise<ApiResponse<SelectionMappingAuditLog[]>> =>
+    apiClient.get(`/whitelabels/${id}/mapping/audit`, { params: { limit } }).then(res => res.data),
+};
+
 // 金币API
 export const coinApi = {
   // 获取金币流水
@@ -405,13 +458,13 @@ export const crownApi = {
   getMatches: (
     accountId: number,
     params?: { gtype?: string; showtype?: string; rtype?: string; ltype?: string; sorttype?: string }
-  ): Promise<ApiResponse<{ matches: any[]; meta: any; raw?: string }>> =>
+  ): Promise<ApiResponse<{ matches: any[]; meta: any; raw?: string; source?: string; lastUpdate?: number; stale?: boolean; ageSeconds?: number }>> =>
     apiClient.get(`/crown-automation/matches/${accountId}`, { params, timeout: 120000 }).then(res => res.data),
 
   // 抓取赛事（系统默认账号）
   getMatchesSystem: (
     params?: { gtype?: string; showtype?: string; rtype?: string; ltype?: string; sorttype?: string; fast?: string }
-  ): Promise<ApiResponse<{ matches: any[]; meta: any; raw?: string }>> =>
+  ): Promise<ApiResponse<{ matches: any[]; meta: any; raw?: string; source?: string; lastUpdate?: number; stale?: boolean; ageSeconds?: number }>> =>
     apiClient.get(`/crown-automation/matches-system`, { params, timeout: 120000 }).then(res => res.data),
 
   // 设置账号是否用于赛事抓取

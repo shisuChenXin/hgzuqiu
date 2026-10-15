@@ -109,6 +109,11 @@ const MainLayout: React.FC = () => {
           label: '赛事管理',
         },
         {
+          key: '/whitelabels',
+          icon: <GlobalOutlined />,
+          label: '白标管理',
+        },
+        {
           key: '/coins',
           icon: <DollarOutlined />,
           label: '金币流水',

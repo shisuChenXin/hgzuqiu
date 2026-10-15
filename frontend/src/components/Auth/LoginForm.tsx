@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Button, message } from 'antd';
-import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { UserOutlined, LockOutlined, GlobalOutlined } from '@ant-design/icons';
 import { useAuth } from '../../contexts/AuthContext';
 import type { LoginRequest } from '../../types';
 import { useNavigate, useLocation } from 'react-router-dom';
@@ -29,7 +29,14 @@ const LoginForm: React.FC = () => {
 
   const redirectPath = (location.state as any)?.from?.pathname || '/dashboard';
 
-  const handleSubmit = async (values: LoginRequest) => {
+  const handleSubmit = async (values: LoginRequest & { whitelabel_domain?: string }) => {
+    const domain = String(values.whitelabel_domain ?? '').trim();
+    if (domain) {
+      localStorage.setItem('whitelabelDomain', domain);
+    } else {
+      localStorage.removeItem('whitelabelDomain');
+    }
+
     setLoading(true);
 
     try {
@@ -140,6 +147,18 @@ const LoginForm: React.FC = () => {
             prefix={<LockOutlined style={{ color: '#9CA3AF' }} />}
             placeholder="请输入密码"
             style={{ height: '46px', borderRadius: '8px', fontSize: '15px' }}
+          />
+        </Form.Item>
+
+        <Form.Item
+          name="whitelabel_domain"
+          initialValue={localStorage.getItem('whitelabelDomain') || ''}
+          style={{ marginBottom: '20px' }}
+        >
+          <Input
+            prefix={<GlobalOutlined style={{ color: '#9CA3AF' }} />}
+            placeholder="白标域名（默认站点可留空）"
+            style={{ height: '44px', borderRadius: '8px', fontSize: '14px' }}
           />
         </Form.Item>
 

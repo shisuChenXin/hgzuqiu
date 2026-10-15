@@ -17,6 +17,7 @@ export interface User {
     role: UserRole;
     parent_id?: number;
     agent_id?: number;
+    whitelabel_id?: number;
     created_at: string;
     updated_at: string;
 }
@@ -211,6 +212,16 @@ export interface Bet {
     market_category?: 'moneyline' | 'handicap' | 'overunder';
     market_scope?: 'full' | 'half';
     market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+    whitelabel_id?: number;
+    displayed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+    executed_market_side?: 'home' | 'away' | 'draw' | 'over' | 'under';
+    displayed_market_rtype?: string;
+    executed_market_rtype?: string;
+    displayed_market_chose_team?: 'H' | 'C' | 'N';
+    executed_market_chose_team?: 'H' | 'C' | 'N';
+    mapping_mode?: 'identity' | 'inverse';
+    mapping_version?: number;
+    mapping_applied?: boolean;
     market_line?: string;
     market_index?: number;
     single_limit?: number;
@@ -235,6 +246,7 @@ export interface BetCreateRequest {
 	    bet_type: string;
 	    bet_option: string;
 	    total_amount: number;  // 总金额（实数）
+	    dry_run?: boolean; // 仅执行本地校验，不创建注单、不扣费、不调用上游
 	    odds: number;
 	    min_odds?: number;
 	    single_limit?: string;  // 单笔限额（虚数），格式如 "10000-14000" 或留空
