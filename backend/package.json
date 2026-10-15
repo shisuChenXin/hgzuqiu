@@ -36,7 +36,9 @@
     "cron:update": "bash scripts/cron-update-mapping.sh",
     "aliases:import-today": "ts-node scripts/import-crown-today-aliases.ts",
     "debug:more": "ts-node scripts/debug-more.ts",
-    "sync:oddsapi": "ts-node src/scripts/sync-oddsapi.ts"
+    "sync:oddsapi": "ts-node src/scripts/sync-oddsapi.ts",
+    "test:mapping-e2e": "npm run build && ts-node scripts/run-selection-mapping-e2e.ts",
+    "test:clean-db-e2e": "npm run build && ts-node scripts/test-clean-db-e2e.ts"
   },
   "keywords": [],
   "author": "",
