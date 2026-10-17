@@ -1,0 +1,48 @@
+{
+  "label": "beta through backend B:POST /api/auth/login",
+  "method": "POST",
+  "url": "http://127.0.0.1:3203/api/auth/login",
+  "request_headers": {
+    "content_type": "application/json",
+    "authorization": null,
+    "idempotency_key": null
+  },
+  "request_body": {
+    "username": "phase4a-beta-admin",
+    "password": "<redacted>"
+  },
+  "response_status": 200,
+  "response_ok": true,
+  "response_headers": {
+    "idempotency_replayed": null,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "response_body": {
+    "success": true,
+    "data": {
+      "user": {
+        "id": 3,
+        "username": "phase4a-beta-admin",
+        "email": "phase4a-beta-admin@phase4a.local",
+        "role": "admin",
+        "parent_id": null,
+        "agent_id": null,
+        "whitelabel_id": 1,
+        "email_verified": true,
+        "created_at": "2026-10-17T11:00:42.114Z",
+        "updated_at": "2026-10-17T11:00:42.114Z"
+      },
+      "token": "<redacted>"
+    },
+    "message": "登录成功"
+  },
+  "started_at_utc": "2026-10-17T11:00:43.909Z",
+  "ended_at_utc": "2026-10-17T11:00:44.034Z",
+  "duration_ms": 124,
+  "transport_error": null,
+  "token_evidence": {
+    "stored": "memory only during this process",
+    "length": 337,
+    "sha256": "6e1b4a931c896447e90c1d9b11ab79e53b172b5b5ae08543cb7d02b5bf141917"
+  }
+}

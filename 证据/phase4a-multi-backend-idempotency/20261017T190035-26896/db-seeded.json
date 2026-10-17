@@ -1,0 +1,68 @@
+{
+  "database": "hgzuqiu_phase4a_20261017190035_26896",
+  "password_evidence": {
+    "policy": "not written; held in process memory only"
+  },
+  "alpha": {
+    "key": "alpha",
+    "user": {
+      "id": 2,
+      "username": "phase4a-alpha-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    "group": {
+      "id": 2,
+      "name": "phase4a-alpha-admin group"
+    },
+    "account": {
+      "id": 1,
+      "username": "phase4a-alpha-admin-crown",
+      "original_username": "AAAA-PHASE4A",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_online": true
+    }
+  },
+  "beta": {
+    "key": "beta",
+    "user": {
+      "id": 3,
+      "username": "phase4a-beta-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    "group": {
+      "id": 3,
+      "name": "phase4a-beta-admin group"
+    },
+    "account": {
+      "id": 2,
+      "username": "phase4a-beta-admin-crown",
+      "original_username": "BBBB-PHASE4A",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_online": true
+    }
+  },
+  "fixtures": {
+    "sameUser": {
+      "id": 940001,
+      "gid": "940001",
+      "league": "Phase4A Same User League",
+      "home": "Phase4A Same User Home",
+      "away": "Phase4A Same User Away"
+    },
+    "crossUser": {
+      "id": 940002,
+      "gid": "940002",
+      "league": "Phase4A Cross User League",
+      "home": "Phase4A Cross User Home",
+      "away": "Phase4A Cross User Away"
+    }
+  },
+  "seed_balances": {
+    "alpha": 1000,
+    "beta": 1000
+  }
+}

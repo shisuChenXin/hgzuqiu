@@ -1,0 +1,9 @@
+{
+  "scanned_root": "证据\\phase4a-multi-backend-idempotency\\20261017T190035-26896",
+  "non_loopback_urls": [],
+  "allowed_hosts": [
+    "127.0.0.1",
+    "localhost",
+    "::1"
+  ]
+}

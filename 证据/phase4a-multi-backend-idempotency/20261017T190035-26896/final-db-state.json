@@ -1,0 +1,256 @@
+{
+  "bets": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "account_id": 1,
+      "account_username": "phase4a-alpha-admin-crown",
+      "original_username": "AAAA-PHASE4A",
+      "match_id": 940001,
+      "bet_type": "角球让球",
+      "bet_option": "Phase4A Phase4A Same User Home (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE4A-001",
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T11:00:44.130Z",
+      "confirmed_at": "2026-10-17T11:00:44.180Z",
+      "updated_at": "2026-10-17T11:00:44.180Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "user_username": "phase4a-beta-admin",
+      "account_id": 2,
+      "account_username": "phase4a-beta-admin-crown",
+      "original_username": "BBBB-PHASE4A",
+      "match_id": 940002,
+      "bet_type": "角球让球",
+      "bet_option": "Phase4A Phase4A Cross User Home (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE4A-002",
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T11:00:44.229Z",
+      "confirmed_at": "2026-10-17T11:00:44.264Z",
+      "updated_at": "2026-10-17T11:00:44.264Z"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "account_id": 1,
+      "account_username": "phase4a-alpha-admin-crown",
+      "original_username": "AAAA-PHASE4A",
+      "match_id": 940002,
+      "bet_type": "角球让球",
+      "bet_option": "Phase4A Phase4A Cross User Home (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE4A-003",
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T11:00:44.290Z",
+      "confirmed_at": "2026-10-17T11:00:44.340Z",
+      "updated_at": "2026-10-17T11:00:44.340Z"
+    }
+  ],
+  "idempotency": [
+    {
+      "id": "1",
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "idempotency_key": "phase4a-alpha-same-key",
+      "request_hash": "73390e9a6e12d6d9f1a2943c6aec31239b2e733661f7708a4796c92cb5a3e650",
+      "status": "created",
+      "bet_ids": [
+        1
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            1
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T11:00:44.064Z",
+      "updated_at": "2026-10-17T11:00:44.130Z"
+    },
+    {
+      "id": "3",
+      "user_id": 3,
+      "user_username": "phase4a-beta-admin",
+      "idempotency_key": "phase4a-shared-key",
+      "request_hash": "2408a8504b791277f981de92787e5844d35038fcdbacee3a0ac18957a3a418cb",
+      "status": "created",
+      "bet_ids": [
+        2
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            2
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T11:00:44.214Z",
+      "updated_at": "2026-10-17T11:00:44.229Z"
+    },
+    {
+      "id": "4",
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "idempotency_key": "phase4a-shared-key",
+      "request_hash": "b3122e64960734a898ac760fddb621d1c93faff27ee6e1a84918605f70a89f38",
+      "status": "created",
+      "bet_ids": [
+        3
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            3
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T11:00:44.214Z",
+      "updated_at": "2026-10-17T11:00:44.290Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE4A-SEED-ALPHA",
+      "transaction_type": "充值",
+      "description": "Phase4A isolated seed",
+      "amount": "1000.00",
+      "balance_before": "0.00",
+      "balance_after": "1000.00",
+      "created_at": "2026-10-17T11:00:42.114Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "user_username": "phase4a-beta-admin",
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE4A-SEED-BETA",
+      "transaction_type": "充值",
+      "description": "Phase4A isolated seed",
+      "amount": "1000.00",
+      "balance_before": "0.00",
+      "balance_after": "1000.00",
+      "created_at": "2026-10-17T11:00:42.114Z"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "account_id": 1,
+      "bet_id": 1,
+      "transaction_id": "BET1792234844181h0hxgmjjv",
+      "transaction_type": "消耗",
+      "description": "下注消耗 - 角球让球 Phase4A Phase4A Same User Home (角球 +1)",
+      "amount": "-80.00",
+      "balance_before": "1000.00",
+      "balance_after": "920.00",
+      "created_at": "2026-10-17T11:00:44.183Z"
+    },
+    {
+      "id": 4,
+      "user_id": 3,
+      "user_username": "phase4a-beta-admin",
+      "account_id": 2,
+      "bet_id": 2,
+      "transaction_id": "BET1792234844265ynyi2ryno",
+      "transaction_type": "消耗",
+      "description": "下注消耗 - 角球让球 Phase4A Phase4A Cross User Home (角球 +1)",
+      "amount": "-80.00",
+      "balance_before": "1000.00",
+      "balance_after": "920.00",
+      "created_at": "2026-10-17T11:00:44.266Z"
+    },
+    {
+      "id": 5,
+      "user_id": 2,
+      "user_username": "phase4a-alpha-admin",
+      "account_id": 1,
+      "bet_id": 3,
+      "transaction_id": "BET1792234844341nmi93z81f",
+      "transaction_type": "消耗",
+      "description": "下注消耗 - 角球让球 Phase4A Phase4A Cross User Home (角球 +1)",
+      "amount": "-80.00",
+      "balance_before": "920.00",
+      "balance_after": "840.00",
+      "created_at": "2026-10-17T11:00:44.342Z"
+    }
+  ],
+  "integrity": []
+}
