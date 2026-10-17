@@ -24,6 +24,23 @@ import type { AxiosError } from 'axios';
 
 const { Option } = Select;
 
+const generateBetIdempotencyKey = (): string => {
+  const cryptoObj = typeof globalThis !== 'undefined' ? globalThis.crypto : undefined;
+  if (cryptoObj && typeof cryptoObj.randomUUID === 'function') {
+    return `bet-${cryptoObj.randomUUID()}`;
+  }
+
+  if (cryptoObj && typeof cryptoObj.getRandomValues === 'function') {
+    const bytes = new Uint8Array(16);
+    cryptoObj.getRandomValues(bytes);
+    const random = Array.from(bytes, byte => byte.toString(16).padStart(2, '0')).join('');
+    return `bet-${random}`;
+  }
+
+  return `bet-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 14)}`;
+};
+
+
 const normalizeLineText = (value: any): string => String(value ?? '').trim();
 
 const parseLineToDecimal = (value: any): number | null => {
@@ -1032,6 +1049,7 @@ const BetFormModal: React.FC<BetFormModalProps> = ({
       const finalOdds = Number.isFinite(finalOddsParsed) && finalOddsParsed > 0 ? finalOddsParsed : Number(oddsValue) || 1;
 
       const requestData: BetCreateRequest = {
+        idempotency_key: generateBetIdempotencyKey(),
         account_ids: accountIds,
         match_id: match.id,
         bet_type: betTypeValue,

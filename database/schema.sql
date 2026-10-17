@@ -247,6 +247,25 @@ CREATE TABLE bets (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+-- 下注请求级幂等表：唯一键决胜并发重放，保存首次响应供后续重放。
+CREATE TABLE bet_idempotency_requests (
+    id BIGSERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    idempotency_key VARCHAR(128) NOT NULL,
+    request_hash CHAR(64) NOT NULL,
+    status VARCHAR(16) NOT NULL DEFAULT 'pending',
+    bet_ids INTEGER[],
+    response_json JSONB,
+    http_status SMALLINT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT uq_bet_idempotency_user_key UNIQUE (user_id, idempotency_key),
+    CONSTRAINT bet_idempotency_status_check CHECK (status IN ('pending', 'created', 'failed'))
+);
+
+CREATE INDEX idx_bet_idempotency_user_created ON bet_idempotency_requests(user_id, created_at DESC);
+CREATE INDEX idx_bet_idempotency_status ON bet_idempotency_requests(status);
+
 -- 金币流水表 (基于参考截图的金币管理)
 CREATE TABLE coin_transactions (
     id SERIAL PRIMARY KEY,

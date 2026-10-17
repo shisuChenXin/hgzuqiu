@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { createHash } from 'crypto';
 import { authenticateToken } from '../middleware/auth';
 import { pool, query } from '../models/database';
 import { BetCreateRequest, ApiResponse, Bet, AccountSelectionEntry, CrownAccount } from '../types';
@@ -41,6 +42,90 @@ const buildExclusionReason = (entry?: AccountSelectionEntry | null): string => {
 
 const router = Router();
 router.use(authenticateToken);
+
+interface BetIdempotencyRecord {
+    id: number;
+    user_id: number;
+    idempotency_key: string;
+    request_hash: string;
+    status: 'pending' | 'created' | 'failed' | string;
+    bet_ids?: number[] | null;
+    response_json?: any;
+    http_status?: number | null;
+}
+interface BetIdempotencyReservation {
+    created: boolean;
+    record: BetIdempotencyRecord;
+}
+function canonicalizeJson(value: any): any {
+    if (Array.isArray(value)) return value.map(canonicalizeJson);
+    if (value && typeof value === 'object') {
+        return Object.fromEntries(Object.keys(value).sort().map(key => [key, canonicalizeJson(value[key])]));
+    }
+    return value;
+}
+function calculateBetRequestHash(betData: BetCreateRequest): string {
+    const { idempotency_key: _requestKey, ...payload } = betData;
+    return createHash('sha256').update(JSON.stringify(canonicalizeJson(payload)), 'utf8').digest('hex');
+}
+function mapBetIdempotencyRow(row: any): BetIdempotencyRecord {
+    return {
+        id: Number(row.id), user_id: Number(row.user_id), idempotency_key: String(row.idempotency_key),
+        request_hash: String(row.request_hash), status: String(row.status),
+        bet_ids: Array.isArray(row.bet_ids) ? row.bet_ids.map(Number) : null,
+        response_json: row.response_json,
+        http_status: row.http_status === undefined || row.http_status === null ? null : Number(row.http_status),
+    };
+}
+async function reserveBetIdempotency(userId: number, idempotencyKey: string, requestHash: string): Promise<BetIdempotencyReservation> {
+    const insertResult = await query(
+        `INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status`,
+        [userId, idempotencyKey, requestHash],
+    );
+    if (insertResult.rows[0]) return { created: true, record: mapBetIdempotencyRow(insertResult.rows[0]) };
+    const existing = await query(
+        `SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2`,
+        [userId, idempotencyKey],
+    );
+    if (!existing.rows[0]) throw new Error('下注幂等记录冲突后不可见');
+    return { created: false, record: mapBetIdempotencyRow(existing.rows[0]) };
+}
+async function getBetIdempotencyRecord(record: BetIdempotencyRecord): Promise<BetIdempotencyRecord> {
+    const result = await query(
+        `SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1`, [record.id],
+    );
+    if (!result.rows[0]) return { ...record, status: 'failed' };
+    return mapBetIdempotencyRow(result.rows[0]);
+}
+async function waitForBetIdempotencyRecord(record: BetIdempotencyRecord): Promise<BetIdempotencyRecord> {
+    const deadline = Date.now() + 5000;
+    let current = record;
+    while (current.status === 'pending' && Date.now() < deadline) {
+        await new Promise(resolve => setTimeout(resolve, 50));
+        current = await getBetIdempotencyRecord(current);
+    }
+    return current;
+}
+async function markBetIdempotencyFailed(reservation: BetIdempotencyReservation | null, httpStatus: number, responseBody: any): Promise<void> {
+    if (!reservation?.created || reservation.record.status !== 'pending') return;
+    try {
+        await query(
+            `UPDATE bet_idempotency_requests
+                SET status = 'failed', response_json = $2::jsonb, http_status = $3, updated_at = CURRENT_TIMESTAMP
+              WHERE id = $1 AND status = 'pending'`,
+            [reservation.record.id, JSON.stringify(responseBody), httpStatus],
+        );
+    } catch (error) { console.error('记录下注幂等失败响应失败:', error); }
+}
+async function sendBetRequestError(res: any, reservation: BetIdempotencyReservation | null, status: number, body: any) {
+    await markBetIdempotencyFailed(reservation, status, body);
+    return res.status(status).json(body);
+}
 
 // 获取下注统计数据（数据看板） - 必须在 GET / 之前
 router.get('/stats', async (req: any, res) => {
@@ -267,6 +352,8 @@ router.get('/', async (req: any, res) => {
 
 // 创建下注记录(批量下注)
 router.post('/', async (req: any, res) => {
+    let idempotencyReservation: BetIdempotencyReservation | null = null;
+    let successResponse: any;
     try {
         const userId = req.user.id;
         const userRole = req.user.role;
@@ -327,6 +414,36 @@ router.post('/', async (req: any, res) => {
         }
 
         // dry-run 只做本地校验，不检查/变动金币余额。
+
+        const bodyIdempotencyKey = typeof betData.idempotency_key === 'string' ? betData.idempotency_key.trim() : '';
+        const rawHeaderIdempotencyKey = req.header('Idempotency-Key');
+        const headerIdempotencyKey = typeof rawHeaderIdempotencyKey === 'string' ? rawHeaderIdempotencyKey.trim() : '';
+        if (bodyIdempotencyKey && headerIdempotencyKey && bodyIdempotencyKey !== headerIdempotencyKey) {
+            return res.status(400).json({ success: false, error: '请求体与 Header 中的幂等键不一致' });
+        }
+        const idempotencyKey = bodyIdempotencyKey || headerIdempotencyKey;
+        if (idempotencyKey && !/^[A-Za-z0-9._:-]{8,128}$/.test(idempotencyKey)) {
+            return res.status(400).json({ success: false, error: '幂等键格式错误，仅支持 8-128 位字母、数字、点、下划线、冒号或连字符' });
+        }
+
+        if (!dryRun && idempotencyKey) {
+            const requestHash = calculateBetRequestHash(betData);
+            idempotencyReservation = await reserveBetIdempotency(userId, idempotencyKey, requestHash);
+            if (!idempotencyReservation.created) {
+                const existing = idempotencyReservation.record;
+                if (existing.request_hash !== requestHash) {
+                    return res.status(409).json({ success: false, error: '幂等键已绑定其他下注请求，请更换幂等键' });
+                }
+                const replayRecord = await waitForBetIdempotencyRecord(existing);
+                if (replayRecord.status !== 'pending') {
+                    res.set('Idempotency-Replayed', 'true');
+                    return res.status(replayRecord.http_status || 409).json(
+                        replayRecord.response_json || { success: false, error: '幂等请求缺少可重放响应' },
+                    );
+                }
+                return res.status(409).json({ success: false, error: '相同幂等请求正在处理，请稍后重试' });
+            }
+        }
         if (!dryRun) {
             // 检查金币余额是否足够
             const chargeUserId = (userRole === 'staff' && agentId) ? agentId : userId;
@@ -337,7 +454,7 @@ router.post('/', async (req: any, res) => {
             const coinBalance = parseFloat(coinBalanceResult.rows[0].balance);
             if (coinBalance < betData.total_amount) {
                 console.log('❌ 金币余额不足:', { coinBalance, required: betData.total_amount, chargeUserId });
-                return res.status(400).json({
+                return await sendBetRequestError(res, idempotencyReservation, 400, {
                     success: false,
                     error: `金币余额不足，当前余额: ${coinBalance.toFixed(2)}，需要: ${betData.total_amount}`
                 });
@@ -492,7 +609,7 @@ router.post('/', async (req: any, res) => {
 
         if (!matchRecord) {
             if (!betData.league_name || !betData.home_team || !betData.away_team) {
-                return res.status(400).json({
+                return await sendBetRequestError(res, idempotencyReservation, 400, {
                     success: false,
                     error: '比赛不存在且缺少创建比赛所需的信息'
                 });
@@ -522,7 +639,7 @@ router.post('/', async (req: any, res) => {
         }
 
         if (!matchDbId) {
-            return res.status(400).json({
+            return await sendBetRequestError(res, idempotencyReservation, 400, {
                 success: false,
                 error: '无法确定比赛信息'
             });
@@ -559,7 +676,7 @@ router.post('/', async (req: any, res) => {
         if (ownershipResult.rows.length !== betData.account_ids.length) {
             const found = new Set<number>(ownershipResult.rows.map((row: any) => Number(row.id)));
             const missing = (betData.account_ids as any[]).filter((id) => !found.has(Number(id)));
-            return res.status(400).json({
+            return await sendBetRequestError(res, idempotencyReservation, 400, {
                 success: false,
                 error: missing.length > 0 ? `部分账号不存在或已禁用：${missing.join(',')}` : '部分账号不存在或已禁用'
             });
@@ -613,14 +730,14 @@ router.post('/', async (req: any, res) => {
             const detail = invalidAccounts
                 .map((item) => `账号 ${item.id}: ${item.reason}`)
                 .join('；');
-            return res.status(400).json({
+            return await sendBetRequestError(res, idempotencyReservation, 400, {
                 success: false,
                 error: `部分账号无法下注：${detail}`,
             });
         }
 
         if (validatedAccountIds.length === 0) {
-            return res.status(400).json({
+            return await sendBetRequestError(res, idempotencyReservation, 400, {
                 success: false,
                 error: '暂无符合条件的账号可下注',
             });
@@ -669,7 +786,7 @@ router.post('/', async (req: any, res) => {
             : String(betData.single_limit).trim();
         const singleLimitRange = parseLimitRange(singleLimitText);
         if (singleLimitText && !singleLimitRange) {
-            return res.status(400).json({
+            return await sendBetRequestError(res, idempotencyReservation, 400, {
                 success: false,
                 error: '单笔限额格式错误，示例：10000-14000 或 10000',
             });
@@ -700,7 +817,7 @@ router.post('/', async (req: any, res) => {
 		        accountLimits: singleLimitRange ? undefined : accountLimits,
 		    });
 		} catch (error: any) {
-		    return res.status(400).json({
+		    return await sendBetRequestError(res, idempotencyReservation, 400, {
 		        success: false,
 		        error: `金额拆分失败: ${error.message}`,
 		    });
@@ -820,10 +937,19 @@ router.post('/', async (req: any, res) => {
 			betData.market_line === undefined || betData.market_line === null ? null : String(betData.market_line);
 		const marketIndexValue = Number.isFinite(betData.market_index as any) ? Number(betData.market_index) : null;
 
+		// 预取账号信息，避免后台任务里重复查询，也避免注单事务提交后再查询失败。
+		const accountRowsResult = await query('SELECT * FROM crown_accounts WHERE id = ANY($1)', [actualAccountIds]);
+		const accountsById = new Map<number, CrownAccount>();
+		for (const row of accountRowsResult.rows) {
+			accountsById.set(Number((row as any).id), row as CrownAccount);
+		}
+
 		// 预先创建下注记录（pending/cancelled），并在同一事务内读取权威映射配置。
 		// FOR SHARE 阻止管理员切换配置与本次写入竞争，确保注单记录的映射版本可复现。
 		let createdBetRows: Array<{ id: number; account_id: number; status: string }> = [];
 		let selectionMapping: ResolvedSelectionMapping;
+		let betQueueWithIds: BetQueueItem[] = [];
+		let processingQueue: BetQueueItem[] = [];
 		const insertClient = await pool.connect();
 		try {
 			await insertClient.query('BEGIN');
@@ -920,45 +1046,92 @@ router.post('/', async (req: any, res) => {
 				account_id: Number(row.account_id),
 				status: String(row.status || ''),
 			}));
+
+			betQueueWithIds = betQueue.map((split, idx) => ({
+				betId: createdBetRows[idx].id,
+				accountId: split.accountId,
+				virtualAmount: split.virtualAmount,
+				realAmount: split.realAmount,
+				discount: split.discount,
+			}));
+
+			// 仅将 pending 的注单交给后台执行（已因信用额度不足标记 cancelled 的不再重复尝试）
+			processingQueue = betQueueWithIds.filter((item, idx) => createdBetRows[idx].status === 'pending');
+			const cancelledCount = betQueueWithIds.length - processingQueue.length;
+
+			const totalRequested = validatedAccountIds.length;
+			const messageParts: string[] = [];
+			messageParts.push(`下注任务已提交，正在后台处理中。本次共选择 ${totalRequested} 个账号，计划拆分 ${betQueueWithIds.length} 笔下注。`);
+			if (cancelledCount > 0) {
+				messageParts.push(`其中 ${cancelledCount} 笔已标记失败（信用额度不足）。`);
+			}
+			if (processingQueue.length === 0) {
+				messageParts.push('本次无可执行的下注任务。');
+			}
+
+			successResponse = {
+				success: true,
+				data: {
+					total: totalRequested,
+					queued: betQueueWithIds.length,
+					processing: processingQueue.length,
+					cancelled: cancelledCount,
+					bet_ids: createdBetRows.map((row) => row.id),
+					selection_mapping: {
+						whitelabel_id: selectionMapping.whitelabelId,
+						mapping_mode: selectionMapping.mappingMode,
+						mapping_enabled: selectionMapping.mappingEnabled,
+						mapping_version: selectionMapping.mappingVersion,
+						mapping_applied: selectionMapping.mappingApplied,
+						displayed_market_side: selectionMapping.displayedMarketSide,
+						executed_market_side: selectionMapping.executedMarketSide,
+						displayed_market_rtype: selectionMapping.displayedMarketRtype,
+						executed_market_rtype: selectionMapping.executedMarketRtype,
+						displayed_market_chose_team: selectionMapping.displayedMarketChoseTeam,
+						executed_market_chose_team: selectionMapping.executedMarketChoseTeam,
+					},
+				},
+				message: messageParts.join(' '),
+			};
+
+			if (idempotencyReservation?.created) {
+				await insertClient.query(
+					`UPDATE bet_idempotency_requests
+					   SET status = 'created',
+					       bet_ids = $2::integer[],
+					       response_json = $3::jsonb,
+					       http_status = 202,
+					       updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $1 AND status = 'pending'`,
+					[
+						idempotencyReservation.record.id,
+						createdBetRows.map((row) => row.id),
+						JSON.stringify(successResponse),
+					],
+				);
+			}
+
 			await insertClient.query('COMMIT');
 		} catch (insertError: any) {
 			await insertClient.query('ROLLBACK').catch(() => undefined);
 			if (insertError instanceof SelectionMappingError) {
-				return res.status(insertError.status || 400).json({
+				const failureBody = {
 					success: false,
 					error: insertError.message,
-				});
+				};
+				return await sendBetRequestError(res, idempotencyReservation, insertError.status || 400, failureBody);
 			}
 			console.error('预创建下注记录失败:', insertError);
-			return res.status(500).json({
+			const failureBody = {
 				success: false,
 				error: '创建下注记录失败（预创建注单失败）',
 				details: insertError?.message,
-			});
+			};
+			return await sendBetRequestError(res, idempotencyReservation, 500, failureBody);
 		} finally {
 			insertClient.release();
 		}
 
-		const betQueueWithIds: BetQueueItem[] = betQueue.map((split, idx) => ({
-			betId: createdBetRows[idx].id,
-			accountId: split.accountId,
-			virtualAmount: split.virtualAmount,
-			realAmount: split.realAmount,
-			discount: split.discount,
-		}));
-
-		// 仅将 pending 的注单交给后台执行（已因信用额度不足标记 cancelled 的不再重复尝试）
-		const processingQueue = betQueueWithIds.filter((item, idx) => createdBetRows[idx].status === 'pending');
-		const cancelledCount = betQueueWithIds.length - processingQueue.length;
-
-		// 预取账号信息，避免后台任务里重复查询
-		const accountRowsResult = await query('SELECT * FROM crown_accounts WHERE id = ANY($1)', [actualAccountIds]);
-		const accountsById = new Map<number, CrownAccount>();
-		for (const row of accountRowsResult.rows) {
-			accountsById.set(Number((row as any).id), row as CrownAccount);
-		}
-
-		// 构建后台任务参数，交由异步任务处理
 		const jobParams: BetJobParams = {
 			userId,
 			userRole,
@@ -988,48 +1161,14 @@ router.post('/', async (req: any, res) => {
 			});
 		}
 
-		const totalRequested = validatedAccountIds.length;
-		const messageParts: string[] = [];
-		messageParts.push(`下注任务已提交，正在后台处理中。本次共选择 ${totalRequested} 个账号，计划拆分 ${betQueueWithIds.length} 笔下注。`);
-		if (cancelledCount > 0) {
-			messageParts.push(`其中 ${cancelledCount} 笔已标记失败（信用额度不足）。`);
-		}
-		if (processingQueue.length === 0) {
-			messageParts.push('本次无可执行的下注任务。');
-		}
-
-		return res.status(202).json({
-			success: true,
-			data: {
-				total: totalRequested,
-				queued: betQueueWithIds.length,
-				processing: processingQueue.length,
-				cancelled: cancelledCount,
-				bet_ids: createdBetRows.map((row) => row.id),
-				selection_mapping: {
-					whitelabel_id: selectionMapping.whitelabelId,
-					mapping_mode: selectionMapping.mappingMode,
-					mapping_enabled: selectionMapping.mappingEnabled,
-					mapping_version: selectionMapping.mappingVersion,
-					mapping_applied: selectionMapping.mappingApplied,
-					displayed_market_side: selectionMapping.displayedMarketSide,
-					executed_market_side: selectionMapping.executedMarketSide,
-					displayed_market_rtype: selectionMapping.displayedMarketRtype,
-					executed_market_rtype: selectionMapping.executedMarketRtype,
-					displayed_market_chose_team: selectionMapping.displayedMarketChoseTeam,
-					executed_market_chose_team: selectionMapping.executedMarketChoseTeam,
-				},
-			},
-			message: messageParts.join(' '),
-		} as ApiResponse);
-	    } catch (error) {
-	        console.error('创建下注记录错误:', error);
-	        res.status(500).json({
-	            success: false,
-	            error: '创建下注记录失败'
-	        });
-	    }
-	});
+		return res.status(202).json(successResponse as ApiResponse);
+	} catch (error) {
+		console.error('创建下注记录错误:', error);
+		const failureBody = { success: false, error: '创建下注记录失败' };
+		await markBetIdempotencyFailed(idempotencyReservation, 500, failureBody);
+		res.status(500).json(failureBody);
+	}
+});
 
 // 后台异步下注任务参数
 interface BetJobParams {

@@ -241,6 +241,7 @@ export interface Bet {
 }
 
 export interface BetCreateRequest {
+    idempotency_key?: string; // 客户端请求级幂等键；未携带时保持旧兼容行为
 	    account_ids: number[]; // 支持多账号下注
 	    match_id?: number;
 	    bet_type: string;
