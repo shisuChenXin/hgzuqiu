@@ -821,7 +821,7 @@ const MatchesPage: React.FC = () => {
       const messageText = String(data?.message ?? data?.msg ?? '').trim();
       if (!wsAuthedRef.current && messageText.includes('认证成功')) {
         wsAuthedRef.current = true;
-        trySubscribeAll(true);
+        trySubscribeAll();
       }
       const nextMaintenance = normalizeMaintenanceInfo(data.maintenance);
       if (nextMaintenance) {
@@ -959,6 +959,14 @@ const MatchesPage: React.FC = () => {
         ws.onopen = () => {
           try {
             ws.send(JSON.stringify({ type: 'auth', data: { token: WS_TOKEN } }));
+            // Local/real-time fixtures process frames in order. Force the initial
+            // subscription immediately after auth so one missed heartbeat cannot
+            // leave the matches page empty.
+            ws.send(JSON.stringify({
+              type: 'subscribe',
+              data: { showTypes: WS_SHOWTYPES },
+            }));
+            wsSubscribedRef.current = true;
             wsAuthTimerRef.current = window.setTimeout(() => {
               wsAuthTimerRef.current = null;
               if (!wsAuthedRef.current && wsRef.current?.readyState === WebSocket.OPEN) {
