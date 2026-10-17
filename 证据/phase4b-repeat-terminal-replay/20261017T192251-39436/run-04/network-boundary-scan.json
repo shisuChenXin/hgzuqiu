@@ -1,0 +1,9 @@
+{
+  "scanned_root": "证据\\phase4b-repeat-terminal-replay\\20261017T192251-39436\\run-04",
+  "non_loopback_urls": [],
+  "allowed_hosts": [
+    "127.0.0.1",
+    "localhost",
+    "::1"
+  ]
+}

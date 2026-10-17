@@ -1,0 +1,40 @@
+{
+  "cycle_index": 4,
+  "label": "phase4b cycle 4 complete",
+  "stopped_at": "2026-10-17T11:23:39.204Z",
+  "services": {
+    "backend_a": {
+      "role": "backend-a",
+      "pid": 9716,
+      "kill_requested_at": "2026-10-17T11:23:39.204Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T11:23:39.232Z"
+    },
+    "backend_b": {
+      "role": "backend-b",
+      "pid": 35424,
+      "kill_requested_at": "2026-10-17T11:23:39.232Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T11:23:39.261Z"
+    },
+    "mock_server": {
+      "role": "mock upstream",
+      "close_callback_completed": true,
+      "stopped_at": "2026-10-17T11:23:39.261Z"
+    }
+  },
+  "target_ports_open_after_stop": [],
+  "all_target_ports_down": true
+}

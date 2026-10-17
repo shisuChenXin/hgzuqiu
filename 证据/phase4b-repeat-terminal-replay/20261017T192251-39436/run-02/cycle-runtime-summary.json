@@ -1,0 +1,51 @@
+{
+  "cycle_index": 2,
+  "database": "hgzuqiu_phase4b_20261017192251_39436_2",
+  "backend_processes": 2,
+  "same_user_same_key": {
+    "http_status": [
+      202,
+      202
+    ],
+    "bets": 1,
+    "idempotency_rows": 1,
+    "mock_ft_bet": 1,
+    "charge_transactions": 1,
+    "replay_header_count": 1
+  },
+  "terminal_delayed_exact_replay": {
+    "http_status": 202,
+    "replay_header": "true",
+    "response_canonical_equal": true,
+    "new_bets": 0,
+    "new_idempotency_rows": 0,
+    "new_mock_ft_bet": 0,
+    "new_charge_transactions": 0
+  },
+  "cross_user_same_key": {
+    "http_status": [
+      202,
+      202
+    ],
+    "bets": 2,
+    "idempotency_rows": 2,
+    "mock_ft_bet": 2,
+    "charge_transactions": 2
+  },
+  "changed_payload": {
+    "http_status": 409,
+    "new_bets": 0,
+    "new_idempotency_rows": 0,
+    "new_mock_ft_bet": 0,
+    "new_charge_transactions": 0
+  },
+  "final": {
+    "bets": 3,
+    "confirmed": 3,
+    "idempotency_rows": 3,
+    "mock_ft_bet": 3,
+    "charge_transactions": 3,
+    "integrity_issues": 0
+  },
+  "ports_after_stop": []
+}

@@ -1,0 +1,455 @@
+⚠️ 邮件服务未配置，邮件功能将不可用
+🚀 智投后端服务启动成功！
+📍 服务地址: http://localhost:3203
+🌍 环境: development
+⏰ 启动时间: 2026/10/17 19:23:13
+⏰ 设置会话恢复定时器，将在 3 秒后执行...
+ℹ️ 内置赛事抓取服务已禁用，使用外部独立进程
+2026-10-17T11:23:13.993Z GET /api/health 200 5ms
+🔐 登录请求开始，请求体: { username: 'phase4b-beta-admin-c2', password: '***' }
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase4b-beta-admin-c2' ]
+✅ 数据库连接成功
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [ 3, '127.0.0.1', 'node', true, false ]
+2026-10-17T11:23:14.315Z POST /login 200 129ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase4b-alpha-same-key",
+  "account_ids": [
+    1
+  ],
+  "match_id": 940001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase4B Phase4B Same User Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "940001",
+  "league_name": "Phase4B Same User League",
+  "home_team": "Phase4B Same User Home",
+  "away_team": "Phase4B Same User Away",
+  "match_time": "2026-10-17T13:22:51.640Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase4b-alpha-same-key',
+  '2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase4b-alpha-same-key' ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 2 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 2 ]
+2026-10-17T11:23:14.481Z POST / 202 141ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase4b-alpha-same-key",
+  "account_ids": [
+    1
+  ],
+  "match_id": 940001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase4B Phase4B Same User Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "940001",
+  "league_name": "Phase4B Same User League",
+  "home_team": "Phase4B Same User Home",
+  "away_team": "Phase4B Same User Away",
+  "match_time": "2026-10-17T13:22:51.640Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase4b-alpha-same-key',
+  '2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase4b-alpha-same-key' ]
+2026-10-17T11:23:14.515Z POST / 202 5ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase4b-shared-key",
+  "account_ids": [
+    2
+  ],
+  "match_id": 940002,
+  "bet_type": "角球让球",
+  "bet_option": "Phase4B Phase4B Cross User Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "940002",
+  "league_name": "Phase4B Cross User League",
+  "home_team": "Phase4B Cross User Home",
+  "away_team": "Phase4B Cross User Away",
+  "match_time": "2026-10-17T13:22:51.640Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase4b-shared-key',
+  'b66791776d8ca2d04a43083d918584bb5252f79d0b7a1cfa73a096004d14b603'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 940002 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 2 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [ 3, [ 1, 2 ], 2026-10-17T04:00:00.000Z ]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [ 3, [ 1, 2 ], 2026-10-17T04:00:00.000Z ]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [ 3, [ 1, 2 ], 2026-10-12T04:00:00.000Z ]
+✅ 数据库连接成功
+✅ 数据库连接成功
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 940002 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 2, 0.8 ] ],
+  account_limits: [ [ 2, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 2: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 2, 虚数 100, 实数 80.00
+[后台下注任务] 账号 2 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 2 ]
+2026-10-17T11:23:14.937Z POST / 202 91ms
+🚀 使用纯 API 方式登录账号: phase4b-beta-admin-c2-crown
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase4b-beta-admin-c2-crown
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 129
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=2, uid=phase2-mock-uid, loginTime=1792236194965, mapSize=1
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792236194965, 'loadBB=1', 2 ]
+💾 会话信息已持久化到数据库: accountId=2, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=2, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 2 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=2, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase4B Phase4B Cross User Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 940002
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '940002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '940002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '940002',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 940002
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+📥 下注响应: { code: '560', ticket_id: 'PHASE4B-003', ioratio: '1.90', gold: '80' }
+✅ 下注成功！
+   注单号: PHASE4B-003
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE4B-003',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE4B-003', 1.9, 1.9, null, 3 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  2,
+  3,
+  'BET1792236194985osd3rencu',
+  '消耗',
+  '下注消耗 - 角球让球 Phase4B Phase4B Cross User Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase4b-alpha-same-key",
+  "account_ids": [
+    1
+  ],
+  "match_id": 940001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase4B changed payload Phase4B Same User Home",
+  "total_amount": 81,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "940001",
+  "league_name": "Phase4B Same User League",
+  "home_team": "Phase4B Same User Home",
+  "away_team": "Phase4B Same User Away",
+  "match_time": "2026-10-17T13:22:51.640Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase4b-alpha-same-key',
+  '947a5ca7af5727b8f134013369f8f23162adefbda6cbf92aab60dcc179fc044f'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase4b-alpha-same-key' ]
+2026-10-17T11:23:15.083Z POST / 409 6ms
+错误请求: POST / - 409
+ℹ️ 数据库账号预热已禁用，使用独立抓取服务

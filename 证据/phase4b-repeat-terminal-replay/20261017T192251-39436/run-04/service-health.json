@@ -1,0 +1,42 @@
+{
+  "started_at_utc": "2026-10-17T11:23:35.329Z",
+  "backend_a": {
+    "status": 200
+  },
+  "backend_b": {
+    "status": 200
+  },
+  "mock": {
+    "status": 200
+  },
+  "runtime_config": {
+    "started_at_utc": "2026-10-17T11:23:35.329Z",
+    "cycle_index": 4,
+    "database": "hgzuqiu_phase4b_20261017192251_39436_4",
+    "jwt_secret": "<process-memory-only>",
+    "upstream": "http://127.0.0.1:3301",
+    "backends": [
+      {
+        "role": "backend-a",
+        "port": 3202,
+        "pid": 9716,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_4",
+        "log": "证据\\phase4b-repeat-terminal-replay\\20261017T192251-39436\\run-04\\backend-a-log.txt"
+      },
+      {
+        "role": "backend-b",
+        "port": 3203,
+        "pid": 35424,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_4",
+        "log": "证据\\phase4b-repeat-terminal-replay\\20261017T192251-39436\\run-04\\backend-b-log.txt"
+      }
+    ],
+    "network_boundary": {
+      "crown_base_url": "http://127.0.0.1:3301",
+      "crown_base_url_candidates": "http://127.0.0.1:3301",
+      "all_service_hosts": [
+        "127.0.0.1"
+      ]
+    }
+  }
+}

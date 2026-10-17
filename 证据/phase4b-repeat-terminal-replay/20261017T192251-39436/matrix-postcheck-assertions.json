@@ -1,0 +1,3740 @@
+{
+  "postcheck": "phase4b-independent-matrix-postcheck",
+  "matrix_run_id": "20261017T192251-39436",
+  "started_at_utc": "2026-10-17T11:25:53.885Z",
+  "started_at_beijing": "2026-10-17 19:25:53 +08:00",
+  "evidence_dir": "证据\\phase4b-repeat-terminal-replay\\20261017T192251-39436",
+  "checks": [
+    {
+      "name": "latest_matrix_id_file_contains_exactly_one_id",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "latest_matrix_directory_name_unique",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "matrix_final_id_matches_latest",
+      "passed": true,
+      "expected": "20261017T192251-39436",
+      "actual": "20261017T192251-39436"
+    },
+    {
+      "name": "matrix_final_all_assertions_passed",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "completed_cycles": 5,
+        "failed": 0
+      }
+    },
+    {
+      "name": "matrix_has_exactly_five_expected_run_dirs",
+      "passed": true,
+      "expected": [
+        "run-01",
+        "run-02",
+        "run-03",
+        "run-04",
+        "run-05"
+      ],
+      "actual": [
+        "run-01",
+        "run-02",
+        "run-03",
+        "run-04",
+        "run-05"
+      ]
+    },
+    {
+      "name": "all_matrix_evidence_json_files_parse",
+      "passed": true,
+      "expected": true,
+      "actual": []
+    },
+    {
+      "name": "matrix_declares_five_distinct_databases",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "databases": [
+          {
+            "cycle_index": 1,
+            "database": "hgzuqiu_phase4b_20261017192251_39436_1"
+          },
+          {
+            "cycle_index": 2,
+            "database": "hgzuqiu_phase4b_20261017192251_39436_2"
+          },
+          {
+            "cycle_index": 3,
+            "database": "hgzuqiu_phase4b_20261017192251_39436_3"
+          },
+          {
+            "cycle_index": 4,
+            "database": "hgzuqiu_phase4b_20261017192251_39436_4"
+          },
+          {
+            "cycle_index": 5,
+            "database": "hgzuqiu_phase4b_20261017192251_39436_5"
+          }
+        ],
+        "distinct": 5
+      }
+    },
+    {
+      "name": "matrix_runtime_summary_all_cycles_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "completed": 5,
+        "all_success": true,
+        "cycles": 5
+      }
+    },
+    {
+      "name": "matrix_main_report_exists",
+      "passed": true,
+      "expected": true,
+      "actual": "报告\\20261017T192251-39436-phase4b-五轮终态重放实证报告.md"
+    },
+    {
+      "name": "run-01__cycle_final_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "failed": 0
+      }
+    },
+    {
+      "name": "run-01__cycle_runtime_summary_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "cycle_index": 1,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_1",
+        "backend_processes": 2,
+        "same_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 1,
+          "idempotency_rows": 1,
+          "mock_ft_bet": 1,
+          "charge_transactions": 1,
+          "replay_header_count": 1
+        },
+        "terminal_delayed_exact_replay": {
+          "http_status": 202,
+          "replay_header": "true",
+          "response_canonical_equal": true,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "cross_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 2,
+          "idempotency_rows": 2,
+          "mock_ft_bet": 2,
+          "charge_transactions": 2
+        },
+        "changed_payload": {
+          "http_status": 409,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "final": {
+          "bets": 3,
+          "confirmed": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        },
+        "ports_after_stop": []
+      }
+    },
+    {
+      "name": "run-01__backend_build_exit_0",
+      "passed": true,
+      "expected": 0,
+      "actual": "0"
+    },
+    {
+      "name": "run-01__ports_before_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-01__ports_after_empty",
+      "passed": true,
+      "expected": [],
+      "actual": {
+        "file": [],
+        "stop": []
+      }
+    },
+    {
+      "name": "run-01__guard_db_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "run-01__watched_files_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        }
+      }
+    },
+    {
+      "name": "run-01__runner_hash_matches_current_file",
+      "passed": true,
+      "expected": true,
+      "actual": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+    },
+    {
+      "name": "run-01__service_health_all_200",
+      "passed": true,
+      "expected": [
+        200,
+        200,
+        200
+      ],
+      "actual": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "run-01__two_backend_processes_and_ports",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "pid": 23100,
+          "port": 3202
+        },
+        {
+          "pid": 41156,
+          "port": 3203
+        }
+      ]
+    },
+    {
+      "name": "run-01__backends_same_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_1",
+      "actual": [
+        "hgzuqiu_phase4b_20261017192251_39436_1",
+        "hgzuqiu_phase4b_20261017192251_39436_1"
+      ]
+    },
+    {
+      "name": "run-01__upstream_only_local_mock",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-01__same_user_http_and_replay_header",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": 1
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": [
+          "true",
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-01__same_user_concurrent_overlap",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "launch_span_ms": 154,
+        "request_start_delay_ms": 1,
+        "intervals_overlap": true,
+        "intervals": [
+          {
+            "started_at_utc": "2026-10-17T11:23:01.941Z",
+            "ended_at_utc": "2026-10-17T11:23:02.095Z",
+            "duration_ms": 154,
+            "response_status": 202,
+            "idempotency_replayed": "true"
+          },
+          {
+            "started_at_utc": "2026-10-17T11:23:01.942Z",
+            "ended_at_utc": "2026-10-17T11:23:02.087Z",
+            "duration_ms": 145,
+            "response_status": 202,
+            "idempotency_replayed": null
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-01__same_user_response_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "run-01__same_user_side_effects_1",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      },
+      "actual": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      }
+    },
+    {
+      "name": "run-01__same_user_terminal_confirmed",
+      "passed": true,
+      "expected": [
+        "confirmed"
+      ],
+      "actual": {
+        "wait": [
+          "confirmed"
+        ],
+        "final": {
+          "confirmed": 1
+        }
+      }
+    },
+    {
+      "name": "run-01__same_user_stored_response_matches_creator",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "id": "1",
+        "user_id": 2,
+        "user_username": "phase4b-alpha-admin-c1",
+        "idempotency_key": "phase4b-alpha-same-key",
+        "request_hash": "2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:23:01.966Z",
+        "updated_at": "2026-10-17T11:23:02.066Z"
+      }
+    },
+    {
+      "name": "run-01__delayed_payload_and_timing_exact",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "payload_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "initial_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "terminal": "2026-10-17T11:23:02.204Z",
+        "replay": "2026-10-17T11:23:02.220Z"
+      }
+    },
+    {
+      "name": "run-01__delayed_replay_cross_backend",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "initial": "http://127.0.0.1:3203",
+        "replay": "http://127.0.0.1:3202"
+      }
+    },
+    {
+      "name": "run-01__delayed_replay_http_header_response",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "stored_equal": true
+      }
+    },
+    {
+      "name": "run-01__delayed_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-01__cross_user_http_202_no_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-01__cross_user_side_effects_2",
+      "passed": true,
+      "expected": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      },
+      "actual": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      }
+    },
+    {
+      "name": "run-01__cross_user_isolated_by_user",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "alpha": 1,
+        "beta": 1
+      }
+    },
+    {
+      "name": "run-01__changed_payload_409_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 409,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 409,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-01__migration_constraint_and_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "runs": [
+          {
+            "run": 1,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:22:59.545Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          },
+          {
+            "run": 2,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:22:59.548Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "2200_55302_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-01__mock_log_ft_bet_3_all_local",
+      "passed": true,
+      "expected": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-01__direct_connected_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_1",
+      "actual": "hgzuqiu_phase4b_20261017192251_39436_1"
+    },
+    {
+      "name": "run-01__direct_db_3_confirmed_bets",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "run-01__direct_db_3_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      }
+    },
+    {
+      "name": "run-01__direct_db_3_charges_unique_ids",
+      "passed": true,
+      "expected": {
+        "charges": 3,
+        "official_ids": 3
+      },
+      "actual": {
+        "charges": 3,
+        "charge_transaction_ids": 3,
+        "official_ids": 3,
+        "unique_official_ids": 3
+      }
+    },
+    {
+      "name": "run-01__direct_db_no_duplicate_user_key",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-01__direct_unique_constraint_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "constraints": [
+          {
+            "constraint_name": "2200_55302_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55302_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-01__direct_transaction_ids_unique",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "unique": 5
+      }
+    },
+    {
+      "name": "run-01__direct_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-01__direct_bets_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-01__direct_idempotency_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-01__direct_transactions_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 5,
+        "main": 5
+      }
+    },
+    {
+      "name": "run-02__cycle_final_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "failed": 0
+      }
+    },
+    {
+      "name": "run-02__cycle_runtime_summary_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "cycle_index": 2,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_2",
+        "backend_processes": 2,
+        "same_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 1,
+          "idempotency_rows": 1,
+          "mock_ft_bet": 1,
+          "charge_transactions": 1,
+          "replay_header_count": 1
+        },
+        "terminal_delayed_exact_replay": {
+          "http_status": 202,
+          "replay_header": "true",
+          "response_canonical_equal": true,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "cross_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 2,
+          "idempotency_rows": 2,
+          "mock_ft_bet": 2,
+          "charge_transactions": 2
+        },
+        "changed_payload": {
+          "http_status": 409,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "final": {
+          "bets": 3,
+          "confirmed": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        },
+        "ports_after_stop": []
+      }
+    },
+    {
+      "name": "run-02__backend_build_exit_0",
+      "passed": true,
+      "expected": 0,
+      "actual": "0"
+    },
+    {
+      "name": "run-02__ports_before_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-02__ports_after_empty",
+      "passed": true,
+      "expected": [],
+      "actual": {
+        "file": [],
+        "stop": []
+      }
+    },
+    {
+      "name": "run-02__guard_db_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "run-02__watched_files_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        }
+      }
+    },
+    {
+      "name": "run-02__runner_hash_matches_current_file",
+      "passed": true,
+      "expected": true,
+      "actual": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+    },
+    {
+      "name": "run-02__service_health_all_200",
+      "passed": true,
+      "expected": [
+        200,
+        200,
+        200
+      ],
+      "actual": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "run-02__two_backend_processes_and_ports",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "pid": 28416,
+          "port": 3202
+        },
+        {
+          "pid": 14492,
+          "port": 3203
+        }
+      ]
+    },
+    {
+      "name": "run-02__backends_same_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_2",
+      "actual": [
+        "hgzuqiu_phase4b_20261017192251_39436_2",
+        "hgzuqiu_phase4b_20261017192251_39436_2"
+      ]
+    },
+    {
+      "name": "run-02__upstream_only_local_mock",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-02__same_user_http_and_replay_header",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": 1
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": [
+          null,
+          "true"
+        ]
+      }
+    },
+    {
+      "name": "run-02__same_user_concurrent_overlap",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "launch_span_ms": 155,
+        "request_start_delay_ms": 0,
+        "intervals_overlap": true,
+        "intervals": [
+          {
+            "started_at_utc": "2026-10-17T11:23:14.327Z",
+            "ended_at_utc": "2026-10-17T11:23:14.438Z",
+            "duration_ms": 111,
+            "response_status": 202,
+            "idempotency_replayed": null
+          },
+          {
+            "started_at_utc": "2026-10-17T11:23:14.327Z",
+            "ended_at_utc": "2026-10-17T11:23:14.482Z",
+            "duration_ms": 155,
+            "response_status": 202,
+            "idempotency_replayed": "true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-02__same_user_response_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "run-02__same_user_side_effects_1",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      },
+      "actual": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      }
+    },
+    {
+      "name": "run-02__same_user_terminal_confirmed",
+      "passed": true,
+      "expected": [
+        "confirmed"
+      ],
+      "actual": {
+        "wait": [
+          "confirmed"
+        ],
+        "final": {
+          "confirmed": 1
+        }
+      }
+    },
+    {
+      "name": "run-02__same_user_stored_response_matches_creator",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "id": "2",
+        "user_id": 2,
+        "user_username": "phase4b-alpha-admin-c2",
+        "idempotency_key": "phase4b-alpha-same-key",
+        "request_hash": "2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:23:14.349Z",
+        "updated_at": "2026-10-17T11:23:14.425Z"
+      }
+    },
+    {
+      "name": "run-02__delayed_payload_and_timing_exact",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "payload_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "initial_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "terminal": "2026-10-17T11:23:14.487Z",
+        "replay": "2026-10-17T11:23:14.498Z"
+      }
+    },
+    {
+      "name": "run-02__delayed_replay_cross_backend",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "initial": "http://127.0.0.1:3202",
+        "replay": "http://127.0.0.1:3203"
+      }
+    },
+    {
+      "name": "run-02__delayed_replay_http_header_response",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "stored_equal": true
+      }
+    },
+    {
+      "name": "run-02__delayed_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-02__cross_user_http_202_no_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-02__cross_user_side_effects_2",
+      "passed": true,
+      "expected": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      },
+      "actual": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      }
+    },
+    {
+      "name": "run-02__cross_user_isolated_by_user",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "alpha": 1,
+        "beta": 1
+      }
+    },
+    {
+      "name": "run-02__changed_payload_409_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 409,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 409,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-02__migration_constraint_and_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "runs": [
+          {
+            "run": 1,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:12.002Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          },
+          {
+            "run": 2,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:12.005Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "2200_55707_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-02__mock_log_ft_bet_3_all_local",
+      "passed": true,
+      "expected": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-02__direct_connected_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_2",
+      "actual": "hgzuqiu_phase4b_20261017192251_39436_2"
+    },
+    {
+      "name": "run-02__direct_db_3_confirmed_bets",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "run-02__direct_db_3_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      }
+    },
+    {
+      "name": "run-02__direct_db_3_charges_unique_ids",
+      "passed": true,
+      "expected": {
+        "charges": 3,
+        "official_ids": 3
+      },
+      "actual": {
+        "charges": 3,
+        "charge_transaction_ids": 3,
+        "official_ids": 3,
+        "unique_official_ids": 3
+      }
+    },
+    {
+      "name": "run-02__direct_db_no_duplicate_user_key",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-02__direct_unique_constraint_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "constraints": [
+          {
+            "constraint_name": "2200_55707_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_55707_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-02__direct_transaction_ids_unique",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "unique": 5
+      }
+    },
+    {
+      "name": "run-02__direct_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-02__direct_bets_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-02__direct_idempotency_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-02__direct_transactions_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 5,
+        "main": 5
+      }
+    },
+    {
+      "name": "run-03__cycle_final_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "failed": 0
+      }
+    },
+    {
+      "name": "run-03__cycle_runtime_summary_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "cycle_index": 3,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_3",
+        "backend_processes": 2,
+        "same_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 1,
+          "idempotency_rows": 1,
+          "mock_ft_bet": 1,
+          "charge_transactions": 1,
+          "replay_header_count": 1
+        },
+        "terminal_delayed_exact_replay": {
+          "http_status": 202,
+          "replay_header": "true",
+          "response_canonical_equal": true,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "cross_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 2,
+          "idempotency_rows": 2,
+          "mock_ft_bet": 2,
+          "charge_transactions": 2
+        },
+        "changed_payload": {
+          "http_status": 409,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "final": {
+          "bets": 3,
+          "confirmed": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        },
+        "ports_after_stop": []
+      }
+    },
+    {
+      "name": "run-03__backend_build_exit_0",
+      "passed": true,
+      "expected": 0,
+      "actual": "0"
+    },
+    {
+      "name": "run-03__ports_before_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-03__ports_after_empty",
+      "passed": true,
+      "expected": [],
+      "actual": {
+        "file": [],
+        "stop": []
+      }
+    },
+    {
+      "name": "run-03__guard_db_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "run-03__watched_files_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        }
+      }
+    },
+    {
+      "name": "run-03__runner_hash_matches_current_file",
+      "passed": true,
+      "expected": true,
+      "actual": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+    },
+    {
+      "name": "run-03__service_health_all_200",
+      "passed": true,
+      "expected": [
+        200,
+        200,
+        200
+      ],
+      "actual": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "run-03__two_backend_processes_and_ports",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "pid": 24080,
+          "port": 3202
+        },
+        {
+          "pid": 23672,
+          "port": 3203
+        }
+      ]
+    },
+    {
+      "name": "run-03__backends_same_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_3",
+      "actual": [
+        "hgzuqiu_phase4b_20261017192251_39436_3",
+        "hgzuqiu_phase4b_20261017192251_39436_3"
+      ]
+    },
+    {
+      "name": "run-03__upstream_only_local_mock",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-03__same_user_http_and_replay_header",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": 1
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": [
+          null,
+          "true"
+        ]
+      }
+    },
+    {
+      "name": "run-03__same_user_concurrent_overlap",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "launch_span_ms": 154,
+        "request_start_delay_ms": 0,
+        "intervals_overlap": true,
+        "intervals": [
+          {
+            "started_at_utc": "2026-10-17T11:23:25.839Z",
+            "ended_at_utc": "2026-10-17T11:23:25.956Z",
+            "duration_ms": 118,
+            "response_status": 202,
+            "idempotency_replayed": null
+          },
+          {
+            "started_at_utc": "2026-10-17T11:23:25.839Z",
+            "ended_at_utc": "2026-10-17T11:23:25.992Z",
+            "duration_ms": 153,
+            "response_status": 202,
+            "idempotency_replayed": "true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-03__same_user_response_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "run-03__same_user_side_effects_1",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      },
+      "actual": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      }
+    },
+    {
+      "name": "run-03__same_user_terminal_confirmed",
+      "passed": true,
+      "expected": [
+        "confirmed"
+      ],
+      "actual": {
+        "wait": [
+          "confirmed"
+        ],
+        "final": {
+          "confirmed": 1
+        }
+      }
+    },
+    {
+      "name": "run-03__same_user_stored_response_matches_creator",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "id": "1",
+        "user_id": 2,
+        "user_username": "phase4b-alpha-admin-c3",
+        "idempotency_key": "phase4b-alpha-same-key",
+        "request_hash": "2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:23:25.860Z",
+        "updated_at": "2026-10-17T11:23:25.943Z"
+      }
+    },
+    {
+      "name": "run-03__delayed_payload_and_timing_exact",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "payload_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "initial_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "terminal": "2026-10-17T11:23:26.098Z",
+        "replay": "2026-10-17T11:23:26.109Z"
+      }
+    },
+    {
+      "name": "run-03__delayed_replay_cross_backend",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "initial": "http://127.0.0.1:3202",
+        "replay": "http://127.0.0.1:3203"
+      }
+    },
+    {
+      "name": "run-03__delayed_replay_http_header_response",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "stored_equal": true
+      }
+    },
+    {
+      "name": "run-03__delayed_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-03__cross_user_http_202_no_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-03__cross_user_side_effects_2",
+      "passed": true,
+      "expected": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      },
+      "actual": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      }
+    },
+    {
+      "name": "run-03__cross_user_isolated_by_user",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "alpha": 1,
+        "beta": 1
+      }
+    },
+    {
+      "name": "run-03__changed_payload_409_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 409,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 409,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-03__migration_constraint_and_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "runs": [
+          {
+            "run": 1,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:23.526Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          },
+          {
+            "run": 2,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:23.528Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "2200_56111_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-03__mock_log_ft_bet_3_all_local",
+      "passed": true,
+      "expected": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-03__direct_connected_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_3",
+      "actual": "hgzuqiu_phase4b_20261017192251_39436_3"
+    },
+    {
+      "name": "run-03__direct_db_3_confirmed_bets",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "run-03__direct_db_3_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      }
+    },
+    {
+      "name": "run-03__direct_db_3_charges_unique_ids",
+      "passed": true,
+      "expected": {
+        "charges": 3,
+        "official_ids": 3
+      },
+      "actual": {
+        "charges": 3,
+        "charge_transaction_ids": 3,
+        "official_ids": 3,
+        "unique_official_ids": 3
+      }
+    },
+    {
+      "name": "run-03__direct_db_no_duplicate_user_key",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-03__direct_unique_constraint_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "constraints": [
+          {
+            "constraint_name": "2200_56111_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56111_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-03__direct_transaction_ids_unique",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "unique": 5
+      }
+    },
+    {
+      "name": "run-03__direct_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-03__direct_bets_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-03__direct_idempotency_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-03__direct_transactions_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 5,
+        "main": 5
+      }
+    },
+    {
+      "name": "run-04__cycle_final_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "failed": 0
+      }
+    },
+    {
+      "name": "run-04__cycle_runtime_summary_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "cycle_index": 4,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_4",
+        "backend_processes": 2,
+        "same_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 1,
+          "idempotency_rows": 1,
+          "mock_ft_bet": 1,
+          "charge_transactions": 1,
+          "replay_header_count": 1
+        },
+        "terminal_delayed_exact_replay": {
+          "http_status": 202,
+          "replay_header": "true",
+          "response_canonical_equal": true,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "cross_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 2,
+          "idempotency_rows": 2,
+          "mock_ft_bet": 2,
+          "charge_transactions": 2
+        },
+        "changed_payload": {
+          "http_status": 409,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "final": {
+          "bets": 3,
+          "confirmed": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        },
+        "ports_after_stop": []
+      }
+    },
+    {
+      "name": "run-04__backend_build_exit_0",
+      "passed": true,
+      "expected": 0,
+      "actual": "0"
+    },
+    {
+      "name": "run-04__ports_before_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-04__ports_after_empty",
+      "passed": true,
+      "expected": [],
+      "actual": {
+        "file": [],
+        "stop": []
+      }
+    },
+    {
+      "name": "run-04__guard_db_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "run-04__watched_files_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        }
+      }
+    },
+    {
+      "name": "run-04__runner_hash_matches_current_file",
+      "passed": true,
+      "expected": true,
+      "actual": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+    },
+    {
+      "name": "run-04__service_health_all_200",
+      "passed": true,
+      "expected": [
+        200,
+        200,
+        200
+      ],
+      "actual": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "run-04__two_backend_processes_and_ports",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "pid": 9716,
+          "port": 3202
+        },
+        {
+          "pid": 35424,
+          "port": 3203
+        }
+      ]
+    },
+    {
+      "name": "run-04__backends_same_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_4",
+      "actual": [
+        "hgzuqiu_phase4b_20261017192251_39436_4",
+        "hgzuqiu_phase4b_20261017192251_39436_4"
+      ]
+    },
+    {
+      "name": "run-04__upstream_only_local_mock",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-04__same_user_http_and_replay_header",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": 1
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": [
+          null,
+          "true"
+        ]
+      }
+    },
+    {
+      "name": "run-04__same_user_concurrent_overlap",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "launch_span_ms": 215,
+        "request_start_delay_ms": 0,
+        "intervals_overlap": true,
+        "intervals": [
+          {
+            "started_at_utc": "2026-10-17T11:23:37.938Z",
+            "ended_at_utc": "2026-10-17T11:23:38.094Z",
+            "duration_ms": 156,
+            "response_status": 202,
+            "idempotency_replayed": null
+          },
+          {
+            "started_at_utc": "2026-10-17T11:23:37.938Z",
+            "ended_at_utc": "2026-10-17T11:23:38.152Z",
+            "duration_ms": 214,
+            "response_status": 202,
+            "idempotency_replayed": "true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-04__same_user_response_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "run-04__same_user_side_effects_1",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      },
+      "actual": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      }
+    },
+    {
+      "name": "run-04__same_user_terminal_confirmed",
+      "passed": true,
+      "expected": [
+        "confirmed"
+      ],
+      "actual": {
+        "wait": [
+          "confirmed"
+        ],
+        "final": {
+          "confirmed": 1
+        }
+      }
+    },
+    {
+      "name": "run-04__same_user_stored_response_matches_creator",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "id": "2",
+        "user_id": 2,
+        "user_username": "phase4b-alpha-admin-c4",
+        "idempotency_key": "phase4b-alpha-same-key",
+        "request_hash": "2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:23:37.960Z",
+        "updated_at": "2026-10-17T11:23:38.074Z"
+      }
+    },
+    {
+      "name": "run-04__delayed_payload_and_timing_exact",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "payload_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "initial_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "terminal": "2026-10-17T11:23:38.261Z",
+        "replay": "2026-10-17T11:23:38.273Z"
+      }
+    },
+    {
+      "name": "run-04__delayed_replay_cross_backend",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "initial": "http://127.0.0.1:3202",
+        "replay": "http://127.0.0.1:3203"
+      }
+    },
+    {
+      "name": "run-04__delayed_replay_http_header_response",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "stored_equal": true
+      }
+    },
+    {
+      "name": "run-04__delayed_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-04__cross_user_http_202_no_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-04__cross_user_side_effects_2",
+      "passed": true,
+      "expected": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      },
+      "actual": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      }
+    },
+    {
+      "name": "run-04__cross_user_isolated_by_user",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "alpha": 1,
+        "beta": 1
+      }
+    },
+    {
+      "name": "run-04__changed_payload_409_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 409,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 409,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-04__migration_constraint_and_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "runs": [
+          {
+            "run": 1,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:35.315Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          },
+          {
+            "run": 2,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:35.317Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "2200_56515_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-04__mock_log_ft_bet_3_all_local",
+      "passed": true,
+      "expected": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-04__direct_connected_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_4",
+      "actual": "hgzuqiu_phase4b_20261017192251_39436_4"
+    },
+    {
+      "name": "run-04__direct_db_3_confirmed_bets",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "run-04__direct_db_3_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      }
+    },
+    {
+      "name": "run-04__direct_db_3_charges_unique_ids",
+      "passed": true,
+      "expected": {
+        "charges": 3,
+        "official_ids": 3
+      },
+      "actual": {
+        "charges": 3,
+        "charge_transaction_ids": 3,
+        "official_ids": 3,
+        "unique_official_ids": 3
+      }
+    },
+    {
+      "name": "run-04__direct_db_no_duplicate_user_key",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-04__direct_unique_constraint_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "constraints": [
+          {
+            "constraint_name": "2200_56515_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56515_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-04__direct_transaction_ids_unique",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "unique": 5
+      }
+    },
+    {
+      "name": "run-04__direct_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-04__direct_bets_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-04__direct_idempotency_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-04__direct_transactions_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 5,
+        "main": 5
+      }
+    },
+    {
+      "name": "run-05__cycle_final_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "failed": 0
+      }
+    },
+    {
+      "name": "run-05__cycle_runtime_summary_success",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "cycle_index": 5,
+        "database": "hgzuqiu_phase4b_20261017192251_39436_5",
+        "backend_processes": 2,
+        "same_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 1,
+          "idempotency_rows": 1,
+          "mock_ft_bet": 1,
+          "charge_transactions": 1,
+          "replay_header_count": 1
+        },
+        "terminal_delayed_exact_replay": {
+          "http_status": 202,
+          "replay_header": "true",
+          "response_canonical_equal": true,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "cross_user_same_key": {
+          "http_status": [
+            202,
+            202
+          ],
+          "bets": 2,
+          "idempotency_rows": 2,
+          "mock_ft_bet": 2,
+          "charge_transactions": 2
+        },
+        "changed_payload": {
+          "http_status": 409,
+          "new_bets": 0,
+          "new_idempotency_rows": 0,
+          "new_mock_ft_bet": 0,
+          "new_charge_transactions": 0
+        },
+        "final": {
+          "bets": 3,
+          "confirmed": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        },
+        "ports_after_stop": []
+      }
+    },
+    {
+      "name": "run-05__backend_build_exit_0",
+      "passed": true,
+      "expected": 0,
+      "actual": "0"
+    },
+    {
+      "name": "run-05__ports_before_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-05__ports_after_empty",
+      "passed": true,
+      "expected": [],
+      "actual": {
+        "file": [],
+        "stop": []
+      }
+    },
+    {
+      "name": "run-05__guard_db_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "run-05__watched_files_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+          ".verify-runtime/phase4b-repeat-terminal-replay-run.js": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+        }
+      }
+    },
+    {
+      "name": "run-05__runner_hash_matches_current_file",
+      "passed": true,
+      "expected": true,
+      "actual": "a18b9e5b9f7beba557f526a36ae6f7b0e50a4e263aee25d917f8526d362ffb9e"
+    },
+    {
+      "name": "run-05__service_health_all_200",
+      "passed": true,
+      "expected": [
+        200,
+        200,
+        200
+      ],
+      "actual": [
+        200,
+        200,
+        200
+      ]
+    },
+    {
+      "name": "run-05__two_backend_processes_and_ports",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "pid": 34136,
+          "port": 3202
+        },
+        {
+          "pid": 31956,
+          "port": 3203
+        }
+      ]
+    },
+    {
+      "name": "run-05__backends_same_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_5",
+      "actual": [
+        "hgzuqiu_phase4b_20261017192251_39436_5",
+        "hgzuqiu_phase4b_20261017192251_39436_5"
+      ]
+    },
+    {
+      "name": "run-05__upstream_only_local_mock",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-05__same_user_http_and_replay_header",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": 1
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_headers": [
+          null,
+          "true"
+        ]
+      }
+    },
+    {
+      "name": "run-05__same_user_concurrent_overlap",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "launch_span_ms": 131,
+        "request_start_delay_ms": 0,
+        "intervals_overlap": true,
+        "intervals": [
+          {
+            "started_at_utc": "2026-10-17T11:23:48.677Z",
+            "ended_at_utc": "2026-10-17T11:23:48.769Z",
+            "duration_ms": 92,
+            "response_status": 202,
+            "idempotency_replayed": null
+          },
+          {
+            "started_at_utc": "2026-10-17T11:23:48.677Z",
+            "ended_at_utc": "2026-10-17T11:23:48.808Z",
+            "duration_ms": 130,
+            "response_status": 202,
+            "idempotency_replayed": "true"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-05__same_user_response_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "run-05__same_user_side_effects_1",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      },
+      "actual": {
+        "bets": 1,
+        "idempotency": 1,
+        "mock_ft_bet": 1,
+        "charge_transactions": 1
+      }
+    },
+    {
+      "name": "run-05__same_user_terminal_confirmed",
+      "passed": true,
+      "expected": [
+        "confirmed"
+      ],
+      "actual": {
+        "wait": [
+          "confirmed"
+        ],
+        "final": {
+          "confirmed": 1
+        }
+      }
+    },
+    {
+      "name": "run-05__same_user_stored_response_matches_creator",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "id": "1",
+        "user_id": 2,
+        "user_username": "phase4b-alpha-admin-c5",
+        "idempotency_key": "phase4b-alpha-same-key",
+        "request_hash": "2e906b4b15493558d2adf3dc43c6fa08d12731f97043a98c7062543c9e54b117",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:23:48.688Z",
+        "updated_at": "2026-10-17T11:23:48.757Z"
+      }
+    },
+    {
+      "name": "run-05__delayed_payload_and_timing_exact",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "payload_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "initial_hash": "14b653829ec5cd14fd4bf6b5d96ee25cd17878de25c3520ddf86361c07d5bfda",
+        "terminal": "2026-10-17T11:23:48.925Z",
+        "replay": "2026-10-17T11:23:48.931Z"
+      }
+    },
+    {
+      "name": "run-05__delayed_replay_cross_backend",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "initial": "http://127.0.0.1:3202",
+        "replay": "http://127.0.0.1:3203"
+      }
+    },
+    {
+      "name": "run-05__delayed_replay_http_header_response",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "stored_equal": true
+      }
+    },
+    {
+      "name": "run-05__delayed_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-05__cross_user_http_202_no_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "headers": [
+          null,
+          null
+        ]
+      }
+    },
+    {
+      "name": "run-05__cross_user_side_effects_2",
+      "passed": true,
+      "expected": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      },
+      "actual": {
+        "bets": 2,
+        "idempotency": 2,
+        "mock_ft_bet": 2,
+        "charge_transactions": 2
+      }
+    },
+    {
+      "name": "run-05__cross_user_isolated_by_user",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "alpha": 1,
+        "beta": 1
+      }
+    },
+    {
+      "name": "run-05__changed_payload_409_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 409,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 409,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "run-05__migration_constraint_and_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "runs": [
+          {
+            "run": 1,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:46.805Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          },
+          {
+            "run": 2,
+            "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+            "started_at_utc": "2026-10-17T11:23:46.807Z",
+            "exit": 0,
+            "rows_before": 0,
+            "rows_after": 0
+          }
+        ],
+        "constraints": [
+          {
+            "constraint_name": "2200_56919_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-05__mock_log_ft_bet_3_all_local",
+      "passed": true,
+      "expected": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "count": 3,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "run-05__direct_connected_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase4b_20261017192251_39436_5",
+      "actual": "hgzuqiu_phase4b_20261017192251_39436_5"
+    },
+    {
+      "name": "run-05__direct_db_3_confirmed_bets",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "alpha": 2,
+        "beta": 1,
+        "statuses": [
+          "confirmed",
+          "confirmed",
+          "confirmed"
+        ]
+      }
+    },
+    {
+      "name": "run-05__direct_db_3_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      },
+      "actual": {
+        "total": 3,
+        "statuses": [
+          "created",
+          "created",
+          "created"
+        ]
+      }
+    },
+    {
+      "name": "run-05__direct_db_3_charges_unique_ids",
+      "passed": true,
+      "expected": {
+        "charges": 3,
+        "official_ids": 3
+      },
+      "actual": {
+        "charges": 3,
+        "charge_transaction_ids": 3,
+        "official_ids": 3,
+        "unique_official_ids": 3
+      }
+    },
+    {
+      "name": "run-05__direct_db_no_duplicate_user_key",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-05__direct_unique_constraint_index",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "constraints": [
+          {
+            "constraint_name": "2200_56919_1_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_2_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_3_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_4_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "2200_56919_5_not_null",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_pkey",
+            "constraint_type": "PRIMARY KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_requests_user_id_fkey",
+            "constraint_type": "FOREIGN KEY"
+          },
+          {
+            "constraint_name": "bet_idempotency_status_check",
+            "constraint_type": "CHECK"
+          },
+          {
+            "constraint_name": "uq_bet_idempotency_user_key",
+            "constraint_type": "UNIQUE"
+          }
+        ],
+        "indexes": [
+          {
+            "indexname": "bet_idempotency_requests_pkey",
+            "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_status",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+          },
+          {
+            "indexname": "idx_bet_idempotency_user_created",
+            "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+          },
+          {
+            "indexname": "uq_bet_idempotency_user_key",
+            "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+          }
+        ]
+      }
+    },
+    {
+      "name": "run-05__direct_transaction_ids_unique",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "unique": 5
+      }
+    },
+    {
+      "name": "run-05__direct_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "run-05__direct_bets_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-05__direct_idempotency_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 3,
+        "main": 3
+      }
+    },
+    {
+      "name": "run-05__direct_transactions_match_main_evidence",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "direct": 5,
+        "main": 5
+      }
+    },
+    {
+      "name": "all_target_ports_currently_down",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "postcheck_secret_scan_clean",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "postcheck_evidence_contains_only_loopback_urls",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "postcheck_connected_five_distinct_databases",
+      "passed": true,
+      "expected": 5,
+      "actual": {
+        "count": 5,
+        "distinct": 5
+      }
+    }
+  ],
+  "success": true,
+  "checked_at_utc": "2026-10-17T11:25:54.395Z",
+  "checked_at_beijing": "2026-10-17 19:25:54 +08:00",
+  "summary": {
+    "main_assertions": {
+      "passed": 317,
+      "failed": 0,
+      "total": 317
+    },
+    "postcheck_assertions": {
+      "passed": 208,
+      "failed": 0,
+      "total": 208
+    },
+    "cycles": [
+      {
+        "cycle_index": 1,
+        "label": "run-01",
+        "database": "hgzuqiu_phase4b_20261017192251_39436_1",
+        "pids": [
+          23100,
+          41156
+        ],
+        "ports": [
+          3202,
+          3203
+        ],
+        "direct_counts": {
+          "bets": 3,
+          "confirmed_bets": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        }
+      },
+      {
+        "cycle_index": 2,
+        "label": "run-02",
+        "database": "hgzuqiu_phase4b_20261017192251_39436_2",
+        "pids": [
+          28416,
+          14492
+        ],
+        "ports": [
+          3202,
+          3203
+        ],
+        "direct_counts": {
+          "bets": 3,
+          "confirmed_bets": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        }
+      },
+      {
+        "cycle_index": 3,
+        "label": "run-03",
+        "database": "hgzuqiu_phase4b_20261017192251_39436_3",
+        "pids": [
+          24080,
+          23672
+        ],
+        "ports": [
+          3202,
+          3203
+        ],
+        "direct_counts": {
+          "bets": 3,
+          "confirmed_bets": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        }
+      },
+      {
+        "cycle_index": 4,
+        "label": "run-04",
+        "database": "hgzuqiu_phase4b_20261017192251_39436_4",
+        "pids": [
+          9716,
+          35424
+        ],
+        "ports": [
+          3202,
+          3203
+        ],
+        "direct_counts": {
+          "bets": 3,
+          "confirmed_bets": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        }
+      },
+      {
+        "cycle_index": 5,
+        "label": "run-05",
+        "database": "hgzuqiu_phase4b_20261017192251_39436_5",
+        "pids": [
+          34136,
+          31956
+        ],
+        "ports": [
+          3202,
+          3203
+        ],
+        "direct_counts": {
+          "bets": 3,
+          "confirmed_bets": 3,
+          "idempotency_rows": 3,
+          "mock_ft_bet": 3,
+          "charge_transactions": 3,
+          "integrity_issues": 0
+        }
+      }
+    ],
+    "distinct_databases": 5,
+    "current_ports": [],
+    "secret_scan_findings": 0,
+    "non_loopback_url_findings": 0
+  }
+}

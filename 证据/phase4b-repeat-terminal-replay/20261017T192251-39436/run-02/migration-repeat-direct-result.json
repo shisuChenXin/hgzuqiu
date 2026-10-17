@@ -1,0 +1,76 @@
+{
+  "runs": [
+    {
+      "run": 1,
+      "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+      "started_at_utc": "2026-10-17T11:23:12.002Z",
+      "exit": 0,
+      "rows_before": 0,
+      "rows_after": 0
+    },
+    {
+      "run": 2,
+      "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+      "started_at_utc": "2026-10-17T11:23:12.005Z",
+      "exit": 0,
+      "rows_before": 0,
+      "rows_after": 0
+    }
+  ],
+  "constraints": [
+    {
+      "constraint_name": "2200_55707_1_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "2200_55707_2_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "2200_55707_3_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "2200_55707_4_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "2200_55707_5_not_null",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "bet_idempotency_requests_pkey",
+      "constraint_type": "PRIMARY KEY"
+    },
+    {
+      "constraint_name": "bet_idempotency_requests_user_id_fkey",
+      "constraint_type": "FOREIGN KEY"
+    },
+    {
+      "constraint_name": "bet_idempotency_status_check",
+      "constraint_type": "CHECK"
+    },
+    {
+      "constraint_name": "uq_bet_idempotency_user_key",
+      "constraint_type": "UNIQUE"
+    }
+  ],
+  "indexes": [
+    {
+      "indexname": "bet_idempotency_requests_pkey",
+      "indexdef": "CREATE UNIQUE INDEX bet_idempotency_requests_pkey ON public.bet_idempotency_requests USING btree (id)"
+    },
+    {
+      "indexname": "idx_bet_idempotency_status",
+      "indexdef": "CREATE INDEX idx_bet_idempotency_status ON public.bet_idempotency_requests USING btree (status)"
+    },
+    {
+      "indexname": "idx_bet_idempotency_user_created",
+      "indexdef": "CREATE INDEX idx_bet_idempotency_user_created ON public.bet_idempotency_requests USING btree (user_id, created_at DESC)"
+    },
+    {
+      "indexname": "uq_bet_idempotency_user_key",
+      "indexdef": "CREATE UNIQUE INDEX uq_bet_idempotency_user_key ON public.bet_idempotency_requests USING btree (user_id, idempotency_key)"
+    }
+  ]
+}
