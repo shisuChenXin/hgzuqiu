@@ -25,6 +25,12 @@ import { getCrownAutomation } from './services/crown-automation';
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+// Optional comma-separated override for isolated local verification environments.
+const corsOrigins = String(process.env.CORS_ALLOWED_ORIGINS || '')
+  .split(',')
+  .map(value => value.trim())
+  .filter(Boolean);
+
 // API 返回数据不走 ETag 缓存（浏览器可能发起 304，axios 会当成错误导致前端“没数据”）
 app.set('etag', false);
 
@@ -40,7 +46,7 @@ app.use(cors({
             'http://localhost:10088',
             'http://localhost:10089',
             'http://127.0.0.1:10087'
-        ],
+        ].concat(corsOrigins),
     credentials: true
 }));
 
