@@ -1,0 +1,16 @@
+{
+  "database": "bclogin_system",
+  "snapshot": {
+    "users_count": "1",
+    "crown_accounts_count": "1",
+    "matches_count": "1",
+    "bets_count": "1",
+    "coin_transactions_count": "0",
+    "max_users_id": 1,
+    "max_crown_accounts_id": 1,
+    "max_matches_id": 3,
+    "max_bets_id": 1,
+    "max_coin_transactions_id": 0
+  },
+  "sha256": "a206f33917291d772ecdb1ae22ce9768f6b73d99ae146c7fd3fc8cbde9d5d3ac"
+}

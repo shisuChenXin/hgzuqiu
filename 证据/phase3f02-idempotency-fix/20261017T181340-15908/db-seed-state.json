@@ -1,0 +1,322 @@
+{
+  "checked_at_utc": "2026-10-17T10:14:13.869Z",
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    {
+      "id": 2,
+      "username": "phase3f02-primary-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    {
+      "id": 3,
+      "username": "phase3f02-concurrent-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    {
+      "id": 4,
+      "username": "phase3f02-earlyfail-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "group_id": 2,
+      "username": "phase3f02-primary-admin-crown-1",
+      "original_username": "AAAA-PRIMARY",
+      "initialized_username": "AAAA-PRIMARY",
+      "line_key": "AAAA",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "group_id": 2,
+      "username": "phase3f02-primary-admin-crown-2",
+      "original_username": "BBBB-PRIMARY",
+      "initialized_username": "BBBB-PRIMARY",
+      "line_key": "BBBB",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "group_id": 2,
+      "username": "phase3f02-primary-admin-crown-3",
+      "original_username": "CCCC-PRIMARY",
+      "initialized_username": "CCCC-PRIMARY",
+      "line_key": "CCCC",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "user_id": 2,
+      "group_id": 2,
+      "username": "phase3f02-primary-admin-crown-4",
+      "original_username": "EEEE-PRIMARY",
+      "initialized_username": "EEEE-PRIMARY",
+      "line_key": "EEEE",
+      "discount": "0.80",
+      "credit": "50.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "user_id": 2,
+      "group_id": 2,
+      "username": "phase3f02-primary-admin-crown-5",
+      "original_username": "FFFF-PRIMARY",
+      "initialized_username": "FFFF-PRIMARY",
+      "line_key": "FFFF",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "group_id": 3,
+      "username": "phase3f02-concurrent-admin-crown-1",
+      "original_username": "GGGG-CONCURRENT",
+      "initialized_username": "GGGG-CONCURRENT",
+      "line_key": "GGGG",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    },
+    {
+      "id": 7,
+      "user_id": 4,
+      "group_id": 4,
+      "username": "phase3f02-earlyfail-admin-crown-1",
+      "original_username": "HHHH-EARLYFAILURE",
+      "initialized_username": "HHHH-EARLYFAILURE",
+      "line_key": "HHHH",
+      "discount": "0.80",
+      "credit": "100000.00",
+      "is_enabled": true,
+      "is_online": true,
+      "status": "active"
+    }
+  ],
+  "matches": [
+    {
+      "id": 930001,
+      "match_id": "930001",
+      "league_name": "Phase3F02 Legacy League",
+      "home_team": "Phase3F02 Legacy Home",
+      "away_team": "Phase3F02 Legacy Away",
+      "status": "live"
+    },
+    {
+      "id": 930002,
+      "match_id": "930002",
+      "league_name": "Phase3F02 Key League",
+      "home_team": "Phase3F02 Key Home",
+      "away_team": "Phase3F02 Key Away",
+      "status": "live"
+    },
+    {
+      "id": 930003,
+      "match_id": "930003",
+      "league_name": "Phase3F02 Payload League",
+      "home_team": "Phase3F02 Payload Home",
+      "away_team": "Phase3F02 Payload Away",
+      "status": "live"
+    },
+    {
+      "id": 930004,
+      "match_id": "930004",
+      "league_name": "Phase3F02 Cancelled League",
+      "home_team": "Phase3F02 Cancelled Home",
+      "away_team": "Phase3F02 Cancelled Away",
+      "status": "live"
+    },
+    {
+      "id": 930005,
+      "match_id": "930005",
+      "league_name": "Phase3F02 Dry League",
+      "home_team": "Phase3F02 Dry Home",
+      "away_team": "Phase3F02 Dry Away",
+      "status": "live"
+    },
+    {
+      "id": 930006,
+      "match_id": "930006",
+      "league_name": "Phase3F02 Header League",
+      "home_team": "Phase3F02 Header Home",
+      "away_team": "Phase3F02 Header Away",
+      "status": "live"
+    },
+    {
+      "id": 930007,
+      "match_id": "930007",
+      "league_name": "Phase3F02 Failure League",
+      "home_team": "Phase3F02 Failure Home",
+      "away_team": "Phase3F02 Failure Away",
+      "status": "live"
+    },
+    {
+      "id": 931000,
+      "match_id": "931000",
+      "league_name": "Phase3F02 Concurrent League 1",
+      "home_team": "Phase3F02 Concurrent Home 1",
+      "away_team": "Phase3F02 Concurrent Away 1",
+      "status": "live"
+    },
+    {
+      "id": 931001,
+      "match_id": "931001",
+      "league_name": "Phase3F02 Concurrent League 2",
+      "home_team": "Phase3F02 Concurrent Home 2",
+      "away_team": "Phase3F02 Concurrent Away 2",
+      "status": "live"
+    },
+    {
+      "id": 931002,
+      "match_id": "931002",
+      "league_name": "Phase3F02 Concurrent League 3",
+      "home_team": "Phase3F02 Concurrent Home 3",
+      "away_team": "Phase3F02 Concurrent Away 3",
+      "status": "live"
+    },
+    {
+      "id": 931003,
+      "match_id": "931003",
+      "league_name": "Phase3F02 Concurrent League 4",
+      "home_team": "Phase3F02 Concurrent Home 4",
+      "away_team": "Phase3F02 Concurrent Away 4",
+      "status": "live"
+    },
+    {
+      "id": 931004,
+      "match_id": "931004",
+      "league_name": "Phase3F02 Concurrent League 5",
+      "home_team": "Phase3F02 Concurrent Home 5",
+      "away_team": "Phase3F02 Concurrent Away 5",
+      "status": "live"
+    },
+    {
+      "id": 931005,
+      "match_id": "931005",
+      "league_name": "Phase3F02 Concurrent League 6",
+      "home_team": "Phase3F02 Concurrent Home 6",
+      "away_team": "Phase3F02 Concurrent Away 6",
+      "status": "live"
+    },
+    {
+      "id": 931006,
+      "match_id": "931006",
+      "league_name": "Phase3F02 Concurrent League 7",
+      "home_team": "Phase3F02 Concurrent Home 7",
+      "away_team": "Phase3F02 Concurrent Away 7",
+      "status": "live"
+    },
+    {
+      "id": 931007,
+      "match_id": "931007",
+      "league_name": "Phase3F02 Concurrent League 8",
+      "home_team": "Phase3F02 Concurrent Home 8",
+      "away_team": "Phase3F02 Concurrent Away 8",
+      "status": "live"
+    },
+    {
+      "id": 931008,
+      "match_id": "931008",
+      "league_name": "Phase3F02 Concurrent League 9",
+      "home_team": "Phase3F02 Concurrent Home 9",
+      "away_team": "Phase3F02 Concurrent Away 9",
+      "status": "live"
+    },
+    {
+      "id": 931009,
+      "match_id": "931009",
+      "league_name": "Phase3F02 Concurrent League 10",
+      "home_team": "Phase3F02 Concurrent Home 10",
+      "away_team": "Phase3F02 Concurrent Away 10",
+      "status": "live"
+    }
+  ],
+  "mapping": [
+    {
+      "id": 1,
+      "whitelabel_id": 1,
+      "mapping_mode": "identity",
+      "enabled": false,
+      "version": 1,
+      "updated_at": "2026-10-17T10:14:12.741Z"
+    }
+  ],
+  "bets": [],
+  "transactions": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "user_username": "phase3f02-primary-admin",
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE3F02-SEED-PRIMARY",
+      "transaction_type": "充值",
+      "description": "Phase3F02 isolated seed",
+      "amount": "20000.00",
+      "balance_before": "0.00",
+      "balance_after": "20000.00",
+      "created_at": "2026-10-17T10:14:13.692Z"
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "user_username": "phase3f02-concurrent-admin",
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE3F02-SEED-CONCURRENT",
+      "transaction_type": "充值",
+      "description": "Phase3F02 isolated seed",
+      "amount": "10000.00",
+      "balance_before": "0.00",
+      "balance_after": "10000.00",
+      "created_at": "2026-10-17T10:14:13.692Z"
+    }
+  ],
+  "balances": {
+    "phase3f02-primary-admin": {
+      "balance": "20000.00",
+      "transaction_count": 1
+    },
+    "phase3f02-concurrent-admin": {
+      "balance": "10000.00",
+      "transaction_count": 1
+    },
+    "phase3f02-earlyfail-admin": {
+      "balance": "0",
+      "transaction_count": 0
+    }
+  }
+}

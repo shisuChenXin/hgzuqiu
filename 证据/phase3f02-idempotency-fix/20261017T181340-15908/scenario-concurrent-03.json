@@ -1,0 +1,1045 @@
+{
+  "scenario": "same idempotency_key submitted concurrently twice",
+  "trial_index": 3,
+  "fixture": {
+    "name": "concurrent-3",
+    "id": 931002,
+    "gid": "931002",
+    "league": "Phase3F02 Concurrent League 3",
+    "home": "Phase3F02 Concurrent Home 3",
+    "away": "Phase3F02 Concurrent Away 3"
+  },
+  "account_id": 6,
+  "payload": {
+    "idempotency_key": "phase3f02-concurrent-3",
+    "account_ids": [
+      6
+    ],
+    "match_id": 931002,
+    "bet_type": "角球让球",
+    "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+    "total_amount": 80,
+    "odds": 1.9,
+    "single_limit": "5000",
+    "interval_range": "1-3",
+    "quantity": 1,
+    "min_odds": "1.90",
+    "crown_match_id": "931002",
+    "league_name": "Phase3F02 Concurrent League 3",
+    "home_team": "Phase3F02 Concurrent Home 3",
+    "away_team": "Phase3F02 Concurrent Away 3",
+    "match_time": "2026-10-17T12:13:40.240Z",
+    "match_status": "live",
+    "current_score": "",
+    "match_period": "",
+    "market_category": "handicap",
+    "market_scope": "full",
+    "market_side": "home",
+    "market_line": "1",
+    "market_index": 0,
+    "market_wtype": "CNR",
+    "market_rtype": "CNRH"
+  },
+  "before": {
+    "checked_at_utc": "2026-10-17T10:14:19.101Z",
+    "match_id": 931002,
+    "bets": [],
+    "transactions": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase3f02-primary-admin",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE3F02-SEED-PRIMARY",
+        "transaction_type": "充值",
+        "description": "Phase3F02 isolated seed",
+        "amount": "20000.00",
+        "balance_before": "0.00",
+        "balance_after": "20000.00",
+        "created_at": "2026-10-17T10:14:13.692Z"
+      },
+      {
+        "id": 2,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE3F02-SEED-CONCURRENT",
+        "transaction_type": "充值",
+        "description": "Phase3F02 isolated seed",
+        "amount": "10000.00",
+        "balance_before": "0.00",
+        "balance_after": "10000.00",
+        "created_at": "2026-10-17T10:14:13.692Z"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "user_username": "phase3f02-primary-admin",
+        "account_id": 1,
+        "bet_id": 1,
+        "transaction_id": "BET1792232057123ja3rrqkvi",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Legacy Home (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "20000.00",
+        "balance_after": "19920.00",
+        "created_at": "2026-10-17T10:14:17.124Z"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": 6,
+        "bet_id": 2,
+        "transaction_id": "BET17922320579941ud1q2f0u",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "10000.00",
+        "balance_after": "9920.00",
+        "created_at": "2026-10-17T10:14:17.995Z"
+      },
+      {
+        "id": 5,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": 6,
+        "bet_id": 3,
+        "transaction_id": "BET17922320588358c3dvkz7n",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "9920.00",
+        "balance_after": "9840.00",
+        "created_at": "2026-10-17T10:14:18.836Z"
+      }
+    ],
+    "mock_ft_bet_events": [
+      {
+        "at": "2026-10-17T10:14:16.608Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "930001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232056606",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-001",
+        "response_status": 200
+      },
+      {
+        "at": "2026-10-17T10:14:17.485Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "931000",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232057483",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-002",
+        "response_status": 200
+      },
+      {
+        "at": "2026-10-17T10:14:18.315Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "931001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232058314",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-003",
+        "response_status": 200
+      }
+    ],
+    "idempotency_rows": [
+      {
+        "id": "1",
+        "user_id": 3,
+        "idempotency_key": "phase3f02-concurrent-1",
+        "request_hash": "36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409",
+        "status": "created",
+        "bet_ids": [
+          2
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              2
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T10:14:17.443Z",
+        "updated_at": "2026-10-17T10:14:17.460Z"
+      },
+      {
+        "id": "3",
+        "user_id": 3,
+        "idempotency_key": "phase3f02-concurrent-2",
+        "request_hash": "1a752b2346fb0b8f224649570ee90bbff496b1acb13a1933bcc8e7c6876679e4",
+        "status": "created",
+        "bet_ids": [
+          3
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              3
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T10:14:18.286Z",
+        "updated_at": "2026-10-17T10:14:18.301Z"
+      }
+    ]
+  },
+  "requests": [
+    {
+      "label": "concurrent 3 A",
+      "method": "POST",
+      "url": "http://127.0.0.1:3202/api/bets",
+      "request_headers": {
+        "content_type": "application/json",
+        "authorization": "<redacted>",
+        "idempotency_key": null
+      },
+      "request_body": {
+        "idempotency_key": "phase3f02-concurrent-3",
+        "account_ids": [
+          6
+        ],
+        "match_id": 931002,
+        "bet_type": "角球让球",
+        "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+        "total_amount": 80,
+        "odds": 1.9,
+        "single_limit": "5000",
+        "interval_range": "1-3",
+        "quantity": 1,
+        "min_odds": "1.90",
+        "crown_match_id": "931002",
+        "league_name": "Phase3F02 Concurrent League 3",
+        "home_team": "Phase3F02 Concurrent Home 3",
+        "away_team": "Phase3F02 Concurrent Away 3",
+        "match_time": "2026-10-17T12:13:40.240Z",
+        "match_status": "live",
+        "current_score": "",
+        "match_period": "",
+        "market_category": "handicap",
+        "market_scope": "full",
+        "market_side": "home",
+        "market_line": "1",
+        "market_index": 0,
+        "market_wtype": "CNR",
+        "market_rtype": "CNRH"
+      },
+      "response_status": 202,
+      "response_ok": true,
+      "response_headers": {
+        "idempotency_replayed": null,
+        "content_type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "success": true,
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "processing": 1,
+          "cancelled": 0,
+          "bet_ids": [
+            4
+          ],
+          "selection_mapping": {
+            "whitelabel_id": 1,
+            "mapping_mode": "identity",
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "mapping_applied": false,
+            "displayed_market_side": "home",
+            "executed_market_side": "home",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_chose_team": null,
+            "executed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。"
+      },
+      "started_at_utc": "2026-10-17T10:14:19.105Z",
+      "ended_at_utc": "2026-10-17T10:14:19.136Z",
+      "duration_ms": 31,
+      "transport_error": null
+    },
+    {
+      "label": "concurrent 3 B",
+      "method": "POST",
+      "url": "http://127.0.0.1:3202/api/bets",
+      "request_headers": {
+        "content_type": "application/json",
+        "authorization": "<redacted>",
+        "idempotency_key": null
+      },
+      "request_body": {
+        "idempotency_key": "phase3f02-concurrent-3",
+        "account_ids": [
+          6
+        ],
+        "match_id": 931002,
+        "bet_type": "角球让球",
+        "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+        "total_amount": 80,
+        "odds": 1.9,
+        "single_limit": "5000",
+        "interval_range": "1-3",
+        "quantity": 1,
+        "min_odds": "1.90",
+        "crown_match_id": "931002",
+        "league_name": "Phase3F02 Concurrent League 3",
+        "home_team": "Phase3F02 Concurrent Home 3",
+        "away_team": "Phase3F02 Concurrent Away 3",
+        "match_time": "2026-10-17T12:13:40.240Z",
+        "match_status": "live",
+        "current_score": "",
+        "match_period": "",
+        "market_category": "handicap",
+        "market_scope": "full",
+        "market_side": "home",
+        "market_line": "1",
+        "market_index": 0,
+        "market_wtype": "CNR",
+        "market_rtype": "CNRH"
+      },
+      "response_status": 202,
+      "response_ok": true,
+      "response_headers": {
+        "idempotency_replayed": "true",
+        "content_type": "application/json; charset=utf-8"
+      },
+      "response_body": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            4
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "started_at_utc": "2026-10-17T10:14:19.105Z",
+      "ended_at_utc": "2026-10-17T10:14:19.173Z",
+      "duration_ms": 68,
+      "transport_error": null
+    }
+  ],
+  "request_timing": {
+    "left_window": {
+      "start_utc": "2026-10-17T10:14:19.105Z",
+      "end_utc": "2026-10-17T10:14:19.136Z",
+      "duration_ms": 31
+    },
+    "right_window": {
+      "start_utc": "2026-10-17T10:14:19.105Z",
+      "end_utc": "2026-10-17T10:14:19.173Z",
+      "duration_ms": 68
+    },
+    "start_delta_ms": 0,
+    "client_observed_overlap": true,
+    "overlap_ms": 31
+  },
+  "request_statuses": [
+    202,
+    202
+  ],
+  "response_bodies_canonically_equal": true,
+  "replay_header_counts": {
+    "first": null,
+    "second": "true"
+  },
+  "request_bet_ids": [
+    4,
+    4
+  ],
+  "unique_request_bet_ids": [
+    4
+  ],
+  "terminal_bets": [
+    {
+      "id": 4,
+      "user_id": 3,
+      "account_id": 6,
+      "account_username": "phase3f02-concurrent-admin-crown-1",
+      "original_username": "GGGG-CONCURRENT",
+      "line_key": "GGGG",
+      "match_id": 931002,
+      "bet_type": "角球让球",
+      "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE3F02-004",
+      "displayed_market_side": "home",
+      "executed_market_side": "home",
+      "displayed_market_rtype": "CNRH",
+      "executed_market_rtype": "CNRH",
+      "mapping_mode": "identity",
+      "mapping_version": 1,
+      "mapping_applied": false,
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T10:14:19.130Z",
+      "confirmed_at": "2026-10-17T10:14:19.647Z",
+      "updated_at": "2026-10-17T10:14:19.647Z"
+    }
+  ],
+  "database_bets_after_http": [
+    {
+      "id": 4,
+      "user_id": 3,
+      "account_id": 6,
+      "account_username": "phase3f02-concurrent-admin-crown-1",
+      "original_username": "GGGG-CONCURRENT",
+      "line_key": "GGGG",
+      "match_id": 931002,
+      "bet_type": "角球让球",
+      "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE3F02-004",
+      "displayed_market_side": "home",
+      "executed_market_side": "home",
+      "displayed_market_rtype": "CNRH",
+      "executed_market_rtype": "CNRH",
+      "mapping_mode": "identity",
+      "mapping_version": 1,
+      "mapping_applied": false,
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T10:14:19.130Z",
+      "confirmed_at": "2026-10-17T10:14:19.647Z",
+      "updated_at": "2026-10-17T10:14:19.647Z"
+    }
+  ],
+  "after": {
+    "checked_at_utc": "2026-10-17T10:14:19.920Z",
+    "match_id": 931002,
+    "bets": [
+      {
+        "id": 4,
+        "user_id": 3,
+        "account_id": 6,
+        "account_username": "phase3f02-concurrent-admin-crown-1",
+        "original_username": "GGGG-CONCURRENT",
+        "line_key": "GGGG",
+        "match_id": 931002,
+        "bet_type": "角球让球",
+        "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+        "status": "confirmed",
+        "error_message": null,
+        "official_bet_id": "PHASE3F02-004",
+        "displayed_market_side": "home",
+        "executed_market_side": "home",
+        "displayed_market_rtype": "CNRH",
+        "executed_market_rtype": "CNRH",
+        "mapping_mode": "identity",
+        "mapping_version": 1,
+        "mapping_applied": false,
+        "bet_amount": "80.00",
+        "virtual_bet_amount": "100.00",
+        "created_at": "2026-10-17T10:14:19.130Z",
+        "confirmed_at": "2026-10-17T10:14:19.647Z",
+        "updated_at": "2026-10-17T10:14:19.647Z"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase3f02-primary-admin",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE3F02-SEED-PRIMARY",
+        "transaction_type": "充值",
+        "description": "Phase3F02 isolated seed",
+        "amount": "20000.00",
+        "balance_before": "0.00",
+        "balance_after": "20000.00",
+        "created_at": "2026-10-17T10:14:13.692Z"
+      },
+      {
+        "id": 2,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE3F02-SEED-CONCURRENT",
+        "transaction_type": "充值",
+        "description": "Phase3F02 isolated seed",
+        "amount": "10000.00",
+        "balance_before": "0.00",
+        "balance_after": "10000.00",
+        "created_at": "2026-10-17T10:14:13.692Z"
+      },
+      {
+        "id": 3,
+        "user_id": 2,
+        "user_username": "phase3f02-primary-admin",
+        "account_id": 1,
+        "bet_id": 1,
+        "transaction_id": "BET1792232057123ja3rrqkvi",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Legacy Home (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "20000.00",
+        "balance_after": "19920.00",
+        "created_at": "2026-10-17T10:14:17.124Z"
+      },
+      {
+        "id": 4,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": 6,
+        "bet_id": 2,
+        "transaction_id": "BET17922320579941ud1q2f0u",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "10000.00",
+        "balance_after": "9920.00",
+        "created_at": "2026-10-17T10:14:17.995Z"
+      },
+      {
+        "id": 5,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": 6,
+        "bet_id": 3,
+        "transaction_id": "BET17922320588358c3dvkz7n",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "9920.00",
+        "balance_after": "9840.00",
+        "created_at": "2026-10-17T10:14:18.836Z"
+      },
+      {
+        "id": 6,
+        "user_id": 3,
+        "user_username": "phase3f02-concurrent-admin",
+        "account_id": 6,
+        "bet_id": 4,
+        "transaction_id": "BET1792232059648h5dybcj0l",
+        "transaction_type": "消耗",
+        "description": "下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+        "amount": "-80.00",
+        "balance_before": "9840.00",
+        "balance_after": "9760.00",
+        "created_at": "2026-10-17T10:14:19.649Z"
+      }
+    ],
+    "mock_ft_bet_events": [
+      {
+        "at": "2026-10-17T10:14:16.608Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "930001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232056606",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-001",
+        "response_status": 200
+      },
+      {
+        "at": "2026-10-17T10:14:17.485Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "931000",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232057483",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-002",
+        "response_status": 200
+      },
+      {
+        "at": "2026-10-17T10:14:18.315Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "931001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232058314",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-003",
+        "response_status": 200
+      },
+      {
+        "at": "2026-10-17T10:14:19.141Z",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase2-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "931002",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792232059140",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE3F02-004",
+        "response_status": 200
+      }
+    ],
+    "idempotency_rows": [
+      {
+        "id": "1",
+        "user_id": 3,
+        "idempotency_key": "phase3f02-concurrent-1",
+        "request_hash": "36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409",
+        "status": "created",
+        "bet_ids": [
+          2
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              2
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T10:14:17.443Z",
+        "updated_at": "2026-10-17T10:14:17.460Z"
+      },
+      {
+        "id": "3",
+        "user_id": 3,
+        "idempotency_key": "phase3f02-concurrent-2",
+        "request_hash": "1a752b2346fb0b8f224649570ee90bbff496b1acb13a1933bcc8e7c6876679e4",
+        "status": "created",
+        "bet_ids": [
+          3
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              3
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T10:14:18.286Z",
+        "updated_at": "2026-10-17T10:14:18.301Z"
+      },
+      {
+        "id": "5",
+        "user_id": 3,
+        "idempotency_key": "phase3f02-concurrent-3",
+        "request_hash": "a44e4b85f5b8c664f5af7d0430fd4bed8cb80d7f60fa772d7212acb992243bf3",
+        "status": "created",
+        "bet_ids": [
+          4
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              4
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T10:14:19.117Z",
+        "updated_at": "2026-10-17T10:14:19.130Z"
+      }
+    ]
+  },
+  "created_counts": {
+    "bets": 1,
+    "ft_bet": 1,
+    "transactions": 1,
+    "idempotency": 1
+  },
+  "idempotency_rows_for_match_user": [
+    {
+      "id": "1",
+      "user_id": 3,
+      "idempotency_key": "phase3f02-concurrent-1",
+      "request_hash": "36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409",
+      "status": "created",
+      "bet_ids": [
+        2
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            2
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T10:14:17.443Z",
+      "updated_at": "2026-10-17T10:14:17.460Z"
+    },
+    {
+      "id": "3",
+      "user_id": 3,
+      "idempotency_key": "phase3f02-concurrent-2",
+      "request_hash": "1a752b2346fb0b8f224649570ee90bbff496b1acb13a1933bcc8e7c6876679e4",
+      "status": "created",
+      "bet_ids": [
+        3
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            3
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T10:14:18.286Z",
+      "updated_at": "2026-10-17T10:14:18.301Z"
+    },
+    {
+      "id": "5",
+      "user_id": 3,
+      "idempotency_key": "phase3f02-concurrent-3",
+      "request_hash": "a44e4b85f5b8c664f5af7d0430fd4bed8cb80d7f60fa772d7212acb992243bf3",
+      "status": "created",
+      "bet_ids": [
+        4
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            4
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T10:14:19.117Z",
+      "updated_at": "2026-10-17T10:14:19.130Z"
+    }
+  ]
+}

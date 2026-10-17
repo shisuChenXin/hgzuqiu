@@ -1,0 +1,38 @@
+{
+  "scanned_root": "证据\\phase3f02-idempotency-fix\\20261017T181340-15908",
+  "non_loopback_urls": [
+    {
+      "file": "backend-log.txt",
+      "url": "https://dotenvx.com/precommit"
+    },
+    {
+      "file": "backend-log.txt",
+      "url": "https://dotenvx.com"
+    },
+    {
+      "file": "frontend-build-result.txt",
+      "url": "https://rollupjs.org/configuration-options/#output-manualchunks"
+    }
+  ],
+  "allowed_static_banner_urls": [
+    {
+      "file": "backend-log.txt",
+      "url": "https://dotenvx.com/precommit"
+    },
+    {
+      "file": "backend-log.txt",
+      "url": "https://dotenvx.com"
+    },
+    {
+      "file": "frontend-build-result.txt",
+      "url": "https://rollupjs.org/configuration-options/#output-manualchunks"
+    }
+  ],
+  "unallowed_non_loopback_urls": [],
+  "allowed_hosts": [
+    "127.0.0.1",
+    "localhost",
+    "::1"
+  ],
+  "classification_note": "dotenvx URLs and the Rollup manualChunks documentation URL are static build/tooling stdout text, not outbound requests in this run. Raw logs are not rewritten."
+}

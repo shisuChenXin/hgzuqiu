@@ -1,0 +1,247 @@
+{
+  "database": "hgzuqiu_phase3f02_20261017181340_15908",
+  "primary": {
+    "key": "primary",
+    "user": {
+      "id": 2,
+      "username": "phase3f02-primary-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    "group": {
+      "id": 2,
+      "name": "phase3f02-primary-admin group"
+    },
+    "accounts": [
+      {
+        "id": 1,
+        "username": "phase3f02-primary-admin-crown-1",
+        "original_username": "AAAA-PRIMARY",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      },
+      {
+        "id": 2,
+        "username": "phase3f02-primary-admin-crown-2",
+        "original_username": "BBBB-PRIMARY",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      },
+      {
+        "id": 3,
+        "username": "phase3f02-primary-admin-crown-3",
+        "original_username": "CCCC-PRIMARY",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      },
+      {
+        "id": 4,
+        "username": "phase3f02-primary-admin-crown-4",
+        "original_username": "EEEE-PRIMARY",
+        "discount": "0.80",
+        "credit": "50.00",
+        "is_online": true
+      },
+      {
+        "id": 5,
+        "username": "phase3f02-primary-admin-crown-5",
+        "original_username": "FFFF-PRIMARY",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      }
+    ]
+  },
+  "concurrent": {
+    "key": "concurrent",
+    "user": {
+      "id": 3,
+      "username": "phase3f02-concurrent-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    "group": {
+      "id": 3,
+      "name": "phase3f02-concurrent-admin group"
+    },
+    "accounts": [
+      {
+        "id": 6,
+        "username": "phase3f02-concurrent-admin-crown-1",
+        "original_username": "GGGG-CONCURRENT",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      }
+    ]
+  },
+  "early_failure": {
+    "key": "earlyfailure",
+    "user": {
+      "id": 4,
+      "username": "phase3f02-earlyfail-admin",
+      "role": "admin",
+      "whitelabel_id": 1
+    },
+    "group": {
+      "id": 4,
+      "name": "phase3f02-earlyfail-admin group"
+    },
+    "accounts": [
+      {
+        "id": 7,
+        "username": "phase3f02-earlyfail-admin-crown-1",
+        "original_username": "HHHH-EARLYFAILURE",
+        "discount": "0.80",
+        "credit": "100000.00",
+        "is_online": true
+      }
+    ]
+  },
+  "fixtures": [
+    {
+      "name": "legacy-no-key",
+      "id": 930001,
+      "gid": "930001",
+      "league": "Phase3F02 Legacy League",
+      "home": "Phase3F02 Legacy Home",
+      "away": "Phase3F02 Legacy Away"
+    },
+    {
+      "name": "different-key",
+      "id": 930002,
+      "gid": "930002",
+      "league": "Phase3F02 Key League",
+      "home": "Phase3F02 Key Home",
+      "away": "Phase3F02 Key Away"
+    },
+    {
+      "name": "different-payload",
+      "id": 930003,
+      "gid": "930003",
+      "league": "Phase3F02 Payload League",
+      "home": "Phase3F02 Payload Home",
+      "away": "Phase3F02 Payload Away"
+    },
+    {
+      "name": "pre-cancelled",
+      "id": 930004,
+      "gid": "930004",
+      "league": "Phase3F02 Cancelled League",
+      "home": "Phase3F02 Cancelled Home",
+      "away": "Phase3F02 Cancelled Away"
+    },
+    {
+      "name": "dry-run",
+      "id": 930005,
+      "gid": "930005",
+      "league": "Phase3F02 Dry League",
+      "home": "Phase3F02 Dry Home",
+      "away": "Phase3F02 Dry Away"
+    },
+    {
+      "name": "header-body",
+      "id": 930006,
+      "gid": "930006",
+      "league": "Phase3F02 Header League",
+      "home": "Phase3F02 Header Home",
+      "away": "Phase3F02 Header Away"
+    },
+    {
+      "name": "early-failure",
+      "id": 930007,
+      "gid": "930007",
+      "league": "Phase3F02 Failure League",
+      "home": "Phase3F02 Failure Home",
+      "away": "Phase3F02 Failure Away"
+    },
+    {
+      "name": "concurrent-1",
+      "id": 931000,
+      "gid": "931000",
+      "league": "Phase3F02 Concurrent League 1",
+      "home": "Phase3F02 Concurrent Home 1",
+      "away": "Phase3F02 Concurrent Away 1"
+    },
+    {
+      "name": "concurrent-2",
+      "id": 931001,
+      "gid": "931001",
+      "league": "Phase3F02 Concurrent League 2",
+      "home": "Phase3F02 Concurrent Home 2",
+      "away": "Phase3F02 Concurrent Away 2"
+    },
+    {
+      "name": "concurrent-3",
+      "id": 931002,
+      "gid": "931002",
+      "league": "Phase3F02 Concurrent League 3",
+      "home": "Phase3F02 Concurrent Home 3",
+      "away": "Phase3F02 Concurrent Away 3"
+    },
+    {
+      "name": "concurrent-4",
+      "id": 931003,
+      "gid": "931003",
+      "league": "Phase3F02 Concurrent League 4",
+      "home": "Phase3F02 Concurrent Home 4",
+      "away": "Phase3F02 Concurrent Away 4"
+    },
+    {
+      "name": "concurrent-5",
+      "id": 931004,
+      "gid": "931004",
+      "league": "Phase3F02 Concurrent League 5",
+      "home": "Phase3F02 Concurrent Home 5",
+      "away": "Phase3F02 Concurrent Away 5"
+    },
+    {
+      "name": "concurrent-6",
+      "id": 931005,
+      "gid": "931005",
+      "league": "Phase3F02 Concurrent League 6",
+      "home": "Phase3F02 Concurrent Home 6",
+      "away": "Phase3F02 Concurrent Away 6"
+    },
+    {
+      "name": "concurrent-7",
+      "id": 931006,
+      "gid": "931006",
+      "league": "Phase3F02 Concurrent League 7",
+      "home": "Phase3F02 Concurrent Home 7",
+      "away": "Phase3F02 Concurrent Away 7"
+    },
+    {
+      "name": "concurrent-8",
+      "id": 931007,
+      "gid": "931007",
+      "league": "Phase3F02 Concurrent League 8",
+      "home": "Phase3F02 Concurrent Home 8",
+      "away": "Phase3F02 Concurrent Away 8"
+    },
+    {
+      "name": "concurrent-9",
+      "id": 931008,
+      "gid": "931008",
+      "league": "Phase3F02 Concurrent League 9",
+      "home": "Phase3F02 Concurrent Home 9",
+      "away": "Phase3F02 Concurrent Away 9"
+    },
+    {
+      "name": "concurrent-10",
+      "id": 931009,
+      "gid": "931009",
+      "league": "Phase3F02 Concurrent League 10",
+      "home": "Phase3F02 Concurrent Home 10",
+      "away": "Phase3F02 Concurrent Away 10"
+    }
+  ],
+  "seed_balances": {
+    "primary": 20000,
+    "concurrent": 10000,
+    "early_failure": 0
+  }
+}

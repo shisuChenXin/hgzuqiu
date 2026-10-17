@@ -1,0 +1,1164 @@
+{
+  "run_id": "20261017T181340-15908",
+  "run_started_at_utc": "2026-10-17T10:13:40.119Z",
+  "run_started_at_beijing": "2026-10-17 18:13:40 +08:00",
+  "checked_at_utc": "2026-10-17T10:14:30.740Z",
+  "checked_at_beijing": "2026-10-17 18:14:30 +08:00",
+  "git_commit": "685996effad5b5f3bef8873adacc6fdf7fe22a0f",
+  "database": "hgzuqiu_phase3f02_20261017181340_15908",
+  "urls": {
+    "backend": "http://127.0.0.1:3202",
+    "mock": "http://127.0.0.1:3301"
+  },
+  "evidence_dir": "证据\\phase3f02-idempotency-fix\\20261017T181340-15908",
+  "assertions": [
+    {
+      "name": "target_ports_free_before",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "backend_build_passed",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "frontend_build_passed",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "fresh_database_starts_without_bets",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "fresh_database_starts_without_idempotency_rows",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "migration_repeat_twice_success",
+      "passed": true,
+      "expected": {
+        "runs": 2,
+        "exit": [
+          0,
+          0
+        ],
+        "rows_after": [
+          0,
+          0
+        ]
+      },
+      "actual": [
+        {
+          "run": 1,
+          "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+          "started_at_utc": "2026-10-17T10:14:13.881Z",
+          "exit": 0,
+          "rows_before": 0,
+          "rows_after": 0
+        },
+        {
+          "run": 2,
+          "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+          "started_at_utc": "2026-10-17T10:14:13.885Z",
+          "exit": 0,
+          "rows_before": 0,
+          "rows_after": 0
+        }
+      ]
+    },
+    {
+      "name": "migration_unique_and_status_constraints_exist",
+      "passed": true,
+      "expected": [
+        "uq_bet_idempotency_user_key",
+        "bet_idempotency_status_check"
+      ],
+      "actual": [
+        "2200_48823_1_not_null",
+        "2200_48823_2_not_null",
+        "2200_48823_3_not_null",
+        "2200_48823_4_not_null",
+        "2200_48823_5_not_null",
+        "bet_idempotency_requests_pkey",
+        "bet_idempotency_requests_user_id_fkey",
+        "bet_idempotency_status_check",
+        "uq_bet_idempotency_user_key"
+      ]
+    },
+    {
+      "name": "primary_api_login_success",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "concurrent_api_login_success",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "early_failure_api_login_success",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "legacy_no_key_compatible",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "bets": 1,
+        "ft_bet": 1,
+        "transactions": 1,
+        "idempotency": 0
+      },
+      "actual": {
+        "status": 202,
+        "counts": {
+          "bets": 1,
+          "ft_bet": 1,
+          "transactions": 1,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "concurrent_10_trials_overlap_observed",
+      "passed": true,
+      "expected": 10,
+      "actual": 10
+    },
+    {
+      "name": "concurrent_all_statuses_202_202",
+      "passed": true,
+      "expected": [
+        [
+          202,
+          202
+        ]
+      ],
+      "actual": [
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ]
+      ]
+    },
+    {
+      "name": "concurrent_all_response_bodies_canonically_equal",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "trial": 1,
+          "equal": true
+        },
+        {
+          "trial": 2,
+          "equal": true
+        },
+        {
+          "trial": 3,
+          "equal": true
+        },
+        {
+          "trial": 4,
+          "equal": true
+        },
+        {
+          "trial": 5,
+          "equal": true
+        },
+        {
+          "trial": 6,
+          "equal": true
+        },
+        {
+          "trial": 7,
+          "equal": true
+        },
+        {
+          "trial": 8,
+          "equal": true
+        },
+        {
+          "trial": 9,
+          "equal": true
+        },
+        {
+          "trial": 10,
+          "equal": true
+        }
+      ]
+    },
+    {
+      "name": "concurrent_each_trial_has_replay_header",
+      "passed": true,
+      "expected": ">=1 per trial",
+      "actual": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "name": "concurrent_each_trial_creates_one_bet_ft_bet_transaction_idempotency",
+      "passed": true,
+      "expected": {
+        "bets": 1,
+        "ft_bet": 1,
+        "transactions": 1,
+        "idempotency": 1
+      },
+      "actual": [
+        {
+          "trial": 1,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 2,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 3,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 4,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 5,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 6,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 7,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 8,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 9,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "trial": 10,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "concurrent_all_created_bets_terminal_confirmed",
+      "passed": true,
+      "expected": "confirmed",
+      "actual": [
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ],
+        [
+          "confirmed"
+        ]
+      ]
+    },
+    {
+      "name": "sequential_replay_confirmed_returns_same_ids_without_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "same_ids": true,
+        "replay_header": true,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 202,
+        "replay_ids": [
+          2
+        ],
+        "original_ids": [
+          2
+        ],
+        "header": "true",
+        "counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "different_key_same_payload_creates_two_requests",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "distinct_ids": true,
+        "bets": 2,
+        "ft_bet": 2,
+        "transactions": 2,
+        "idempotency": 2
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "distinct_ids": true,
+        "counts": {
+          "bets": 2,
+          "ft_bet": 2,
+          "transactions": 2,
+          "idempotency": 2
+        }
+      }
+    },
+    {
+      "name": "same_key_different_payload_rejected_409",
+      "passed": true,
+      "expected": {
+        "first": 202,
+        "second": 409,
+        "first_side_effects": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "second_side_effects": 0
+      },
+      "actual": {
+        "first": 202,
+        "second": 409,
+        "first_counts": {
+          "bets": 1,
+          "ft_bet": 1,
+          "transactions": 1,
+          "idempotency": 1
+        },
+        "second_counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "pre_cancelled_replay",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "processing": 0,
+        "cancelled_response": 1,
+        "db_status": "cancelled",
+        "ft_bet": 0,
+        "transaction": 0,
+        "replay_same_ids": true
+      },
+      "actual": {
+        "status": 202,
+        "response": {
+          "total": 1,
+          "queued": 1,
+          "processing": 0,
+          "cancelled": 1,
+          "bet_ids": [
+            15
+          ],
+          "selection_mapping": {
+            "whitelabel_id": 1,
+            "mapping_mode": "identity",
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "mapping_applied": false,
+            "displayed_market_side": "home",
+            "executed_market_side": "home",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_chose_team": null,
+            "executed_market_chose_team": null
+          }
+        },
+        "db_status": "cancelled",
+        "first_counts": {
+          "bets": 1,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 1
+        },
+        "replay_ids": [
+          15
+        ],
+        "header": "true",
+        "replay_counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "dry_run_no_idempotency_row_or_side_effects",
+      "passed": true,
+      "expected": {
+        "status": 200,
+        "side_effects": 0,
+        "idempotency_row": null
+      },
+      "actual": {
+        "status": 200,
+        "counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        },
+        "idempotency_row": null
+      }
+    },
+    {
+      "name": "header_body_mismatch_400_no_row",
+      "passed": true,
+      "expected": {
+        "status": 400,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 400,
+        "counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "invalid_key_400_no_row",
+      "passed": true,
+      "expected": {
+        "status": 400,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 400,
+        "counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "header_only_and_body_only_same_key_replay",
+      "passed": true,
+      "expected": {
+        "statuses": [
+          202,
+          202
+        ],
+        "same_ids": true,
+        "replay_header": true,
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": {
+        "statuses": [
+          202,
+          202
+        ],
+        "replay_ids": [
+          16
+        ],
+        "header": "true",
+        "counts": {
+          "bets": 1,
+          "ft_bet": 1,
+          "transactions": 1,
+          "idempotency": 1
+        },
+        "replay_counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "early_failure_replay",
+      "passed": true,
+      "expected": {
+        "first": 400,
+        "replay": 400,
+        "changed": 409,
+        "equal": true,
+        "bets": 0,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": "1 failed"
+      },
+      "actual": {
+        "first": 400,
+        "replay": 400,
+        "changed": 409,
+        "equal": true,
+        "bets": 0,
+        "idempotency": {
+          "id": "30",
+          "user_id": 4,
+          "idempotency_key": "phase3f02-early-failure",
+          "request_hash": "3d23b6dcd82b444831a90b0fc8ef691bb6bdd0d61c5ce1a8d388018884619834",
+          "status": "failed",
+          "bet_ids": null,
+          "response_json": {
+            "error": "金币余额不足，当前余额: 0.00，需要: 80",
+            "success": false
+          },
+          "http_status": 400,
+          "created_at": "2026-10-17T10:14:29.752Z",
+          "updated_at": "2026-10-17T10:14:29.755Z"
+        },
+        "replay_counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "response_snapshot_canonical_equal_for_created_cases",
+      "passed": true,
+      "expected": {
+        "cases": 15,
+        "row_found": true,
+        "status": "created",
+        "http_status": 202,
+        "response_equal": true,
+        "bet_ids_equal": true
+      },
+      "actual": [
+        {
+          "key": "phase3f02-concurrent-1",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-2",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-3",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-4",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-5",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-6",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-7",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-8",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-9",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-concurrent-10",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-distinct-one",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-distinct-two",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-payload-one",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-pre-cancelled",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        },
+        {
+          "key": "phase3f02-header-only",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true
+        }
+      ]
+    },
+    {
+      "name": "final_idempotency_row_counts",
+      "passed": true,
+      "expected": {
+        "total": 16,
+        "created": 15,
+        "failed": 1
+      },
+      "actual": {
+        "total": 16,
+        "created": 15,
+        "failed": 1
+      }
+    },
+    {
+      "name": "final_bet_ft_transaction_counts",
+      "passed": true,
+      "expected": {
+        "bets": 16,
+        "ft_bet": 15,
+        "charge_transactions": 15
+      },
+      "actual": {
+        "bets": 16,
+        "ft_bet": 15,
+        "charge_transactions": 15
+      }
+    },
+    {
+      "name": "final_active_bet_transaction_integrity",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "final_bet_status_counts",
+      "passed": true,
+      "expected": {
+        "confirmed": 15,
+        "cancelled": 1
+      },
+      "actual": {
+        "confirmed": 15,
+        "cancelled": 1
+      }
+    },
+    {
+      "name": "all_target_ports_down_after_stop",
+      "passed": true,
+      "expected": true,
+      "actual": []
+    },
+    {
+      "name": "target_ports_free_after",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "guard_db_sha256_unchanged",
+      "passed": true,
+      "expected": "a206f33917291d772ecdb1ae22ce9768f6b73d99ae146c7fd3fc8cbde9d5d3ac",
+      "actual": "a206f33917291d772ecdb1ae22ce9768f6b73d99ae146c7fd3fc8cbde9d5d3ac"
+    },
+    {
+      "name": "watched_files_unchanged_during_run",
+      "passed": true,
+      "expected": {
+        "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+        "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+        "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+        "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+        "backend/src/services/crown-automation.ts": "00e6142d5e04553aabc5a020ccd544113345db58e614a364f3883f991bbadac8",
+        "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+        "frontend/src/components/Betting/BetFormModal.tsx": "8ef3a27f8479f067fe2f462d85baf25092f69b9cfa7f96c38cda53bd97196d4f",
+        "frontend/src/pages/MatchesPage.tsx": "da01219a346ff6f0debc8d5febcda927b38a82a9073da773b1f42d8a7c1497ce",
+        ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+        ".verify-runtime/phase3f02-run.js": "83f2a53a97581a12e6f8e1635404944659ceacfd4e37e5ac22ab77a792721c05"
+      },
+      "actual": {
+        "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+        "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+        "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+        "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+        "backend/src/services/crown-automation.ts": "00e6142d5e04553aabc5a020ccd544113345db58e614a364f3883f991bbadac8",
+        "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+        "frontend/src/components/Betting/BetFormModal.tsx": "8ef3a27f8479f067fe2f462d85baf25092f69b9cfa7f96c38cda53bd97196d4f",
+        "frontend/src/pages/MatchesPage.tsx": "da01219a346ff6f0debc8d5febcda927b38a82a9073da773b1f42d8a7c1497ce",
+        ".verify-runtime/phase2-servers.js": "db0d0bb52531f0736aa4bfbcea437aaf46643cd42fd39e658f9c755d84e00502",
+        ".verify-runtime/phase3f02-run.js": "83f2a53a97581a12e6f8e1635404944659ceacfd4e37e5ac22ab77a792721c05"
+      }
+    },
+    {
+      "name": "jwt_not_written_to_evidence",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "network_only_loopback_except_static_build_tooling_banners",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    }
+  ],
+  "fatal_errors": [],
+  "summary": {
+    "backend_build": {
+      "exit_code": 0
+    },
+    "frontend_build": {
+      "exit_code": 0
+    },
+    "migration_repeat": [
+      {
+        "run": 1,
+        "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+        "started_at_utc": "2026-10-17T10:14:13.881Z",
+        "exit": 0,
+        "rows_before": 0,
+        "rows_after": 0
+      },
+      {
+        "run": 2,
+        "file": "database\\migrations\\20261017_add_bet_idempotency_requests.sql",
+        "started_at_utc": "2026-10-17T10:14:13.885Z",
+        "exit": 0,
+        "rows_before": 0,
+        "rows_after": 0
+      }
+    ],
+    "legacy_no_key": {
+      "status": 202,
+      "counts": {
+        "bets": 1,
+        "ft_bet": 1,
+        "transactions": 1,
+        "idempotency": 0
+      }
+    },
+    "concurrent": {
+      "trial_count": 10,
+      "overlap_count": 10,
+      "statuses": [
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ],
+        [
+          202,
+          202
+        ]
+      ],
+      "created_bets": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "created_ft_bet": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "created_transactions": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "replay_header_count_per_trial": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "sequential_replay": {
+      "status": 202,
+      "replay_header": "true",
+      "original_bet_ids": [
+        2
+      ],
+      "replay_bet_ids": [
+        2
+      ],
+      "created_counts": {
+        "bets": 0,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": 0
+      }
+    },
+    "different_key": {
+      "statuses": [
+        202,
+        202
+      ],
+      "first_bet_ids": [
+        12
+      ],
+      "second_bet_ids": [
+        13
+      ],
+      "created_counts": {
+        "bets": 2,
+        "ft_bet": 2,
+        "transactions": 2,
+        "idempotency": 2
+      },
+      "controlled_fixture_update_rows": [
+        {
+          "id": 12,
+          "status": "confirmed",
+          "error_message": "PHASE3F02-CONTROLLED-DIFFERENT-KEY-FIXTURE"
+        }
+      ]
+    },
+    "same_key_different_payload": {
+      "statuses": [
+        202,
+        409
+      ],
+      "created_counts": {
+        "bets": 1,
+        "ft_bet": 1,
+        "transactions": 1,
+        "idempotency": 1
+      },
+      "second_created_counts": {
+        "bets": 0,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": 0
+      }
+    },
+    "pre_cancelled": {
+      "status": 202,
+      "processing": 0,
+      "cancelled": 1,
+      "db_status": "cancelled",
+      "first_created_counts": {
+        "bets": 1,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": 1
+      },
+      "replay_created_counts": {
+        "bets": 0,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": 0
+      }
+    },
+    "dry_run": {
+      "status": 200,
+      "created_counts": {
+        "bets": 0,
+        "ft_bet": 0,
+        "transactions": 0,
+        "idempotency": 0
+      },
+      "idempotency_row": null
+    },
+    "header_body": {
+      "mismatch_status": 400,
+      "invalid_status": 400,
+      "header_only_status": 202,
+      "body_replay_status": 202,
+      "replay_header": "true",
+      "created_counts": {
+        "bets": 1,
+        "ft_bet": 1,
+        "transactions": 1,
+        "idempotency": 1
+      }
+    },
+    "early_failure": {
+      "statuses": [
+        400,
+        400,
+        409
+      ],
+      "first_replay_responses_canonically_equal": true,
+      "idempotency_row_status": "failed"
+    },
+    "final_counts": {
+      "bets": 16,
+      "ft_bet_events": 15,
+      "charge_transactions": 15,
+      "idempotency_rows": 16,
+      "idempotency_status_counts": {
+        "created": 15,
+        "failed": 1
+      },
+      "integrity_issues": []
+    }
+  },
+  "success": true,
+  "report_file": "报告\\20261017T181340-15908-phase3f02-幂等修复实证报告.md",
+  "assertions_passed": 37,
+  "assertions_failed": 0
+}

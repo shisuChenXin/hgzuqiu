@@ -1,0 +1,16 @@
+{
+  "started_at": "2026-10-17T10:14:13.900Z",
+  "backend": {
+    "status": 200
+  },
+  "mock": {
+    "status": 200
+  },
+  "network_boundary": {
+    "crown_base_url": "http://127.0.0.1:3301",
+    "crown_base_url_candidates": "http://127.0.0.1:3301",
+    "all_service_hosts": [
+      "127.0.0.1"
+    ]
+  }
+}

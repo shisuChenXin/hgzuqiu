@@ -1,0 +1,125 @@
+{
+  "expected_created_cases": 15,
+  "checks": [
+    {
+      "key": "phase3f02-concurrent-1",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-2",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-3",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-4",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-5",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-6",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-7",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-8",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-9",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-concurrent-10",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-distinct-one",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-distinct-two",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-payload-one",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-pre-cancelled",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    },
+    {
+      "key": "phase3f02-header-only",
+      "row_found": true,
+      "status": "created",
+      "http_status": 202,
+      "response_json_canonically_equal": true,
+      "bet_ids_equal": true
+    }
+  ]
+}

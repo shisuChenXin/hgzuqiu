@@ -1,0 +1,939 @@
+{
+  "postcheck": "phase3f02-independent-postcheck",
+  "run_id": "20261017T181340-15908",
+  "started_at_utc": "2026-10-17T10:14:35.007Z",
+  "started_at_beijing": "2026-10-17 18:14:35 +08:00",
+  "main_report": "报告\\20261017T181340-15908-phase3f02-幂等修复实证报告.md",
+  "evidence_dir": "证据\\phase3f02-idempotency-fix\\20261017T181340-15908",
+  "checks": [
+    {
+      "name": "latest_run_id_file_contains_exactly_one_id",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "latest_run_directory_name_unique",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "all_evidence_json_files_parse_before_postcheck",
+      "passed": true,
+      "expected": 44,
+      "actual": {
+        "total": 44,
+        "failed": []
+      }
+    },
+    {
+      "name": "final_assertions_run_id_matches_latest",
+      "passed": true,
+      "expected": "20261017T181340-15908",
+      "actual": "20261017T181340-15908"
+    },
+    {
+      "name": "main_final_assertions_37_of_37_passed",
+      "passed": true,
+      "expected": {
+        "success": true,
+        "passed": 37,
+        "failed": 0,
+        "total": 37
+      },
+      "actual": {
+        "success": true,
+        "fatal_errors": [],
+        "passed": 37,
+        "failed": 0,
+        "total": 37
+      }
+    },
+    {
+      "name": "legacy_scenario_evidence_consistent",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "counts": {
+          "bets": 1,
+          "ft_bet": 1,
+          "transactions": 1,
+          "idempotency": 0
+        }
+      },
+      "actual": {
+        "status": 202,
+        "counts": {
+          "bets": 1,
+          "ft_bet": 1,
+          "transactions": 1,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "concurrent_scenario_files_and_summary_consistent",
+      "passed": true,
+      "expected": {
+        "trials": 10,
+        "overlap": 10,
+        "statuses": [
+          202,
+          202
+        ],
+        "counts": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "actual": [
+        {
+          "index": 1,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 2,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 3,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 4,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 5,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 6,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 7,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 8,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 9,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        },
+        {
+          "index": 10,
+          "overlap": true,
+          "statuses": [
+            202,
+            202
+          ],
+          "equal": true,
+          "counts": {
+            "bets": 1,
+            "ft_bet": 1,
+            "transactions": 1,
+            "idempotency": 1
+          }
+        }
+      ]
+    },
+    {
+      "name": "sequential_replay_scenario_evidence_consistent",
+      "passed": true,
+      "expected": {
+        "status": 202,
+        "replay": true,
+        "side_effects": 0
+      },
+      "actual": {
+        "status": 202,
+        "header": "true",
+        "original": [
+          2
+        ],
+        "replay": [
+          2
+        ],
+        "counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "different_key_and_payload_scenarios_consistent",
+      "passed": true,
+      "expected": {
+        "different_key": [
+          202,
+          202
+        ],
+        "same_key_changed_payload": [
+          202,
+          409
+        ]
+      },
+      "actual": {
+        "different_key": [
+          202,
+          202
+        ],
+        "same_key_changed_payload": [
+          202,
+          409
+        ],
+        "second_created_counts": {
+          "bets": 0,
+          "ft_bet": 0,
+          "transactions": 0,
+          "idempotency": 0
+        }
+      }
+    },
+    {
+      "name": "pre_cancelled_dry_run_header_body_early_failure_evidence_consistent",
+      "passed": true,
+      "expected": {
+        "pre_cancelled": 202,
+        "dry_run": 200,
+        "mismatch": 400,
+        "invalid": 400,
+        "header_replay": [
+          202,
+          202
+        ],
+        "early": [
+          400,
+          400,
+          409
+        ]
+      },
+      "actual": {
+        "pre_cancelled": 202,
+        "db_status": "cancelled",
+        "dry_run": 200,
+        "mismatch": 400,
+        "invalid": 400,
+        "header_replay": [
+          202,
+          202
+        ],
+        "early": [
+          400,
+          400,
+          409
+        ],
+        "early_equal": true
+      }
+    },
+    {
+      "name": "direct_db_bet_counts_and_statuses",
+      "passed": true,
+      "expected": {
+        "total": 16,
+        "confirmed": 15,
+        "cancelled": 1
+      },
+      "actual": {
+        "total": 16,
+        "confirmed": 15,
+        "cancelled": 1
+      }
+    },
+    {
+      "name": "direct_db_bets_grouped_by_fixture",
+      "passed": true,
+      "expected": {
+        "930001": 1,
+        "930002": 2,
+        "930003": 1,
+        "930004": 1,
+        "930006": 1,
+        "931000": 1,
+        "931001": 1,
+        "931002": 1,
+        "931003": 1,
+        "931004": 1,
+        "931005": 1,
+        "931006": 1,
+        "931007": 1,
+        "931008": 1,
+        "931009": 1
+      },
+      "actual": {
+        "930001": 1,
+        "930002": 2,
+        "930003": 1,
+        "930004": 1,
+        "930006": 1,
+        "931000": 1,
+        "931001": 1,
+        "931002": 1,
+        "931003": 1,
+        "931004": 1,
+        "931005": 1,
+        "931006": 1,
+        "931007": 1,
+        "931008": 1,
+        "931009": 1
+      }
+    },
+    {
+      "name": "direct_db_idempotency_counts",
+      "passed": true,
+      "expected": {
+        "total": 16,
+        "created": 15,
+        "failed": 1
+      },
+      "actual": {
+        "total": 16,
+        "created": 15,
+        "failed": 1
+      }
+    },
+    {
+      "name": "direct_db_user_key_pairs_unique",
+      "passed": true,
+      "expected": 16,
+      "actual": 16
+    },
+    {
+      "name": "direct_db_transaction_counts_and_integrity",
+      "passed": true,
+      "expected": {
+        "charges": 15,
+        "integrity_issues": 0,
+        "unique_transaction_ids": 15
+      },
+      "actual": {
+        "charges": 15,
+        "integrity_issues": [],
+        "unique_transaction_ids": 15
+      }
+    },
+    {
+      "name": "independent_direct_db_created_response_snapshots",
+      "passed": true,
+      "expected": {
+        "cases": 15,
+        "status": "created",
+        "http_status": 202,
+        "canonical_equal": true,
+        "bet_ids_equal": true
+      },
+      "actual": [
+        {
+          "key": "phase3f02-concurrent-1",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            2
+          ],
+          "actual_ids": [
+            2
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-2",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            3
+          ],
+          "actual_ids": [
+            3
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-3",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            4
+          ],
+          "actual_ids": [
+            4
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-4",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            5
+          ],
+          "actual_ids": [
+            5
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-5",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            6
+          ],
+          "actual_ids": [
+            6
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-6",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            7
+          ],
+          "actual_ids": [
+            7
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-7",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            8
+          ],
+          "actual_ids": [
+            8
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-8",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            9
+          ],
+          "actual_ids": [
+            9
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-9",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            10
+          ],
+          "actual_ids": [
+            10
+          ]
+        },
+        {
+          "key": "phase3f02-concurrent-10",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            11
+          ],
+          "actual_ids": [
+            11
+          ]
+        },
+        {
+          "key": "phase3f02-distinct-one",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            12
+          ],
+          "actual_ids": [
+            12
+          ]
+        },
+        {
+          "key": "phase3f02-distinct-two",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            13
+          ],
+          "actual_ids": [
+            13
+          ]
+        },
+        {
+          "key": "phase3f02-payload-one",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            14
+          ],
+          "actual_ids": [
+            14
+          ]
+        },
+        {
+          "key": "phase3f02-pre-cancelled",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            15
+          ],
+          "actual_ids": [
+            15
+          ]
+        },
+        {
+          "key": "phase3f02-header-only",
+          "row_found": true,
+          "status": "created",
+          "http_status": 202,
+          "response_json_canonically_equal": true,
+          "bet_ids_equal": true,
+          "expected_ids": [
+            16
+          ],
+          "actual_ids": [
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "name": "independent_direct_db_early_failure_snapshot",
+      "passed": true,
+      "expected": {
+        "rows": 1,
+        "status": "failed",
+        "http_status": 400,
+        "bet_ids": null,
+        "equals_first": true,
+        "equals_replay": true
+      },
+      "actual": [
+        {
+          "status": "failed",
+          "http_status": 400,
+          "bet_ids": null,
+          "equals_first": true,
+          "equals_replay": true
+        }
+      ]
+    },
+    {
+      "name": "independent_direct_db_created_rows_reference_expected_bets",
+      "passed": true,
+      "expected": {
+        "created_rows": 15,
+        "bet_ids_per_row": 1,
+        "missing": 0,
+        "expected_pre_cancelled": 1,
+        "unexpected_cancelled": 0
+      },
+      "actual": {
+        "created_rows": 15,
+        "expected_pre_cancelled": 1,
+        "issues": [],
+        "pre_cancelled": {
+          "key": "phase3f02-pre-cancelled",
+          "ids": [
+            15
+          ],
+          "missing": [],
+          "cancelled": [
+            15
+          ]
+        }
+      }
+    },
+    {
+      "name": "independent_mock_ft_bet_matches_confirmed_db_bets",
+      "passed": true,
+      "expected": {
+        "events": 15,
+        "unique_tickets": 15,
+        "equals_confirmed_official_ids": true,
+        "non_loopback_addresses": 0
+      },
+      "actual": {
+        "events": 15,
+        "unique_tickets": 15,
+        "db_confirmed_official_ids": 15,
+        "ticket_set_equal": true,
+        "non_loopback_addresses": []
+      }
+    },
+    {
+      "name": "independent_direct_db_constraints_and_indexes",
+      "passed": true,
+      "expected": {
+        "constraints": [
+          "uq_bet_idempotency_user_key",
+          "bet_idempotency_status_check"
+        ],
+        "indexes": [
+          "idx_bet_idempotency_user_created",
+          "idx_bet_idempotency_status"
+        ]
+      },
+      "actual": {
+        "constraints": [
+          "2200_48823_1_not_null",
+          "2200_48823_2_not_null",
+          "2200_48823_3_not_null",
+          "2200_48823_4_not_null",
+          "2200_48823_5_not_null",
+          "bet_idempotency_requests_pkey",
+          "bet_idempotency_requests_user_id_fkey",
+          "bet_idempotency_status_check",
+          "uq_bet_idempotency_user_key"
+        ],
+        "indexes": [
+          "bet_idempotency_requests_pkey",
+          "idx_bet_idempotency_status",
+          "idx_bet_idempotency_user_created",
+          "uq_bet_idempotency_user_key"
+        ]
+      }
+    },
+    {
+      "name": "independent_backend_source_order_and_conflict_clause",
+      "passed": true,
+      "expected": {
+        "order": [
+          "reserveBetIdempotency",
+          "balance_check",
+          "BEGIN",
+          "UPDATE status='created'",
+          "COMMIT",
+          "processBetJob(jobParams)"
+        ],
+        "conflict_clause": true
+      },
+      "actual": {
+        "markers": {
+          "reserve_call": 17633,
+          "balance_check": 18602,
+          "transaction_begin": 40689,
+          "created_update": 46115,
+          "transaction_commit": 46542,
+          "process_job": 47784
+        },
+        "conflict_clause": true
+      }
+    },
+    {
+      "name": "independent_frontend_source_generates_key_per_submit",
+      "passed": true,
+      "expected": [
+        "generateBetIdempotencyKey",
+        "randomUUID",
+        "getRandomValues",
+        "idempotency_key: generateBetIdempotencyKey()"
+      ],
+      "actual": {
+        "generate_function": true,
+        "randomUUID": true,
+        "getRandomValues": true,
+        "submit_field": true
+      }
+    },
+    {
+      "name": "independent_guard_db_evidence_unchanged",
+      "passed": true,
+      "expected": {
+        "same_database": true,
+        "same_sha256": true
+      },
+      "actual": {
+        "before_database": "bclogin_system",
+        "after_database": "bclogin_system",
+        "before_sha256": "a206f33917291d772ecdb1ae22ce9768f6b73d99ae146c7fd3fc8cbde9d5d3ac",
+        "after_sha256": "a206f33917291d772ecdb1ae22ce9768f6b73d99ae146c7fd3fc8cbde9d5d3ac"
+      }
+    },
+    {
+      "name": "independent_watched_file_hashes_before_after_current",
+      "passed": true,
+      "expected": {
+        "before_after_equal": true,
+        "before_current_equal": true,
+        "files": 10
+      },
+      "actual": {
+        "before_after_equal": true,
+        "before_current_equal": true,
+        "files": 10,
+        "current_mismatches": []
+      }
+    },
+    {
+      "name": "independent_jwt_scan_evidence_and_main_report",
+      "passed": true,
+      "expected": {
+        "runner_matches": 0,
+        "independent_matches": 0
+      },
+      "actual": {
+        "runner_matches": [],
+        "independent_matches": []
+      }
+    },
+    {
+      "name": "independent_network_boundary_evidence",
+      "passed": true,
+      "expected": {
+        "unallowed": [],
+        "allowed_only_static_banner": true
+      },
+      "actual": {
+        "unallowed": [],
+        "allowed_only_static_banner": true,
+        "non_loopback_count": 3,
+        "allowed_count": 3
+      }
+    },
+    {
+      "name": "independent_service_health_loopback_only",
+      "passed": true,
+      "expected": {
+        "backend": 200,
+        "mock": 200,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      },
+      "actual": {
+        "backend": 200,
+        "mock": 200,
+        "hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "independent_stop_and_port_guard_evidence",
+      "passed": true,
+      "expected": {
+        "stop_ports": [],
+        "guard_after_ports": []
+      },
+      "actual": {
+        "stop_ports": [],
+        "guard_after_ports": []
+      }
+    },
+    {
+      "name": "independent_main_report_consistency",
+      "passed": true,
+      "expected": [
+        "Run ID：`20261017T181340-15908`",
+        "37/37",
+        "bets=16",
+        "FT_bet=15",
+        "消耗流水=15",
+        "幂等=16",
+        "created=15",
+        "failed=1",
+        "PHASE3F02-CONTROLLED-DIFFERENT-KEY-FIXTURE",
+        "直接 SQL",
+        "不是产品自然路径"
+      ],
+      "actual": {
+        "missing": []
+      }
+    }
+  ],
+  "summary": {
+    "run_id": "20261017T181340-15908",
+    "database": "hgzuqiu_phase3f02_20261017181340_15908",
+    "main_assertions": "37/37",
+    "direct_db": {
+      "bets": 16,
+      "bet_statuses": {
+        "confirmed": 15,
+        "cancelled": 1
+      },
+      "idempotency_rows": 16,
+      "idempotency_statuses": {
+        "created": 15,
+        "failed": 1
+      },
+      "charge_transactions": 15,
+      "integrity_issues": 0
+    },
+    "independent_snapshot_cases": 15,
+    "mock_ft_bet_events": 15,
+    "source_proven": {
+      "backend_order_and_conflict_clause": true,
+      "frontend_key_generation": true
+    },
+    "guard": {
+      "db_sha256_unchanged": true,
+      "watched_hashes_before_after_current_equal": true,
+      "jwt_matches": 0,
+      "unallowed_non_loopback_urls": 0,
+      "target_ports_down_after_stop": true
+    },
+    "not_tested": [
+      "UI 双击",
+      "浏览器刷新后的 UI 请求重试",
+      "多进程 backend",
+      "数据库主备延迟",
+      "真实 Crown 上游网络分区",
+      "长时间后台重试",
+      "幂等键过期清理",
+      "跨用户同 key"
+    ]
+  },
+  "success": true,
+  "completed_at_utc": "2026-10-17T10:14:35.207Z",
+  "completed_at_beijing": "2026-10-17 18:14:35 +08:00",
+  "checks_passed": 29,
+  "checks_failed": 0,
+  "checks_total": 29,
+  "report_file": "报告\\20261017T181340-15908-phase3f02-独立复核报告.md"
+}

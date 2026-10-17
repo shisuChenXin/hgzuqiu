@@ -1,0 +1,43 @@
+{
+  "label": "primary admin:POST /api/auth/login",
+  "method": "POST",
+  "url": "http://127.0.0.1:3202/api/auth/login",
+  "request_headers": {
+    "content_type": "application/json",
+    "authorization": null
+  },
+  "request_body": {
+    "username": "phase3f02-primary-admin",
+    "password": "<redacted>"
+  },
+  "response_status": 200,
+  "response_ok": true,
+  "response_body": {
+    "success": true,
+    "data": {
+      "user": {
+        "id": 2,
+        "username": "phase3f02-primary-admin",
+        "email": "phase3f02-primary-admin@phase3f02.local",
+        "role": "admin",
+        "parent_id": null,
+        "agent_id": null,
+        "whitelabel_id": 1,
+        "email_verified": true,
+        "created_at": "2026-10-17T10:14:13.692Z",
+        "updated_at": "2026-10-17T10:14:13.692Z"
+      },
+      "token": "<redacted>"
+    },
+    "message": "登录成功"
+  },
+  "started_at_utc": "2026-10-17T10:14:16.107Z",
+  "ended_at_utc": "2026-10-17T10:14:16.289Z",
+  "duration_ms": 182,
+  "transport_error": null,
+  "token_evidence": {
+    "stored": "memory only during this process",
+    "length": 353,
+    "sha256": "58a82557fcbdd2deace3ea2c83d7e1068bd52e7f645b1561a41d5053cf28637b"
+  }
+}

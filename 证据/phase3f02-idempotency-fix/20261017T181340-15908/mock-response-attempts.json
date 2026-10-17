@@ -1,0 +1,171 @@
+{
+  "attempts": [
+    {
+      "scheduled_at": "2026-10-17T10:14:16.609Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-001</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:17.118Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:17.178Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:17.486Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-002</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:17.989Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:18.051Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:18.316Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-003</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:18.831Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:18.893Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:19.142Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-004</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:19.645Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:19.706Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:19.969Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-005</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:20.475Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:20.536Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:20.801Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-006</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:21.303Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:21.364Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:21.638Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-007</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:22.140Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:22.202Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:22.467Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-008</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:22.971Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:23.032Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:23.281Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-009</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:23.781Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:23.842Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:24.121Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-010</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:24.622Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:24.684Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:24.947Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-011</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:25.452Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:25.513Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:26.010Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-012</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:26.517Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:26.568Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:26.575Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-013</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:27.085Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:27.135Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:27.351Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-014</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:27.865Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:27.926Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    },
+    {
+      "scheduled_at": "2026-10-17T10:14:28.979Z",
+      "configured_delay_ms": 500,
+      "response_class": "FT_bet",
+      "response_body_prefix": "<serverresponse><code>560</code><ticket_id>PHASE3F02-015</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+      "original_end_started_at": "2026-10-17T10:14:29.490Z",
+      "original_end_returned": true,
+      "completed_at": "2026-10-17T10:14:29.552Z",
+      "socket_destroyed_after": false,
+      "response_writable_ended_after": true
+    }
+  ],
+  "scheduled_count": 15,
+  "completed_count": 15
+}

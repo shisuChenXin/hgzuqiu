@@ -1,0 +1,5887 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+⚠️ 邮件服务未配置，邮件功能将不可用
+🚀 智投后端服务启动成功！
+📍 服务地址: http://localhost:3202
+🌍 环境: development
+⏰ 启动时间: 2026/10/17 18:14:15
+⏰ 设置会话恢复定时器，将在 3 秒后执行...
+ℹ️ 内置赛事抓取服务已禁用，使用外部独立进程
+2026-10-17T10:14:16.088Z GET /api/health 200 5ms
+🔐 登录请求开始，请求体: { username: 'phase3f02-primary-admin', password: '***' }
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase3f02-primary-admin' ]
+✅ 数据库连接成功
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [ 2, '127.0.0.1', 'node', true, false ]
+2026-10-17T10:14:16.287Z POST /login 200 147ms
+🔐 登录请求开始，请求体: { username: 'phase3f02-concurrent-admin', password: '***' }
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase3f02-concurrent-admin' ]
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [ 3, '127.0.0.1', 'node', true, false ]
+2026-10-17T10:14:16.360Z POST /login 200 66ms
+🔐 登录请求开始，请求体: { username: 'phase3f02-earlyfail-admin', password: '***' }
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase3f02-earlyfail-admin' ]
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [ 4, '127.0.0.1', 'node', true, false ]
+2026-10-17T10:14:16.433Z POST /login 200 69ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "account_ids": [
+    1
+  ],
+  "match_id": 930001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Legacy Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930001",
+  "league_name": "Phase3F02 Legacy League",
+  "home_team": "Phase3F02 Legacy Home",
+  "away_team": "Phase3F02 Legacy Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930001 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 1 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    5, 4, 3, 2,
+    1, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    5, 4, 3, 2,
+    1, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    5, 4, 3, 2,
+    1, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+✅ 数据库连接成功
+✅ 数据库连接成功
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930001 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 1 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 1, 0.8 ] ],
+  account_limits: [ [ 1, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 1: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 1 ] ]
+
+[后台下注任务] 开始执行，用户 2，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 1, 虚数 100, 实数 80.00
+[后台下注任务] 账号 1 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 1 ]
+2026-10-17T10:14:16.563Z POST / 202 103ms
+🚀 使用纯 API 方式登录账号: phase3f02-primary-admin-crown-1
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase3f02-primary-admin-crown-1
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 128
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=1, uid=phase2-mock-uid, loginTime=1792232056593, mapSize=1
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792232056593, 'loadBB=1', 1 ]
+💾 会话信息已持久化到数据库: accountId=1, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=1, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 1 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=1, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Legacy Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 930001
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '930001',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '930001',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '930001',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 930001
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-001',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-001
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-001',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-001', 1.9, 1.9, null, 1 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  2,
+  1,
+  1,
+  'BET1792232057123ja3rrqkvi',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Legacy Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 1 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+ℹ️ 数据库账号预热已禁用，使用独立抓取服务
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-1",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931000,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931000",
+  "league_name": "Phase3F02 Concurrent League 1",
+  "home_team": "Phase3F02 Concurrent Home 1",
+  "away_team": "Phase3F02 Concurrent Away 1",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-1',
+  '36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-1",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931000,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931000",
+  "league_name": "Phase3F02 Concurrent League 1",
+  "home_team": "Phase3F02 Concurrent Home 1",
+  "away_team": "Phase3F02 Concurrent Away 1",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-1',
+  '36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-1' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931000 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931000 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+[后台下注任务] 账号 6 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 6 ]
+2026-10-17T10:14:17.466Z POST / 202 30ms
+🚀 使用纯 API 方式登录账号: phase3f02-concurrent-admin-crown-1
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase3f02-concurrent-admin-crown-1
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 126
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=6, uid=phase2-mock-uid, loginTime=1792232057474, mapSize=2
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792232057474, 'loadBB=1', 6 ]
+💾 会话信息已持久化到数据库: accountId=6, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931000
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931000',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931000',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931000',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931000
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 1 ]
+2026-10-17T10:14:17.515Z POST / 202 76ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 1 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-002',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-002
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-002',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-002', 1.9, 1.9, null, 2 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  2,
+  'BET17922320579941ud1q2f0u',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-2",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931001",
+  "league_name": "Phase3F02 Concurrent League 2",
+  "home_team": "Phase3F02 Concurrent Home 2",
+  "away_team": "Phase3F02 Concurrent Away 2",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-2',
+  '1a752b2346fb0b8f224649570ee90bbff496b1acb13a1933bcc8e7c6876679e4'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-2",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931001,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931001",
+  "league_name": "Phase3F02 Concurrent League 2",
+  "home_team": "Phase3F02 Concurrent Home 2",
+  "away_team": "Phase3F02 Concurrent Away 2",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-2',
+  '1a752b2346fb0b8f224649570ee90bbff496b1acb13a1933bcc8e7c6876679e4'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-2' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931001 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931001 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:18.306Z POST / 202 25ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931001
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931001',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931001',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931001',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931001
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 3 ]
+2026-10-17T10:14:18.342Z POST / 202 59ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 1 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 1, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-003',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-003
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-003',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-003', 1.9, 1.9, null, 3 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  3,
+  'BET17922320588358c3dvkz7n',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 2 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+⏰ 会话恢复定时器触发！
+🔄 正在从数据库恢复会话信息...
+执行SQL: SELECT id, api_uid, api_login_time, username
+         FROM crown_accounts
+         WHERE api_uid IS NOT NULL
+           AND api_login_time IS NOT NULL
+           AND is_enabled = true undefined
+执行SQL: UPDATE crown_accounts SET is_online = true WHERE id = $1 [ 1 ]
+✅ 恢复会话: accountId=1, username=phase3f02-primary-admin-crown-1, uid=phase2-mock-uid
+执行SQL: UPDATE crown_accounts SET is_online = true WHERE id = $1 [ 6 ]
+✅ 恢复会话: accountId=6, username=phase3f02-concurrent-admin-crown-1, uid=phase2-mock-uid
+🔄 会话恢复完成: 恢复 2 个，过期 0 个
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-3",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931002,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931002",
+  "league_name": "Phase3F02 Concurrent League 3",
+  "home_team": "Phase3F02 Concurrent Home 3",
+  "away_team": "Phase3F02 Concurrent Away 3",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-3',
+  'a44e4b85f5b8c664f5af7d0430fd4bed8cb80d7f60fa772d7212acb992243bf3'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-3",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931002,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931002",
+  "league_name": "Phase3F02 Concurrent League 3",
+  "home_team": "Phase3F02 Concurrent Home 3",
+  "away_team": "Phase3F02 Concurrent Away 3",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-3',
+  'a44e4b85f5b8c664f5af7d0430fd4bed8cb80d7f60fa772d7212acb992243bf3'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-3' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931002 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931002 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:19.135Z POST / 202 23ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931002
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931002',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931002
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 5 ]
+2026-10-17T10:14:19.172Z POST / 202 58ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-004',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-004
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-004',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-004', 1.9, 1.9, null, 4 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  4,
+  'BET1792232059648h5dybcj0l',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 3 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-4",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931003,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 4 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931003",
+  "league_name": "Phase3F02 Concurrent League 4",
+  "home_team": "Phase3F02 Concurrent Home 4",
+  "away_team": "Phase3F02 Concurrent Away 4",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-4',
+  '858497a6388d34b2f464811157830f43fa74b39d83335bd9e899919c1eb9db38'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-4",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931003,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 4 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931003",
+  "league_name": "Phase3F02 Concurrent League 4",
+  "home_team": "Phase3F02 Concurrent Home 4",
+  "away_team": "Phase3F02 Concurrent Away 4",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-4',
+  '858497a6388d34b2f464811157830f43fa74b39d83335bd9e899919c1eb9db38'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-4' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931003 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931003 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:19.961Z POST / 202 25ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 4 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931003
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931003',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931003',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931003',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931003
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 7 ]
+2026-10-17T10:14:19.999Z POST / 202 61ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-005',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-005
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-005',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-005', 1.9, 1.9, null, 5 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  5,
+  'BET1792232060479coop64jbr',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 4 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-5",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931004,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 5 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931004",
+  "league_name": "Phase3F02 Concurrent League 5",
+  "home_team": "Phase3F02 Concurrent Home 5",
+  "away_team": "Phase3F02 Concurrent Away 5",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-5',
+  'b90ba65170831849e2cf409c76214b5f9b74d236a7c57c7e9733ad5b07a8aa19'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-5",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931004,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 5 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931004",
+  "league_name": "Phase3F02 Concurrent League 5",
+  "home_team": "Phase3F02 Concurrent Home 5",
+  "away_team": "Phase3F02 Concurrent Away 5",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-5',
+  'b90ba65170831849e2cf409c76214b5f9b74d236a7c57c7e9733ad5b07a8aa19'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-5' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931004 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931004 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:20.793Z POST / 202 25ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 5 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931004
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931004',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931004',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931004',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931004
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 9 ]
+2026-10-17T10:14:20.830Z POST / 202 60ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-006',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-006
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-006',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-006', 1.9, 1.9, null, 6 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  6,
+  'BET1792232061307r1qgbafsn',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 5 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-6",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931005,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 6 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931005",
+  "league_name": "Phase3F02 Concurrent League 6",
+  "home_team": "Phase3F02 Concurrent Home 6",
+  "away_team": "Phase3F02 Concurrent Away 6",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-6',
+  'fc160747b4422f79bfdf281558c7df36e3b11c5ae01cf4938d2bb3c545766960'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-6",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931005,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 6 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931005",
+  "league_name": "Phase3F02 Concurrent League 6",
+  "home_team": "Phase3F02 Concurrent Home 6",
+  "away_team": "Phase3F02 Concurrent Away 6",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-6',
+  'fc160747b4422f79bfdf281558c7df36e3b11c5ae01cf4938d2bb3c545766960'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-6' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931005 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931005 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:21.630Z POST / 202 23ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 6 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931005
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931005',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931005',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931005',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931005
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 11 ]
+2026-10-17T10:14:21.669Z POST / 202 61ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-007',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-007
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-007',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-007', 1.9, 1.9, null, 7 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  7,
+  'BET17922320621438twq845zs',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 6 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-7",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 7 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931006",
+  "league_name": "Phase3F02 Concurrent League 7",
+  "home_team": "Phase3F02 Concurrent Home 7",
+  "away_team": "Phase3F02 Concurrent Away 7",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-7',
+  '2dad1fa7b15602fa3813a75505d1c4a9323e956121f3a6771c8d185731ad3773'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-7",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 7 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931006",
+  "league_name": "Phase3F02 Concurrent League 7",
+  "home_team": "Phase3F02 Concurrent Home 7",
+  "away_team": "Phase3F02 Concurrent Away 7",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-7',
+  '2dad1fa7b15602fa3813a75505d1c4a9323e956121f3a6771c8d185731ad3773'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-7' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931006 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931006 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:22.460Z POST / 202 23ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 7 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931006
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931006',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931006',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931006',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931006
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 13 ]
+2026-10-17T10:14:22.498Z POST / 202 60ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-008',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-008
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-008',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-008', 1.9, 1.9, null, 8 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  8,
+  'BET1792232062975j1xkcb9vp',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 7 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-8",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931007,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 8 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931007",
+  "league_name": "Phase3F02 Concurrent League 8",
+  "home_team": "Phase3F02 Concurrent Home 8",
+  "away_team": "Phase3F02 Concurrent Away 8",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-8',
+  '1ba903d12feac53a28191e09e6ed7bd367c5cc050e0a70cb79ebafcc49498904'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-8",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931007,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 8 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931007",
+  "league_name": "Phase3F02 Concurrent League 8",
+  "home_team": "Phase3F02 Concurrent Home 8",
+  "away_team": "Phase3F02 Concurrent Away 8",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-8',
+  '1ba903d12feac53a28191e09e6ed7bd367c5cc050e0a70cb79ebafcc49498904'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-8' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931007 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931007 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:23.274Z POST / 202 18ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 8 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931007
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931007',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931007',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931007',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931007
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 15 ]
+2026-10-17T10:14:23.321Z POST / 202 64ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-009',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-009
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-009',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-009', 1.9, 1.9, null, 9 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  9,
+  'BET1792232063784wggznvk3c',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 8 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-9",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931008,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 9 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931008",
+  "league_name": "Phase3F02 Concurrent League 9",
+  "home_team": "Phase3F02 Concurrent Home 9",
+  "away_team": "Phase3F02 Concurrent Away 9",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-9',
+  '86f6f3ffe5941f82ef1c63b2068b60e3797bcdaefef1a8b15ae7d76daeef6dfc'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-9",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931008,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 9 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931008",
+  "league_name": "Phase3F02 Concurrent League 9",
+  "home_team": "Phase3F02 Concurrent Home 9",
+  "away_team": "Phase3F02 Concurrent Away 9",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-9',
+  '86f6f3ffe5941f82ef1c63b2068b60e3797bcdaefef1a8b15ae7d76daeef6dfc'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-9' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931008 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931008 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:24.112Z POST / 202 23ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 9 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931008
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931008',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931008',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931008',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931008
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 17 ]
+2026-10-17T10:14:24.151Z POST / 202 60ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-010',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-010
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-010',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-010', 1.9, 1.9, null, 10 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  10,
+  'BET17922320646274cvttkkia',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 9 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-10",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931009,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 10 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931009",
+  "league_name": "Phase3F02 Concurrent League 10",
+  "home_team": "Phase3F02 Concurrent Home 10",
+  "away_team": "Phase3F02 Concurrent Away 10",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-10',
+  '9f2703b2819cef0a44f6dd804bb6800b724bf59640ac6170a175fa2e3877b153'
+]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-10",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931009,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 10 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931009",
+  "league_name": "Phase3F02 Concurrent League 10",
+  "home_team": "Phase3F02 Concurrent Home 10",
+  "away_team": "Phase3F02 Concurrent Away 10",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-10',
+  '9f2703b2819cef0a44f6dd804bb6800b724bf59640ac6170a175fa2e3877b153'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 3 ]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-10' ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 931009 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 6 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  3,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 3, 931009 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 6, 0.8 ] ],
+  account_limits: [ [ 6, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 6: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 6 ] ]
+
+[后台下注任务] 开始执行，用户 3，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 6, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=6, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 6 ]
+2026-10-17T10:14:24.939Z POST / 202 22ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=6, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Concurrent Home 10 (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 931009
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '931009',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '931009',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '931009',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 931009
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE id = $1 [ 19 ]
+2026-10-17T10:14:24.978Z POST / 202 60ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-011',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-011
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-011',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-011', 1.9, 1.9, null, 11 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  3,
+  6,
+  11,
+  'BET179223206545632gkg5ibe',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Concurrent Home 10 (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 3 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-concurrent-1",
+  "account_ids": [
+    6
+  ],
+  "match_id": 931000,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Concurrent Home 1 (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "931000",
+  "league_name": "Phase3F02 Concurrent League 1",
+  "home_team": "Phase3F02 Concurrent Home 1",
+  "away_team": "Phase3F02 Concurrent Away 1",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  3,
+  'phase3f02-concurrent-1',
+  '36f453a6232a0e20e05c910a829b175175528a72e955e2df68ad94c03cd2e409'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 3, 'phase3f02-concurrent-1' ]
+2026-10-17T10:14:25.751Z POST / 202 5ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-distinct-one",
+  "account_ids": [
+    2
+  ],
+  "match_id": 930002,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Key Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930002",
+  "league_name": "Phase3F02 Key League",
+  "home_team": "Phase3F02 Key Home",
+  "away_team": "Phase3F02 Key Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-distinct-one',
+  'a15057f541ba135459bee050ff11cd0e14c1a38159a3db778e7a0e9007301eec'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930002 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 2 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    1, 5, 4, 3,
+    2, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930002 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 2, 0.8 ] ],
+  account_limits: [ [ 2, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 2: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+
+[后台下注任务] 开始执行，用户 2，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 2, 虚数 100, 实数 80.00
+[后台下注任务] 账号 2 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 2 ]
+2026-10-17T10:14:25.995Z POST / 202 16ms
+🚀 使用纯 API 方式登录账号: phase3f02-primary-admin-crown-2
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase3f02-primary-admin-crown-2
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 128
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=2, uid=phase2-mock-uid, loginTime=1792232066002, mapSize=3
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792232066002, 'loadBB=1', 2 ]
+💾 会话信息已持久化到数据库: accountId=2, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=2, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 2 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=2, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Key Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 930002
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '930002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '930002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '930002',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 930002
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-012',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-012
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-012',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-012', 1.9, 1.9, null, 12 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  2,
+  2,
+  12,
+  'BET1792232066520chfj4h3i8',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Key Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-distinct-two",
+  "account_ids": [
+    2
+  ],
+  "match_id": 930002,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Key Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930002",
+  "league_name": "Phase3F02 Key League",
+  "home_team": "Phase3F02 Key Home",
+  "away_team": "Phase3F02 Key Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-distinct-two',
+  'a15057f541ba135459bee050ff11cd0e14c1a38159a3db778e7a0e9007301eec'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930002 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 2 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930002 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 2, 0.8 ] ],
+  account_limits: [ [ 2, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 2: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 2 ] ]
+
+[后台下注任务] 开始执行，用户 2，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 2, 虚数 100, 实数 80.00
+📌 使用纯 API 方式下注 (账号 ID=2, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 2 ]
+2026-10-17T10:14:26.568Z POST / 202 19ms
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=2, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Key Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 930002
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '930002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '930002',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '930002',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 930002
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 6 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 6, warning: '下注成功' } ]
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-013',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-013
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-013',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-013', 1.9, 1.9, null, 13 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  2,
+  2,
+  13,
+  'BET1792232067088gvmcunl5f',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Key Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-payload-one",
+  "account_ids": [
+    3
+  ],
+  "match_id": 930003,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Payload Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930003",
+  "league_name": "Phase3F02 Payload League",
+  "home_team": "Phase3F02 Payload Home",
+  "away_team": "Phase3F02 Payload Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-payload-one',
+  '23bd5994be08e1f4b70c5e8561575ae0df2a314a0e973b4b52648cbadb461b00'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930003 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 3 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    2, 1, 5, 4,
+    3, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930003 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 3 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 3, 0.8 ] ],
+  account_limits: [ [ 3, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 3: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 3 ] ]
+
+[后台下注任务] 开始执行，用户 2，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 3, 虚数 100, 实数 80.00
+[后台下注任务] 账号 3 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 3 ]
+2026-10-17T10:14:27.336Z POST / 202 21ms
+🚀 使用纯 API 方式登录账号: phase3f02-primary-admin-crown-3
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase3f02-primary-admin-crown-3
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 125
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=3, uid=phase2-mock-uid, loginTime=1792232067342, mapSize=4
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792232067342, 'loadBB=1', 3 ]
+💾 会话信息已持久化到数据库: accountId=3, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=3, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 3 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=3, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Payload Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 930003
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '930003',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '930003',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '930003',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 930003
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 2, warning: '下注成功' } ]
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-014',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-014
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-014',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-014', 1.9, 1.9, null, 14 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  2,
+  3,
+  14,
+  'BET179223206786978pt1zjxw',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Payload Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 3 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-payload-one",
+  "account_ids": [
+    3
+  ],
+  "match_id": 930003,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Payload Home (角球 +1)",
+  "total_amount": 81,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930003",
+  "league_name": "Phase3F02 Payload League",
+  "home_team": "Phase3F02 Payload Home",
+  "away_team": "Phase3F02 Payload Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-payload-one',
+  '6af01cc186f0d22a8252045374a00e61e3edaa4a574a602fb72a47469afa8ac6'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase3f02-payload-one' ]
+2026-10-17T10:14:27.986Z POST / 409 4ms
+错误请求: POST / - 409
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-pre-cancelled",
+  "account_ids": [
+    4
+  ],
+  "match_id": 930004,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Cancelled Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930004",
+  "league_name": "Phase3F02 Cancelled League",
+  "home_team": "Phase3F02 Cancelled Home",
+  "away_team": "Phase3F02 Cancelled Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-pre-cancelled',
+  '6b2a04da68c27a88e10820f1ce269660814ac53ba8c6c8813f667f2ed49286e8'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930004 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 4 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930004 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 4 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 4, 0.8 ] ],
+  account_limits: [ [ 4, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 4: 虚数 100, 实数 80.00, 折扣 0.8
+⚠️ 以下账号信用额度不足，将跳过本次下注: [ { accountId: 4, requiredVirtual: 100, credit: 50 } ]
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 4 ] ]
+2026-10-17T10:14:28.221Z POST / 202 17ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 2 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 2, warning: '下注成功' } ]
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-pre-cancelled",
+  "account_ids": [
+    4
+  ],
+  "match_id": 930004,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Cancelled Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930004",
+  "league_name": "Phase3F02 Cancelled League",
+  "home_team": "Phase3F02 Cancelled Home",
+  "away_team": "Phase3F02 Cancelled Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-pre-cancelled',
+  '6b2a04da68c27a88e10820f1ce269660814ac53ba8c6c8813f667f2ed49286e8'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase3f02-pre-cancelled' ]
+2026-10-17T10:14:28.456Z POST / 202 4ms
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 3 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-dry-run",
+  "account_ids": [
+    5
+  ],
+  "match_id": 930005,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Dry Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930005",
+  "league_name": "Phase3F02 Dry League",
+  "home_team": "Phase3F02 Dry Home",
+  "away_team": "Phase3F02 Dry Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH",
+  "dry_run": true
+}
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930005 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 5 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930005 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 5 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 5, 0.8 ] ],
+  account_limits: [ [ 5, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 5: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM selection_mapping_settings
+         WHERE whitelabel_id = $1
+         LIMIT 1 [ 1 ]
+2026-10-17T10:14:28.691Z POST / 200 10ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-header-only",
+  "account_ids": [
+    5
+  ],
+  "match_id": 930006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Header Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930006",
+  "league_name": "Phase3F02 Header League",
+  "home_team": "Phase3F02 Header Home",
+  "away_team": "Phase3F02 Header Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+2026-10-17T10:14:28.915Z POST / 400 2ms
+错误请求: POST / - 400
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "bad key!",
+  "account_ids": [
+    5
+  ],
+  "match_id": 930006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Header Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930006",
+  "league_name": "Phase3F02 Header League",
+  "home_team": "Phase3F02 Header Home",
+  "away_team": "Phase3F02 Header Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+2026-10-17T10:14:28.930Z POST / 400 2ms
+错误请求: POST / - 400
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "account_ids": [
+    5
+  ],
+  "match_id": 930006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Header Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930006",
+  "league_name": "Phase3F02 Header League",
+  "home_team": "Phase3F02 Header Home",
+  "away_team": "Phase3F02 Header Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-header-only',
+  '6b7546e701cc3c58af2cc4cb830b6f3dbf1d4e49068b52091addbcb39c2907cb'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 2 ]
+执行SQL: SELECT * FROM matches WHERE id = $1 [ 930006 ]
+执行SQL: 
+            SELECT id, user_id
+            FROM crown_accounts
+            WHERE id = ANY($1) AND is_enabled = true
+         [ [ 5 ] ]
+执行SQL: SELECT ca.*, g.name AS group_name
+           FROM crown_accounts ca
+           LEFT JOIN groups g ON g.id = ca.group_id
+          WHERE ca.is_enabled = true
+          ORDER BY ca.created_at ASC []
+执行SQL: SELECT account_id, COALESCE(SUM(bet_amount), 0) AS total_amount
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND created_at >= $3
+                AND (status IS NULL OR status <> 'cancelled')
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-17T04:00:00.000Z
+]
+执行SQL: SELECT account_id, COALESCE(SUM(profit_loss), 0) AS total_profit
+               FROM bets
+              WHERE user_id = $1
+                AND account_id = ANY($2::int[])
+                AND status = 'settled'
+                AND settled_at IS NOT NULL
+                AND settled_at >= $3
+              GROUP BY account_id [
+  2,
+  [
+    3, 2, 1, 5,
+    4, 6, 7
+  ],
+  2026-10-12T04:00:00.000Z
+]
+执行SQL: SELECT b.account_id, b.bet_type, ca.original_username, ca.username
+               FROM bets b
+               JOIN crown_accounts ca ON ca.id = b.account_id
+              WHERE b.user_id = $1
+                AND b.match_id = $2
+                AND (b.status IS NULL OR b.status <> 'cancelled')
+                AND b.error_message IS NULL [ 2, 930006 ]
+📊 下注参数: 总金额=80, 账号数=1, 单笔限额=5000, 间隔=1-3
+执行SQL: SELECT id, discount, football_prematch_limit, football_live_limit, credit FROM crown_accounts WHERE id = ANY($1) [ [ 5 ] ]
+🔍 拆分参数: {
+  total_amount: 80,
+  single_limit: '5000',
+  parsed_limit_range: { min: 5000, max: 5000 },
+  account_count: 1,
+  account_discounts: [ [ 5, 0.8 ] ],
+  account_limits: [ [ 5, [Object] ] ]
+}
+📋 生成下注队列: 共 1 笔
+  1. 账号 5: 虚数 100, 实数 80.00, 折扣 0.8
+执行SQL: SELECT * FROM crown_accounts WHERE id = ANY($1) [ [ 5 ] ]
+
+[后台下注任务] 开始执行，用户 2，角色 admin，队列长度 1
+
+[后台下注任务] 执行第 1/1 笔: 账号 5, 虚数 100, 实数 80.00
+[后台下注任务] 账号 5 未登录，尝试自动登录...
+执行SQL: SELECT api_uid, api_login_time
+           FROM crown_accounts
+          WHERE id = $1
+            AND is_online = true
+            AND api_uid IS NOT NULL
+            AND api_login_time IS NOT NULL [ 5 ]
+2026-10-17T10:14:28.965Z POST / 202 21ms
+🚀 使用纯 API 方式登录账号: phase3f02-primary-admin-crown-5
+📱 设备类型: iPhone 14
+🌐 代理配置: 未启用
+🔐 开始登录: phase3f02-primary-admin-crown-5
+✅ 版本号获取成功: phase2-local-mock
+🔐 生成假的 BlackBox 设备指纹 (设备: iPhone 14)...
+✅ 假 BlackBox 生成成功，长度: 125
+🔄 尝试登录 (1/1)...
+📥 登录响应: {
+  status: undefined,
+  msg: '100',
+  username: undefined,
+  uid: 'phase2-mock-uid'
+}
+✅ UID 已保存: phase2-mock-uid
+✅ 纯 API 登录成功
+📝 已记录纯 API 登录会话: accountId=5, uid=phase2-mock-uid, loginTime=1792232068971, mapSize=5
+执行SQL: UPDATE crown_accounts
+           SET api_uid = $1,
+               api_login_time = $2,
+               api_cookies = $3,
+               is_online = true,
+               last_login_at = CURRENT_TIMESTAMP,
+               updated_at = CURRENT_TIMESTAMP
+           WHERE id = $4 [ 'phase2-mock-uid', 1792232068971, 'loadBB=1', 5 ]
+💾 会话信息已持久化到数据库: accountId=5, cookies=已保存
+📌 使用纯 API 方式下注 (账号 ID=5, UID=phase2-mock-uid)
+执行SQL: SELECT username, device_type, user_agent, proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password, api_cookies
+         FROM crown_accounts WHERE id = $1 [ 5 ]
+✅ 已设置 UID: phase2-mock-uid
+🍪 已设置 Cookie: loadBB=1
+🍪 已恢复 Cookie 到 API 客户端
+✅ API 客户端准备完成: accountId=5, uid=phase2-mock-uid, 代理=未启用
+🔄 转换下注参数: betType="角球让球", betOption="Phase3F02 Phase3F02 Header Home (角球 +1)"
+✅ 转换结果: wtype="RE", rtype="REH", chose_team="H" (half=false, metaCategory=handicap, metaSide=home)
+🔍 下注参数覆盖值: {
+  market_wtype: 'CNR',
+  market_rtype: 'CNRH',
+  market_chose_team: undefined,
+  base_wtype: 'RE',
+  base_rtype: 'REH',
+  base_chose_team: 'H'
+}
+✅ 最终使用的参数: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' }
+📊 盘口线: 1
+🎯 尝试获取赔率组合: { wtype: 'CNR', rtype: 'CNRH', chose_team: 'H' } 盘口线: 1
+🔄 获取赔率 [CNR/CNRH] spread=1 尝试 1/3
+🔄 获取最新赔率...
+📤 发送获取赔率请求...
+   比赛ID: 930006
+   玩法: CNR
+   选择: H
+📥 原始赔率响应（前 500 字符）: <serverresponse><code>501</code><ioratio>1.90</ioratio><ratio>1900</ratio><con>1</con><spread>1</spread></serverresponse>
+📥 赔率响应: {
+  code: '501',
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined
+}
+✅ 获取赔率成功: {
+  success: true,
+  ioratio: '1.90',
+  ratio: '1900',
+  con: '1',
+  spread: '1',
+  gold_gmin: undefined,
+  gold_gmax: undefined,
+  maxcredit: undefined,
+  team_name_h: undefined,
+  team_name_c: undefined,
+  league_name: undefined,
+  score: undefined,
+  code: '501'
+}
+🎯 最终下注参数: {
+  gid: '930006',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  amount: 100,
+  odds: 1.9
+}
+💰 执行下注...
+   使用赔率: 1.90 (原始赔率: 1.9)
+📊 下注参数详情: {
+  gid: '930006',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N',
+  match_status: undefined
+}
+🎯 开始下注: {
+  gid: '930006',
+  gtype: 'FT',
+  wtype: 'CNR',
+  rtype: 'CNRH',
+  chose_team: 'H',
+  ioratio: '1.90',
+  gold: '100',
+  con: '1',
+  ratio: '1900',
+  isRB: 'N'
+}
+📤 发送下注请求...
+   比赛ID: 930006
+   玩法: CNR
+   选项: CNRH
+   赔率: 1.90
+   金额: 100
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 3 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+[后台下注任务完成] 总账号=1, 成功=1, 失败=0, 实际生成注单=1, 待验证=1
+[后台下注任务] 官网匹配警告: [ { accountId: 3, warning: '下注成功' } ]
+📥 下注响应: {
+  code: '560',
+  ticket_id: 'PHASE3F02-015',
+  ioratio: '1.90',
+  gold: '80'
+}
+✅ 下注成功！
+   注单号: PHASE3F02-015
+   下注金额: 80
+   当前余额: undefined
+   最大额度: undefined
+   比赛: undefined vs undefined
+   联赛: undefined
+📥 下注响应: {
+  success: true,
+  ticket_id: 'PHASE3F02-015',
+  gold: '80',
+  nowcredit: undefined,
+  maxcredit: undefined,
+  ioratio: '1.90',
+  team_h: undefined,
+  team_c: undefined,
+  league: undefined,
+  date: undefined,
+  time: undefined,
+  score_h: undefined,
+  score_c: undefined,
+  code: '560'
+}
+执行SQL: UPDATE bets SET
+					     status = $1::text,
+					     official_bet_id = $2,
+					     official_odds = $3,
+					     odds = $4,
+					     error_message = $5,
+					     confirmed_at = CASE WHEN $1::text = 'confirmed' THEN COALESCE(confirmed_at, CURRENT_TIMESTAMP) ELSE confirmed_at END,
+					     updated_at = CURRENT_TIMESTAMP
+					 WHERE id = $6
+					 RETURNING * [ 'confirmed', 'PHASE3F02-015', 1.9, 1.9, null, 16 ]
+执行SQL: WITH current_balance AS (
+					     SELECT COALESCE(SUM(amount), 0) as balance
+					     FROM coin_transactions
+					     WHERE user_id = $1
+					 )
+					 INSERT INTO coin_transactions (
+					     user_id, account_id, bet_id, transaction_id, transaction_type,
+					     description, amount, balance_before, balance_after
+					 )
+					 SELECT
+					     $1, $2, $3, $4, $5,
+					     $6, $7,
+					     current_balance.balance,
+					     current_balance.balance + $7
+					 FROM current_balance [
+  2,
+  5,
+  16,
+  'BET17922320694944k4aiojg3',
+  '消耗',
+  '下注消耗 - 角球让球 Phase3F02 Phase3F02 Header Home (角球 +1)',
+  -80
+]
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 5 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 2 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-header-only",
+  "account_ids": [
+    5
+  ],
+  "match_id": 930006,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Header Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930006",
+  "league_name": "Phase3F02 Header League",
+  "home_team": "Phase3F02 Header Home",
+  "away_team": "Phase3F02 Header Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  2,
+  'phase3f02-header-only',
+  '6b7546e701cc3c58af2cc4cb830b6f3dbf1d4e49068b52091addbcb39c2907cb'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 2, 'phase3f02-header-only' ]
+2026-10-17T10:14:29.527Z POST / 202 5ms
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 4 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-early-failure",
+  "account_ids": [
+    7
+  ],
+  "match_id": 930007,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Failure Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930007",
+  "league_name": "Phase3F02 Failure League",
+  "home_team": "Phase3F02 Failure Home",
+  "away_team": "Phase3F02 Failure Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  4,
+  'phase3f02-early-failure',
+  '3d23b6dcd82b444831a90b0fc8ef691bb6bdd0d61c5ce1a8d388018884619834'
+]
+执行SQL: SELECT COALESCE(SUM(amount), 0) as balance FROM coin_transactions WHERE user_id = $1 [ 4 ]
+❌ 金币余额不足: { coinBalance: 0, required: 80, chargeUserId: 4 }
+执行SQL: UPDATE bet_idempotency_requests
+                SET status = 'failed', response_json = $2::jsonb, http_status = $3, updated_at = CURRENT_TIMESTAMP
+              WHERE id = $1 AND status = 'pending' [ 30, '{"success":false,"error":"金币余额不足，当前余额: 0.00，需要: 80"}', 400 ]
+2026-10-17T10:14:29.755Z POST / 400 5ms
+错误请求: POST / - 400
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 4 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-early-failure",
+  "account_ids": [
+    7
+  ],
+  "match_id": 930007,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Failure Home (角球 +1)",
+  "total_amount": 80,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930007",
+  "league_name": "Phase3F02 Failure League",
+  "home_team": "Phase3F02 Failure Home",
+  "away_team": "Phase3F02 Failure Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  4,
+  'phase3f02-early-failure',
+  '3d23b6dcd82b444831a90b0fc8ef691bb6bdd0d61c5ce1a8d388018884619834'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 4, 'phase3f02-early-failure' ]
+2026-10-17T10:14:29.978Z POST / 400 3ms
+错误请求: POST / - 400
+执行SQL: SELECT w.*
+         FROM users u
+         JOIN whitelabels w ON u.whitelabel_id = w.id
+         WHERE u.id = $1
+         LIMIT 1 [ 4 ]
+📝 收到下注请求: {
+  "idempotency_key": "phase3f02-early-failure",
+  "account_ids": [
+    7
+  ],
+  "match_id": 930007,
+  "bet_type": "角球让球",
+  "bet_option": "Phase3F02 Phase3F02 Failure Home (角球 +1)",
+  "total_amount": 81,
+  "odds": 1.9,
+  "single_limit": "5000",
+  "interval_range": "1-3",
+  "quantity": 1,
+  "min_odds": "1.90",
+  "crown_match_id": "930007",
+  "league_name": "Phase3F02 Failure League",
+  "home_team": "Phase3F02 Failure Home",
+  "away_team": "Phase3F02 Failure Away",
+  "match_time": "2026-10-17T12:13:40.240Z",
+  "match_status": "live",
+  "current_score": "",
+  "match_period": "",
+  "market_category": "handicap",
+  "market_scope": "full",
+  "market_side": "home",
+  "market_line": "1",
+  "market_index": 0,
+  "market_wtype": "CNR",
+  "market_rtype": "CNRH"
+}
+执行SQL: INSERT INTO bet_idempotency_requests (user_id, idempotency_key, request_hash, status)
+         VALUES ($1, $2, $3, 'pending')
+         ON CONFLICT (user_id, idempotency_key) DO NOTHING
+         RETURNING id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status [
+  4,
+  'phase3f02-early-failure',
+  '9d91f7feed98016f96d92277f08122e50958677bdcfd6103435877d9655b2ebd'
+]
+执行SQL: SELECT id, user_id, idempotency_key, request_hash, status, bet_ids, response_json, http_status
+           FROM bet_idempotency_requests WHERE user_id = $1 AND idempotency_key = $2 [ 4, 'phase3f02-early-failure' ]
+2026-10-17T10:14:29.987Z POST / 409 6ms
+错误请求: POST / - 409
+执行SQL: SELECT device_type, user_agent,
+              proxy_enabled, proxy_type, proxy_host, proxy_port, proxy_username, proxy_password,
+              api_cookies
+         FROM crown_accounts
+        WHERE id = $1 [ 5 ]
+🍪 已设置 Cookie: loadBB=1
+✅ 已设置 UID: phase2-mock-uid
+📋 获取今日下注记录...
+✅ 今日下注响应: {"wagers":[]}
