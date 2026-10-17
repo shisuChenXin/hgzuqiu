@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-10-17T10:32:17.912Z",
+  "backend": {
+    "status": 200,
+    "checked_at": "2026-10-17T10:32:19.514Z"
+  },
+  "frontend": {
+    "status": 200,
+    "checked_at": "2026-10-17T10:32:19.544Z"
+  },
+  "mock": {
+    "status": 200,
+    "checked_at": "2026-10-17T10:32:19.552Z"
+  },
+  "network_boundary": {
+    "crown_base_url": "http://127.0.0.1:3301",
+    "all_service_hosts": [
+      "127.0.0.1"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+[dotenv@17.2.2] injecting env (0) from .env -- tip: 📡 version env with Radar: https://dotenvx.com/radar
+⚠️ 邮件服务未配置，邮件功能将不可用
+🚀 智投后端服务启动成功！
+📍 服务地址: http://localhost:3202
+🌍 环境: development
+⏰ 启动时间: 2026/10/17 18:32:19
+⏰ 设置会话恢复定时器，将在 3 秒后执行...
+ℹ️ 内置赛事抓取服务已禁用，使用外部独立进程
+2026-10-17T10:32:19.511Z GET /api/health 200 4ms
+ℹ️ 数据库账号预热已禁用，使用独立抓取服务
+🔐 登录请求开始，请求体: {
+  username: 'phase3g-ui-admin',
+  password: '***',
+  whitelabel_domain: ''
+}
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase3g-ui-admin' ]
+✅ 数据库连接成功
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [
+  1,
+  '127.0.0.1',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36',
+  true,
+  false
+]
+2026-10-17T10:32:22.123Z POST /login 200 130ms
+🔐 登录请求开始，请求体: {
+  username: 'phase3g-ui-admin',
+  password: '***',
+  whitelabel_domain: ''
+}
+执行SQL: SELECT id, username, email, password_hash, role, parent_id, agent_id, whitelabel_id, email_verified, created_at, updated_at FROM users WHERE username = $1 [ 'phase3g-ui-admin' ]
+执行SQL: SELECT * FROM whitelabels
+         WHERE is_default = TRUE AND status = 'active'
+         ORDER BY id LIMIT 1 undefined
+执行SQL: INSERT INTO login_history (user_id, ip_address, user_agent, success, verification_required)
+         VALUES ($1, $2, $3, $4, $5) [
+  1,
+  '127.0.0.1',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.37 Safari/537.36',
+  true,
+  false
+]

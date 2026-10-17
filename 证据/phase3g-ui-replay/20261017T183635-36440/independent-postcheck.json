@@ -1,0 +1,380 @@
+{
+  "postcheck": "phase3g-independent-postcheck",
+  "run_id": "20261017T183635-36440",
+  "started_at_utc": "2026-10-17T10:40:31.359Z",
+  "started_at_beijing": "2026-10-17 18:40:31 +08:00",
+  "main_report": "报告\\20261017T183635-36440-phase3g-浏览器双击与刷新重放实证报告.md",
+  "evidence_dir": "证据\\phase3g-ui-replay\\20261017T183635-36440",
+  "checks": [
+    {
+      "name": "latest_run_id_file_contains_exactly_one_id",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "latest_run_directory_name_unique",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "all_evidence_json_files_parsable",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "required_independent_evidence_files_present",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "main_run_success_flag_true",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "main_run_fatal_errors_empty",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "main_assertions_39_of_39_passed",
+      "passed": true,
+      "expected": {
+        "total": 39,
+        "passed": 39
+      },
+      "actual": {
+        "total": 39,
+        "passed": 39
+      }
+    },
+    {
+      "name": "main_run_id_matches_evidence_directory",
+      "passed": true,
+      "expected": "20261017T183635-36440",
+      "actual": "20261017T183635-36440"
+    },
+    {
+      "name": "main_git_commit_matches_current_head",
+      "passed": true,
+      "expected": "8386d39b923ce0adebd2831712ea8140ac80c45e",
+      "actual": "8386d39b923ce0adebd2831712ea8140ac80c45e"
+    },
+    {
+      "name": "postcheck_connected_to_declared_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase3g_20261017183635_36440",
+      "actual": "hgzuqiu_phase3g_20261017183635_36440"
+    },
+    {
+      "name": "db_bets_total_2_confirmed_2",
+      "passed": true,
+      "expected": {
+        "total": 2,
+        "confirmed": 2
+      },
+      "actual": {
+        "total": 2,
+        "confirmed": 2
+      }
+    },
+    {
+      "name": "db_bets_one_per_target_match",
+      "passed": true,
+      "expected": {
+        "940001": 1,
+        "940002": 1
+      },
+      "actual": {
+        "940001": 1,
+        "940002": 1
+      }
+    },
+    {
+      "name": "db_idempotency_total_2_created_2",
+      "passed": true,
+      "expected": {
+        "total": 2,
+        "created": 2
+      },
+      "actual": {
+        "total": 2,
+        "created": 2
+      }
+    },
+    {
+      "name": "db_idempotency_maps_to_unique_bets",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        [
+          1
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "name": "db_charge_transactions_total_2_unique_linked",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "total": 2,
+        "unique_transaction_ids": 2,
+        "linked_bets": [
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "name": "db_integrity_issues_0",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "network_total_post_bets_requests_2",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "double_click_post_bets_requests_1",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "double_click_response_status_202",
+      "passed": true,
+      "expected": 202,
+      "actual": [
+        202
+      ]
+    },
+    {
+      "name": "double_click_dom_and_marked_clicks_2",
+      "passed": true,
+      "expected": {
+        "dom_clicks": 2,
+        "marked_confirm_clicks": 2
+      },
+      "actual": {
+        "dom_clicks": 2,
+        "marked_confirm_clicks": 2,
+        "state_marked": 2
+      }
+    },
+    {
+      "name": "refresh_backend_route_response_202",
+      "passed": true,
+      "expected": 202,
+      "actual": {
+        "route_evidence": 202,
+        "accepted_state": 202
+      }
+    },
+    {
+      "name": "refresh_db_confirmed_before_reload",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "bets": 1,
+        "status": "confirmed",
+        "confirmed_at": "2026-10-17T10:37:09.132Z",
+        "reload_at": "2026-10-17T10:37:09.327Z"
+      }
+    },
+    {
+      "name": "refresh_before_after_recomputed_1_0",
+      "passed": true,
+      "expected": {
+        "before": 1,
+        "after": 0
+      },
+      "actual": {
+        "before": 1,
+        "after": 0
+      }
+    },
+    {
+      "name": "refresh_request_aborted_in_browser",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        "net::ERR_ABORTED"
+      ]
+    },
+    {
+      "name": "network_keys_match_db_one_to_one",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "db_keys": [
+          "bet-07fdcfac-999d-4b00-99dc-e4fef1ad009f",
+          "bet-1a0a4753-51a9-4ed2-af9d-ce7b6deadbbd"
+        ],
+        "network_keys": [
+          "bet-07fdcfac-999d-4b00-99dc-e4fef1ad009f",
+          "bet-1a0a4753-51a9-4ed2-af9d-ce7b6deadbbd"
+        ]
+      }
+    },
+    {
+      "name": "mock_ft_bet_one_per_match",
+      "passed": true,
+      "expected": {
+        "940001": 1,
+        "940002": 1
+      },
+      "actual": {
+        "940001": 1,
+        "940002": 1
+      }
+    },
+    {
+      "name": "mock_ft_bet_response_200_and_ticket_matches_db",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "gid": "940001",
+          "status": 200,
+          "ticket_id": "PHASE3G-DOUBLE-001"
+        },
+        {
+          "gid": "940002",
+          "status": 200,
+          "ticket_id": "PHASE3G-REFRESH-002"
+        }
+      ]
+    },
+    {
+      "name": "browser_only_loopback_hosts",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "source_guard_key_and_order_proven",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "submitting_guard_found": true,
+        "per_submit_key_found": true,
+        "modal_closes_before_background_request": true
+      }
+    },
+    {
+      "name": "watched_hashes_unchanged_and_current",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before_after_same": true,
+        "after_current_same": true
+      }
+    },
+    {
+      "name": "guard_database_unchanged",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+        "after": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+      }
+    },
+    {
+      "name": "independent_evidence_secret_scan_clean",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "main_report_exists_without_sensitive_literals",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "exists": true,
+        "findings": []
+      }
+    },
+    {
+      "name": "main_report_records_39_of_39",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "has_run_id": true,
+        "has_assertion_count": true
+      }
+    },
+    {
+      "name": "target_ports_3301_3302_3202_10090_free",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "main_stop_evidence_all_ports_down",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "stop_evidence": true,
+        "after_guard": []
+      }
+    }
+  ],
+  "fatal_errors": [],
+  "summary": {
+    "check_counts": {
+      "total": 36,
+      "passed": 36,
+      "failed": 0
+    },
+    "database": "hgzuqiu_phase3g_20261017183635_36440",
+    "network_counts": {
+      "total_post_bets": 2,
+      "double_click_post_bets": 1,
+      "refresh_before_reload": 1,
+      "refresh_after_reload": 0,
+      "refresh_aborted": 1
+    },
+    "database_counts": {
+      "bets": 2,
+      "confirmed_bets": 2,
+      "idempotency": 2,
+      "charge_transactions": 2,
+      "integrity_issues": 0
+    },
+    "mock_counts": {
+      "940001": 1,
+      "940002": 1
+    },
+    "browser_hosts": [
+      "127.0.0.1"
+    ],
+    "non_loopback_hosts": [],
+    "target_ports_open_now": [],
+    "evidence_secret_scan_findings": 0,
+    "conclusion_level": "runtime_proven + source_proven; boundary cases remain not_tested",
+    "not_tested": [
+      "其他浏览器与操作系统",
+      "浏览器后退/前进",
+      "Service Worker 重试",
+      "多标签页",
+      "离线队列",
+      "真实 Crown 上游",
+      "网络层自动重试策略"
+    ]
+  },
+  "success": true,
+  "checked_at_utc": "2026-10-17T10:40:31.532Z",
+  "checked_at_beijing": "2026-10-17 18:40:31 +08:00"
+}

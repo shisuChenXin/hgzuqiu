@@ -1,0 +1,44 @@
+{
+  "label": "phase3g finally",
+  "stopped_at": "2026-10-17T10:37:21.933Z",
+  "services": {
+    "backend": {
+      "role": "backend",
+      "pid": 13284,
+      "kill_requested_at": "2026-10-17T10:37:21.933Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T10:37:21.949Z"
+    },
+    "frontend": {
+      "role": "frontend",
+      "pid": 35516,
+      "kill_requested_at": "2026-10-17T10:37:21.949Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T10:37:21.974Z"
+    },
+    "ws_fixture": {
+      "role": "WS fixture",
+      "close_callback_completed": true,
+      "stopped_at": "2026-10-17T10:37:21.975Z"
+    },
+    "mock_upstream": {
+      "role": "mock upstream",
+      "close_callback_completed": true,
+      "stopped_at": "2026-10-17T10:37:21.975Z"
+    }
+  },
+  "target_ports_open_after_stop": [],
+  "all_target_ports_down": true
+}

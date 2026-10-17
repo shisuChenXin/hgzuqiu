@@ -1,0 +1,38 @@
+{
+  "database": "hgzuqiu_phase3g_20261017183155_10388",
+  "user": {
+    "id": 1,
+    "username": "phase3g-ui-admin",
+    "role": "admin",
+    "whitelabel_id": 1
+  },
+  "group": {
+    "id": 2,
+    "name": "Phase3G Group"
+  },
+  "account": {
+    "id": 1,
+    "username": "phase3g-crown-account",
+    "original_username": "phase3g-line-A",
+    "discount": "0.80",
+    "credit": "10000.00",
+    "is_online": true
+  },
+  "matches": [
+    {
+      "id": 940001,
+      "gid": "940001",
+      "league": "Phase3G Double Click League",
+      "home": "Phase3G Double Home",
+      "away": "Phase3G Double Away"
+    },
+    {
+      "id": 940002,
+      "gid": "940002",
+      "league": "Phase3G Refresh Replay League",
+      "home": "Phase3G Refresh Home",
+      "away": "Phase3G Refresh Away"
+    }
+  ],
+  "seed_balance": 1000
+}

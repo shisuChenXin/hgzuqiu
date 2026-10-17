@@ -1,0 +1,137 @@
+{
+  "bets": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "account_id": 1,
+      "account_username": "phase3g-crown-account",
+      "original_username": "phase3g-line-A",
+      "match_id": 940001,
+      "bet_type": "角球让球",
+      "bet_option": "Phase3G Double Home (角球 +1)",
+      "status": "confirmed",
+      "error_message": null,
+      "official_bet_id": "PHASE3G-DOUBLE-001",
+      "bet_amount": "80.00",
+      "virtual_bet_amount": "100.00",
+      "created_at": "2026-10-17T10:34:15.123Z",
+      "confirmed_at": "2026-10-17T10:34:15.144Z",
+      "updated_at": "2026-10-17T10:34:15.144Z"
+    }
+  ],
+  "idempotency": [
+    {
+      "id": "1",
+      "user_id": 1,
+      "idempotency_key": "bet-3f1b0a10-45d4-4689-84de-8f6765358277",
+      "request_hash": "31fe165551d76ba4c133ab36abed5f22a20d8ed219300c74c2c4aa6717e6bc7c",
+      "status": "created",
+      "bet_ids": [
+        1
+      ],
+      "response_json": {
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "bet_ids": [
+            1
+          ],
+          "cancelled": 0,
+          "processing": 1,
+          "selection_mapping": {
+            "mapping_mode": "identity",
+            "whitelabel_id": 1,
+            "mapping_applied": false,
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "executed_market_side": "home",
+            "displayed_market_side": "home",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_chose_team": null,
+            "displayed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+        "success": true
+      },
+      "http_status": 202,
+      "created_at": "2026-10-17T10:34:15.106Z",
+      "updated_at": "2026-10-17T10:34:15.123Z"
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE3G-SEED-1000",
+      "transaction_type": "充值",
+      "description": "Phase3G isolated seed",
+      "amount": "1000.00",
+      "balance_before": "0.00",
+      "balance_after": "1000.00",
+      "created_at": "2026-10-17T10:34:07.618Z"
+    },
+    {
+      "id": 2,
+      "user_id": 1,
+      "account_id": 1,
+      "bet_id": 1,
+      "transaction_id": "BET1792233255145ux9j1ba1b",
+      "transaction_type": "消耗",
+      "description": "下注消耗 - 角球让球 Phase3G Double Home (角球 +1)",
+      "amount": "-80.00",
+      "balance_before": "1000.00",
+      "balance_after": "920.00",
+      "created_at": "2026-10-17T10:34:15.146Z"
+    }
+  ],
+  "mock_ft_bet_events": [
+    {
+      "at": "2026-10-17T10:34:15.140Z",
+      "remote_address": "127.0.0.1",
+      "method": "POST",
+      "url": "/transform.php?ver=2025-10-16-fix342_120",
+      "action": "FT_bet",
+      "content_type": "application/x-www-form-urlencoded",
+      "params": {
+        "p": "FT_bet",
+        "uid": "phase2-mock-uid",
+        "ver": "2025-10-16-fix342_120",
+        "langx": "zh-cn",
+        "odd_f_type": "H",
+        "golds": "100",
+        "gid": "940001",
+        "gtype": "FT",
+        "wtype": "CNR",
+        "rtype": "CNRH",
+        "chose_team": "H",
+        "ioratio": "1.90",
+        "con": "1",
+        "ratio": "1900",
+        "autoOdd": "Y",
+        "timestamp": "1792233255138",
+        "timestamp2": "",
+        "isRB": "N",
+        "imp": "N",
+        "ptype": "",
+        "isYesterday": "N",
+        "f": "1R"
+      },
+      "ticket_id": "PHASE3G-DOUBLE-001",
+      "response_status": 200
+    }
+  ],
+  "counts": {
+    "dom_clicks": 2,
+    "marked_confirm_clicks": 2,
+    "requests": 1,
+    "response_status": 202,
+    "bets": 1,
+    "idempotency_rows": 1,
+    "charge_transactions": 1,
+    "mock_ft_bet": 1
+  }
+}

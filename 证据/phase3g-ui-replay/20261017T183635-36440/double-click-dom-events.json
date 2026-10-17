@@ -1,0 +1,18 @@
+{
+  "click_events": [
+    {
+      "type": "click",
+      "on_marked_confirm_button": true,
+      "default_prevented": false,
+      "button_disabled": false,
+      "timestamp_ms": 2823.7999999970198
+    },
+    {
+      "type": "click",
+      "on_marked_confirm_button": true,
+      "default_prevented": false,
+      "button_disabled": false,
+      "timestamp_ms": 2824.5999999940395
+    }
+  ]
+}

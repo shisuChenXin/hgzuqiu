@@ -1,0 +1,6 @@
+{
+  "file": "frontend/src/components/Betting/BetFormModal.tsx",
+  "submitting_guard_found": true,
+  "per_submit_key_found": true,
+  "modal_closes_before_background_request": true
+}

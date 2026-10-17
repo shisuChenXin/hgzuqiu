@@ -1,0 +1,6761 @@
+[
+  {
+    "at": "2026-10-17T10:34:09.689Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/auth",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.742Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/auth",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.750Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.751Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.752Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/auth",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.753Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.777Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.778Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.782Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.783Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.784Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.785Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.785Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.786Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.788Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.789Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.791Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.792Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.814Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.815Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.817Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.820Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.821Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.822Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.823Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.824Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.825Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.826Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.827Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.828Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.892Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.894Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.896Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.897Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.916Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.917Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.920Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.921Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.922Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.923Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.924Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.925Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.927Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.928Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.929Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.930Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.931Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.932Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.933Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.933Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.934Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.938Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.939Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.941Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:09.942Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.944Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.945Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connecting..."
+  },
+  {
+    "at": "2026-10-17T10:34:09.945Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.946Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:09.948Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:10090/?token=9daeIyg_Osp2",
+    "host": "127.0.0.1",
+    "port": "10090"
+  },
+  {
+    "at": "2026-10-17T10:34:09.950Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:09.951Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.051Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.052Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.423Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"connected\"}"
+  },
+  {
+    "at": "2026-10-17T10:34:10.424Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connected."
+  },
+  {
+    "at": "2026-10-17T10:34:10.519Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.520Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.574Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.575Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.576Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.577Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.582Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.583Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.598Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.599Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.601Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.604Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.605Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.613Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.614Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.617Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.618Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.619Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.621Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.624Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.625Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.627Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.628Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.630Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.632Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.635Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.636Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.638Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.640Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.642Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.643Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.645Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.646Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.654Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.655Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.668Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.670Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.672Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.673Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.674Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.674Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.676Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.677Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.679Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.680Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.682Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.683Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.869Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.870Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.873Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.874Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.875Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.877Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.880Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.881Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.884Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.885Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.908Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.910Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.912Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.913Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.915Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.916Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.917Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.918Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.919Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.921Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.933Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.934Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.957Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.958Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.960Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:10.961Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.962Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.964Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:10.965Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:10.995Z",
+    "kind": "console",
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+  },
+  {
+    "at": "2026-10-17T10:34:11.034Z",
+    "kind": "console",
+    "type": "info",
+    "text": "[API] Using base URL: http://127.0.0.1:3202/api"
+  },
+  {
+    "at": "2026-10-17T10:34:11.054Z",
+    "kind": "console",
+    "type": "log",
+    "text": "🚀 main.tsx loading..."
+  },
+  {
+    "at": "2026-10-17T10:34:11.054Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 找到root元素，开始渲染..."
+  },
+  {
+    "at": "2026-10-17T10:34:11.056Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 智投系统渲染完成"
+  },
+  {
+    "at": "2026-10-17T10:34:11.122Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition."
+  },
+  {
+    "at": "2026-10-17T10:34:11.122Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."
+  },
+  {
+    "at": "2026-10-17T10:34:11.538Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/auth/login, hasToken: false}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.542Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.687Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:11.691Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/auth/login, hasToken: false}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.693Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.695Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:11.761Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:11.764Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/auth/login",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:11.942Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.944Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/staff, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/bets/stats, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/staff, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/bets/stats, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.945Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:11.948Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.949Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.951Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.953Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.955Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.957Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.959Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.961Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:11.994Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:11.995Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.029Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.031Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.033Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.034Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.037Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.039Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.049Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.050Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.052Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.054Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.056Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.058Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/bets/stats?start_date=2026-10-17&end_date=2026-10-17",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.060Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.061Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/staff",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.063Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.065Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.217Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.226Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.232Z",
+    "kind": "websocket",
+    "event": "closed",
+    "url": "ws://127.0.0.1:10090/?token=9daeIyg_Osp2"
+  },
+  {
+    "at": "2026-10-17T10:34:12.237Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.238Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.241Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.249Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.251Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.253Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.256Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.258Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.259Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.261Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.263Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.265Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.267Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.269Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.271Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.272Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.276Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.278Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.280Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.281Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.283Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.284Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.286Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.289Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.291Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.293Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.303Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.305Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.306Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.308Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.309Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.311Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.312Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.313Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.314Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.316Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.318Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.319Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.321Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.322Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.324Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.325Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.335Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.337Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.338Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connecting..."
+  },
+  {
+    "at": "2026-10-17T10:34:12.338Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.340Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.341Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.343Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.345Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.347Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.349Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.351Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.353Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.355Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.357Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.358Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.360Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.363Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.365Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.367Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.368Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:10090/?token=9daeIyg_Osp2",
+    "host": "127.0.0.1",
+    "port": "10090"
+  },
+  {
+    "at": "2026-10-17T10:34:12.370Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"connected\"}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.370Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connected."
+  },
+  {
+    "at": "2026-10-17T10:34:12.370Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.371Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.373Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.374Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.376Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.377Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.379Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.380Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 304,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.382Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.383Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.384Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.388Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.389Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.390Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.392Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.394Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.396Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 304,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.397Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.399Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 304,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.401Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.402Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.404Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.405Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.410Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.412Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.416Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.418Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.420Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.421Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.423Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.425Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.426Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.428Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.430Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.431Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.433Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.434Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.436Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.437Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.439Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.441Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.448Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.449Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.451Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.453Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.455Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.458Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.459Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.464Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.466Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.468Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.471Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.472Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.474Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.476Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.477Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.479Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.481Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.483Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.484Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.487Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.488Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.490Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.492Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.494Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.495Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.497Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.499Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.501Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.503Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.507Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.509Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.513Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.514Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.520Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.522Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.524Z",
+    "kind": "console",
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+  },
+  {
+    "at": "2026-10-17T10:34:12.524Z",
+    "kind": "console",
+    "type": "info",
+    "text": "[API] Using base URL: http://127.0.0.1:3202/api"
+  },
+  {
+    "at": "2026-10-17T10:34:12.524Z",
+    "kind": "console",
+    "type": "log",
+    "text": "🚀 main.tsx loading..."
+  },
+  {
+    "at": "2026-10-17T10:34:12.524Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 找到root元素，开始渲染..."
+  },
+  {
+    "at": "2026-10-17T10:34:12.524Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 智投系统渲染完成"
+  },
+  {
+    "at": "2026-10-17T10:34:12.528Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition."
+  },
+  {
+    "at": "2026-10-17T10:34:12.528Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."
+  },
+  {
+    "at": "2026-10-17T10:34:12.528Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/auth/me, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.529Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/auth/me, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.529Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.533Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.535Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.538Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.547Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.549Z",
+    "kind": "console",
+    "type": "error",
+    "text": "Warning: [antd: Card] `bodyStyle` is deprecated. Please use `styles.body` instead."
+  },
+  {
+    "at": "2026-10-17T10:34:12.602Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "WebSocket connection to 'ws://127.0.0.1:3302/ws' failed: WebSocket is closed before the connection is established."
+  },
+  {
+    "at": "2026-10-17T10:34:12.615Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.615Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.616Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.616Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.618Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.620Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.622Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.626Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:12.628Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 304,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.630Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.646Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.647Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.651Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:3302/ws",
+    "host": "127.0.0.1",
+    "port": "3302"
+  },
+  {
+    "at": "2026-10-17T10:34:12.654Z",
+    "kind": "console",
+    "type": "error",
+    "text": "[WS] error Event"
+  },
+  {
+    "at": "2026-10-17T10:34:12.654Z",
+    "kind": "websocket",
+    "event": "closed",
+    "url": "ws://127.0.0.1:3302/ws"
+  },
+  {
+    "at": "2026-10-17T10:34:12.676Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:3302/ws",
+    "host": "127.0.0.1",
+    "port": "3302"
+  },
+  {
+    "at": "2026-10-17T10:34:12.679Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.680Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.682Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.684Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.686Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.688Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.690Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:12.692Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:12.706Z",
+    "kind": "websocket",
+    "event": "frame_sent",
+    "payload": "<redacted auth frame>"
+  },
+  {
+    "at": "2026-10-17T10:34:12.707Z",
+    "kind": "websocket",
+    "event": "frame_sent",
+    "payload": "{\"type\":\"subscribe\",\"data\":{\"showTypes\":[\"live\",\"today\",\"early\"]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.707Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"heartbeat\",\"data\":{\"message\":\"认证成功\",\"server_time\":\"2026-10-17T10:34:12.701Z\"}}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.707Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"live\",\"matches\":[{\"gid\":\"940001\",\"gtype\":\"FT\",\"showType\":\"live\",\"league\":\"Phase3G Double Click League\",\"home\":\"Phase3G Double Home\",\"away\":\"Phase3G Double Away\",\"markets\":{\"cornerFull\":{\"handicapLines\":[{\"hdp\":\"1\",\"line\":\"1\",\"home\":\"1.90\",\"away\":\"1.90\",\"__meta\":{\"gid\":\"940001\",\"hgid\":\"940001\",\"isMaster\":\"Y\",\"mode\":\"CN\"}}]}}},{\"gid\":\"940002\",\"gtype\":\"FT\",\"showType\":\"live\",\"league\":\"Phase3G Refresh Replay League\",\"home\":\"Phase3G Refresh Home\",\"away\":\"Phase3G Refresh Away\",\"markets\":{\"cornerFull\":{\"handicapLines\":[{\"hdp\":\"1\",\"line\":\"1\",\"home\":\"1.90\",\"away\":\"1.90\",\"__meta\":{\"gid\":\"940002\",\"hgid\":\"940002\",\"isMaster\":\"Y\",\"mode\":\"CN\"}}]}}}]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.718Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"today\",\"matches\":[]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:12.741Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"early\",\"matches\":[]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:13.949Z",
+    "kind": "console",
+    "type": "error",
+    "text": "Warning: Warning: There may be circular references"
+  },
+  {
+    "at": "2026-10-17T10:34:13.967Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/groups, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:13.967Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/groups, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:13.971Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:13.974Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:14.025Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:14.027Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:14.029Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:14.030Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:14.862Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts/auto-select, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:14.867Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940001&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:14.898Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940001&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:14.900Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940001&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:14.929Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/crown-automation/odds/preview, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:14.930Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:14.980Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:14.981Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.098Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/bets, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.098Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": true,
+    "post_data": {
+      "idempotency_key": "bet-3f1b0a10-45d4-4689-84de-8f6765358277",
+      "account_ids": [
+        1
+      ],
+      "match_id": 940001,
+      "total_amount": 80,
+      "odds": 1.9,
+      "market_category": "handicap",
+      "market_scope": "full",
+      "market_side": "home"
+    },
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.151Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 202,
+    "is_post_bets": true,
+    "post_data": {
+      "idempotency_key": "bet-3f1b0a10-45d4-4689-84de-8f6765358277",
+      "account_ids": [
+        1
+      ],
+      "match_id": 940001,
+      "total_amount": 80,
+      "odds": 1.9,
+      "market_category": "handicap",
+      "market_scope": "full",
+      "market_side": "home"
+    },
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.153Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.157Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.160Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": true
+  },
+  {
+    "at": "2026-10-17T10:34:15.164Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.167Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.318Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.327Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.333Z",
+    "kind": "websocket",
+    "event": "closed",
+    "url": "ws://127.0.0.1:10090/?token=9daeIyg_Osp2"
+  },
+  {
+    "at": "2026-10-17T10:34:15.333Z",
+    "kind": "websocket",
+    "event": "closed",
+    "url": "ws://127.0.0.1:3302/ws"
+  },
+  {
+    "at": "2026-10-17T10:34:15.336Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.340Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.342Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/matches",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.345Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.351Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.354Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/main.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.361Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.364Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@vite/client",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.366Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.373Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.376Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.379Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.381Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.383Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.386Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.388Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.390Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.393Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.395Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/@react-refresh",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.403Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.405Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.409Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.411Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-dom_client.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.414Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.417Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.419Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.424Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.427Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.430Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.432Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/react-router-dom.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.443Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.446Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd_locale_zh_CN.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.448Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.451Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.453Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.456Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.459Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/contexts/AuthContext.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.462Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.466Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/vite/dist/client/env.mjs",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.469Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connecting..."
+  },
+  {
+    "at": "2026-10-17T10:34:15.469Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.472Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.476Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.482Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.484Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.486Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-DRWLMN53.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.488Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.490Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.492Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.494Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.496Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.498Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.500Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.502Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.505Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.508Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.510Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.513Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:10090/?token=9daeIyg_Osp2",
+    "host": "127.0.0.1",
+    "port": "10090"
+  },
+  {
+    "at": "2026-10-17T10:34:15.515Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.519Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-G3PMV62Z.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.521Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"connected\"}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.521Z",
+    "kind": "console",
+    "type": "debug",
+    "text": "[vite] connected."
+  },
+  {
+    "at": "2026-10-17T10:34:15.523Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.525Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-NXESFFTV.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.535Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.538Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.541Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/ProtectedRoute.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.543Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Layout/MainLayout.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.546Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.548Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AuthPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.550Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.553Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/DashboardPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.555Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.557Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/GroupsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.559Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.563Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AccountsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.568Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.570Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/BettingPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.573Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.575Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/CoinsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.578Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.581Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.583Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.586Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.589Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.591Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.593Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.595Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.597Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/LiveWagersPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.600Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.604Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/MatchesPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.606Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.608Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/WhitelabelsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.610Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.612Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/StaffPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.615Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.617Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/SettingsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.620Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.622Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.624Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/pages/AgentsPage.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.626Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.628Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/App.css",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.630Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.632Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.634Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.638Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.640Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/antd.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.641Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.644Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.651Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.653Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginForm.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.656Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.659Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/dayjs.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.662Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.664Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/utils/credentials.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.667Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.669Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.672Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountDetailModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.674Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.679Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.681Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountCard.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.683Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.685Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-FTDBO4JW.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.687Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.689Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Accounts/AccountFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.693Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.695Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Betting/BetFormModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.697Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.699Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/chunk-T73RWRM6.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.702Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.704Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/axios.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.707Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.711Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/node_modules/.vite/deps/@ant-design_icons.js?v=8ba3381a",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.714Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.716Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/EmailBindingModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.718Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.721Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.723Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/components/Auth/LoginVerificationModal.tsx",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.726Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.729Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/src/services/verification.api.ts",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.731Z",
+    "kind": "console",
+    "type": "info",
+    "text": "%cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold"
+  },
+  {
+    "at": "2026-10-17T10:34:15.739Z",
+    "kind": "console",
+    "type": "info",
+    "text": "[API] Using base URL: http://127.0.0.1:3202/api"
+  },
+  {
+    "at": "2026-10-17T10:34:15.751Z",
+    "kind": "console",
+    "type": "log",
+    "text": "🚀 main.tsx loading..."
+  },
+  {
+    "at": "2026-10-17T10:34:15.751Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 找到root元素，开始渲染..."
+  },
+  {
+    "at": "2026-10-17T10:34:15.752Z",
+    "kind": "console",
+    "type": "log",
+    "text": "✅ 智投系统渲染完成"
+  },
+  {
+    "at": "2026-10-17T10:34:15.779Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition."
+  },
+  {
+    "at": "2026-10-17T10:34:15.780Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath."
+  },
+  {
+    "at": "2026-10-17T10:34:15.782Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/auth/me, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.783Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/auth/me, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.787Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.792Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.797Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.800Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.874Z",
+    "kind": "console",
+    "type": "error",
+    "text": "Warning: [antd: Card] `bodyStyle` is deprecated. Please use `styles.body` instead."
+  },
+  {
+    "at": "2026-10-17T10:34:15.949Z",
+    "kind": "console",
+    "type": "warning",
+    "text": "WebSocket connection to 'ws://127.0.0.1:3302/ws' failed: WebSocket is closed before the connection is established."
+  },
+  {
+    "at": "2026-10-17T10:34:15.967Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.967Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.967Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.968Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/coins/balance, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:15.968Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.976Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.979Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.984Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.988Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:15.993Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:15.996Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:10090/favicon.svg",
+    "host": "127.0.0.1",
+    "port": "10090",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:15.999Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:16.001Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/auth/me",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:16.003Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:3302/ws",
+    "host": "127.0.0.1",
+    "port": "3302"
+  },
+  {
+    "at": "2026-10-17T10:34:16.006Z",
+    "kind": "console",
+    "type": "error",
+    "text": "[WS] error Event"
+  },
+  {
+    "at": "2026-10-17T10:34:16.006Z",
+    "kind": "websocket",
+    "event": "closed",
+    "url": "ws://127.0.0.1:3302/ws"
+  },
+  {
+    "at": "2026-10-17T10:34:16.006Z",
+    "kind": "websocket",
+    "event": "opened",
+    "url": "ws://127.0.0.1:3302/ws",
+    "host": "127.0.0.1",
+    "port": "3302"
+  },
+  {
+    "at": "2026-10-17T10:34:16.027Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:16.030Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:16.038Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:16.043Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:16.045Z",
+    "kind": "websocket",
+    "event": "frame_sent",
+    "payload": "<redacted auth frame>"
+  },
+  {
+    "at": "2026-10-17T10:34:16.045Z",
+    "kind": "websocket",
+    "event": "frame_sent",
+    "payload": "{\"type\":\"subscribe\",\"data\":{\"showTypes\":[\"live\",\"today\",\"early\"]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:16.046Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:16.049Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:16.052Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:16.054Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/coins/balance",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:16.066Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"heartbeat\",\"data\":{\"message\":\"认证成功\",\"server_time\":\"2026-10-17T10:34:16.033Z\"}}"
+  },
+  {
+    "at": "2026-10-17T10:34:16.067Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"live\",\"matches\":[{\"gid\":\"940001\",\"gtype\":\"FT\",\"showType\":\"live\",\"league\":\"Phase3G Double Click League\",\"home\":\"Phase3G Double Home\",\"away\":\"Phase3G Double Away\",\"markets\":{\"cornerFull\":{\"handicapLines\":[{\"hdp\":\"1\",\"line\":\"1\",\"home\":\"1.90\",\"away\":\"1.90\",\"__meta\":{\"gid\":\"940001\",\"hgid\":\"940001\",\"isMaster\":\"Y\",\"mode\":\"CN\"}}]}}},{\"gid\":\"940002\",\"gtype\":\"FT\",\"showType\":\"live\",\"league\":\"Phase3G Refresh Replay League\",\"home\":\"Phase3G Refresh Home\",\"away\":\"Phase3G Refresh Away\",\"markets\":{\"cornerFull\":{\"handicapLines\":[{\"hdp\":\"1\",\"line\":\"1\",\"home\":\"1.90\",\"away\":\"1.90\",\"__meta\":{\"gid\":\"940002\",\"hgid\":\"940002\",\"isMaster\":\"Y\",\"mode\":\"CN\"}}]}}}]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:16.067Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"today\",\"matches\":[]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:16.067Z",
+    "kind": "websocket",
+    "event": "frame_received",
+    "payload": "{\"type\":\"full_data\",\"data\":{\"showType\":\"early\",\"matches\":[]}}"
+  },
+  {
+    "at": "2026-10-17T10:34:17.118Z",
+    "kind": "console",
+    "type": "error",
+    "text": "Warning: Warning: There may be circular references"
+  },
+  {
+    "at": "2026-10-17T10:34:17.141Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/groups, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:17.141Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/groups, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:17.145Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:17.148Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:17.205Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:17.208Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:17.211Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:17.213Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/groups",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:17.910Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts/auto-select, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:17.914Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940002&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:17.946Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940002&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:17.948Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts/auto-select?match_id=940002&group_id=2",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:17.970Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/crown-automation/odds/preview, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:17.974Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:17.994Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:17.996Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/crown-automation/odds/preview",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  },
+  {
+    "at": "2026-10-17T10:34:18.176Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: post, url: http://127.0.0.1:3202/api/bets, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:18.183Z",
+    "kind": "request",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": true,
+    "post_data": {
+      "idempotency_key": "bet-dd11c362-ba38-49e7-be79-ee46405d9477",
+      "account_ids": [
+        1
+      ],
+      "match_id": 940002,
+      "total_amount": 80,
+      "odds": 1.9,
+      "market_category": "handicap",
+      "market_scope": "full",
+      "market_side": "home"
+    },
+    "headers": {
+      "content_type": "application/json",
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:25.237Z",
+    "kind": "response",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 202,
+    "is_post_bets": true,
+    "post_data": {
+      "idempotency_key": "bet-dd11c362-ba38-49e7-be79-ee46405d9477",
+      "account_ids": [
+        1
+      ],
+      "match_id": 940002,
+      "total_amount": 80,
+      "odds": 1.9,
+      "market_category": "handicap",
+      "market_scope": "full",
+      "market_side": "home"
+    },
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:25.239Z",
+    "kind": "console",
+    "type": "log",
+    "text": "[API] request {method: get, url: http://127.0.0.1:3202/api/accounts, hasToken: true}"
+  },
+  {
+    "at": "2026-10-17T10:34:25.240Z",
+    "kind": "request_finished",
+    "method": "POST",
+    "url": "http://127.0.0.1:3202/api/bets",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": true
+  },
+  {
+    "at": "2026-10-17T10:34:25.243Z",
+    "kind": "request",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false,
+    "post_data": null,
+    "headers": {
+      "content_type": null,
+      "idempotency_key": null
+    }
+  },
+  {
+    "at": "2026-10-17T10:34:25.251Z",
+    "kind": "response",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "status": 200,
+    "is_post_bets": false,
+    "post_data": null,
+    "idempotency_replayed": null
+  },
+  {
+    "at": "2026-10-17T10:34:25.254Z",
+    "kind": "request_finished",
+    "method": "GET",
+    "url": "http://127.0.0.1:3202/api/accounts",
+    "host": "127.0.0.1",
+    "port": "3202",
+    "is_post_bets": false
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "route": {
+    "backend_response": {
+      "started_at": "2026-10-17T10:37:09.083Z",
+      "fetched_at": "2026-10-17T10:37:09.127Z",
+      "status": 202,
+      "ok": true,
+      "idempotency_replayed": null,
+      "body": {
+        "success": true,
+        "data": {
+          "total": 1,
+          "queued": 1,
+          "processing": 1,
+          "cancelled": 0,
+          "bet_ids": [
+            2
+          ],
+          "selection_mapping": {
+            "whitelabel_id": 1,
+            "mapping_mode": "identity",
+            "mapping_enabled": false,
+            "mapping_version": 1,
+            "mapping_applied": false,
+            "displayed_market_side": "home",
+            "executed_market_side": "home",
+            "displayed_market_rtype": "CNRH",
+            "executed_market_rtype": "CNRH",
+            "displayed_market_chose_team": null,
+            "executed_market_chose_team": null
+          }
+        },
+        "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。"
+      }
+    },
+    "fulfill_attempts": [
+      {
+        "at": "2026-10-17T10:37:16.132Z",
+        "result": "fulfilled"
+      }
+    ],
+    "delay_ms": 7000
+  },
+  "counts": {
+    "before_reload": 1,
+    "after_reload": 0,
+    "browser_failures": 1,
+    "reload_started_at": "2026-10-17T10:37:09.327Z",
+    "observation_ms": 12000,
+    "idempotency_key": "bet-07fdcfac-999d-4b00-99dc-e4fef1ad009f"
+  },
+  "request_failed_events": [
+    {
+      "at": "2026-10-17T10:37:09.343Z",
+      "kind": "request_failed",
+      "method": "POST",
+      "url": "http://127.0.0.1:3202/api/bets",
+      "host": "127.0.0.1",
+      "port": "3202",
+      "is_post_bets": true,
+      "post_data": {
+        "idempotency_key": "bet-07fdcfac-999d-4b00-99dc-e4fef1ad009f",
+        "account_ids": [
+          1
+        ],
+        "match_id": 940002,
+        "total_amount": 80,
+        "odds": 1.9,
+        "market_category": "handicap",
+        "market_scope": "full",
+        "market_side": "home"
+      },
+      "failure": "net::ERR_ABORTED"
+    }
+  ],
+  "browser_post_bets_requests": [
+    {
+      "at": "2026-10-17T10:37:09.080Z",
+      "kind": "request",
+      "method": "POST",
+      "url": "http://127.0.0.1:3202/api/bets",
+      "host": "127.0.0.1",
+      "port": "3202",
+      "is_post_bets": true,
+      "post_data": {
+        "idempotency_key": "bet-07fdcfac-999d-4b00-99dc-e4fef1ad009f",
+        "account_ids": [
+          1
+        ],
+        "match_id": 940002,
+        "total_amount": 80,
+        "odds": 1.9,
+        "market_category": "handicap",
+        "market_scope": "full",
+        "market_side": "home"
+      },
+      "headers": {
+        "content_type": "application/json",
+        "idempotency_key": null
+      }
+    }
+  ]
+}

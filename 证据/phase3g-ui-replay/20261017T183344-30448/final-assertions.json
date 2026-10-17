@@ -1,0 +1,269 @@
+{
+  "run_id": "20261017T183344-30448",
+  "phase": "phase3g-ui-replay",
+  "run_started_at_utc": "2026-10-17T10:33:44.362Z",
+  "run_started_at_beijing": "2026-10-17 18:33:44 +08:00",
+  "checked_at_utc": "2026-10-17T10:34:31.268Z",
+  "checked_at_beijing": "2026-10-17 18:34:31 +08:00",
+  "git_commit": "8386d39b923ce0adebd2831712ea8140ac80c45e",
+  "database": "hgzuqiu_phase3g_20261017183344_30448",
+  "urls": {
+    "mock": "http://127.0.0.1:3301",
+    "ws": "ws://127.0.0.1:3302/ws",
+    "backend": "http://127.0.0.1:3202",
+    "frontend": "http://127.0.0.1:10090"
+  },
+  "evidence_dir": "证据\\phase3g-ui-replay\\20261017T183344-30448",
+  "screenshot_dir": "测试截图\\phase3g-ui-replay\\20261017T183344-30448",
+  "assertions": [
+    {
+      "name": "target_ports_free_before",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "backend_build_passed",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "frontend_build_passed",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "fresh_database_starts_clean",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "charge_transactions": 0
+      }
+    },
+    {
+      "name": "source_submitting_guard_present",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "file": "frontend/src/components/Betting/BetFormModal.tsx",
+        "submitting_guard_found": true,
+        "per_submit_key_found": true,
+        "modal_closes_before_background_request": true
+      }
+    },
+    {
+      "name": "source_per_submit_idempotency_key_present",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "file": "frontend/src/components/Betting/BetFormModal.tsx",
+        "submitting_guard_found": true,
+        "per_submit_key_found": true,
+        "modal_closes_before_background_request": true
+      }
+    },
+    {
+      "name": "source_modal_closes_before_background_request",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "file": "frontend/src/components/Betting/BetFormModal.tsx",
+        "submitting_guard_found": true,
+        "per_submit_key_found": true,
+        "modal_closes_before_background_request": true
+      }
+    },
+    {
+      "name": "backend_health_200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "frontend_health_200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "mock_health_200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "browser_login_success",
+      "passed": false,
+      "expected": true,
+      "actual": {
+        "success": true,
+        "final_path": "/dashboard",
+        "local_storage_token_present": true,
+        "login_response": {
+          "status": 200,
+          "body": {
+            "success": true,
+            "data": {
+              "user": {
+                "id": 1,
+                "username": "phase3g-ui-admin",
+                "email": "phase3g-ui-admin@phase3g.local",
+                "role": "admin",
+                "parent_id": null,
+                "agent_id": null,
+                "whitelabel_id": 1,
+                "email_verified": true,
+                "created_at": "2026-10-17T10:34:06.914Z",
+                "updated_at": "2026-10-17T10:34:07.618Z"
+              },
+              "token": "<redacted>"
+            },
+            "message": "登录成功"
+          }
+        },
+        "checked_at": "2026-10-17T10:34:12.041Z"
+      }
+    },
+    {
+      "name": "double_click_document_events_2",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "double_click_confirm_button_events_2",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "double_click_post_bets_request_count_1",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "double_click_response_status_202",
+      "passed": true,
+      "expected": 202,
+      "actual": 202
+    },
+    {
+      "name": "double_click_db_bets_1_confirmed",
+      "passed": true,
+      "expected": {
+        "count": 1,
+        "status": "confirmed"
+      },
+      "actual": {
+        "count": 1,
+        "status": "confirmed"
+      }
+    },
+    {
+      "name": "double_click_idempotency_rows_1",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "double_click_mock_ft_bet_1",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "double_click_charge_transactions_1",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "all_target_ports_down_after_stop",
+      "passed": true,
+      "expected": true,
+      "actual": []
+    },
+    {
+      "name": "target_ports_free_after",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "guard_db_sha256_unchanged",
+      "passed": true,
+      "expected": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+      "actual": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+    },
+    {
+      "name": "watched_files_unchanged_during_run",
+      "passed": true,
+      "expected": {
+        "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+        "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+        "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+        "frontend/src/components/Betting/BetFormModal.tsx": "8ef3a27f8479f067fe2f462d85baf25092f69b9cfa7f96c38cda53bd97196d4f"
+      },
+      "actual": {
+        "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+        "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+        "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+        "frontend/src/components/Betting/BetFormModal.tsx": "8ef3a27f8479f067fe2f462d85baf25092f69b9cfa7f96c38cda53bd97196d4f"
+      }
+    },
+    {
+      "name": "evidence_secret_scan_clean",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "jwt_matches": [],
+        "secret_literal_matches": [],
+        "sensitive_header_matches": [],
+        "connection_string_matches": []
+      }
+    }
+  ],
+  "fatal_errors": [
+    "Error: timeout waiting for browser aborted original POST before reload after 12128ms\n    at waitFor (C:\\Users\\Administrator\\Documents\\ChatGPT\\皇冠映射\\hgzuqiu-clean-deploy\\.verify-runtime\\phase3g-ui-replay-run.js:175:9)\n    at async main (C:\\Users\\Administrator\\Documents\\ChatGPT\\皇冠映射\\hgzuqiu-clean-deploy\\.verify-runtime\\phase3g-ui-replay-run.js:961:5)"
+  ],
+  "summary": {
+    "assertion_counts": {
+      "total": 24,
+      "passed": 23,
+      "failed": 1
+    },
+    "double_click": {
+      "dom_clicks": 2,
+      "marked_confirm_clicks": 2,
+      "requests": 1,
+      "response_status": 202,
+      "bets": 1,
+      "idempotency_rows": 1,
+      "charge_transactions": 1,
+      "mock_ft_bet": 1
+    },
+    "refresh": null,
+    "final_counts": {
+      "bets": 0,
+      "idempotency": 0,
+      "charge_transactions": 0,
+      "mock_ft_bet": 0,
+      "integrity_issues": 0
+    },
+    "browser_hosts": [],
+    "non_loopback_hosts": [],
+    "target_ports_open_after_stop": [],
+    "evidence_secret_scan_clean": true
+  },
+  "success": false,
+  "report_file": "报告\\20261017T183344-30448-phase3g-浏览器双击与刷新重放实证报告.md"
+}
