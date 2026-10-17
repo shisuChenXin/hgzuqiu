@@ -1,0 +1,46 @@
+{
+  "cycle_index": 3,
+  "label": "phase5a cycle 3 complete",
+  "stopped_at": "2026-10-17T11:43:35.301Z",
+  "services": {
+    "backend_a_generation1": {
+      "role": "backend-a-generation1",
+      "skipped": true
+    },
+    "backend_a_generation2": {
+      "role": "backend-a-generation2",
+      "pid": 35196,
+      "kill_requested_at": "2026-10-17T11:43:35.301Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_method": "Node child.kill() default termination signal on Windows",
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T11:43:35.317Z"
+    },
+    "backend_b": {
+      "role": "backend-b",
+      "pid": 33040,
+      "kill_requested_at": "2026-10-17T11:43:35.318Z",
+      "already_exited": false,
+      "exit_code_before": null,
+      "signal_code_before": null,
+      "kill_method": "Node child.kill() default termination signal on Windows",
+      "kill_return": true,
+      "exit_code_after": null,
+      "signal_code_after": "SIGTERM",
+      "process_exited": true,
+      "exit_observed_at": "2026-10-17T11:43:35.331Z"
+    },
+    "mock_server": {
+      "role": "mock upstream",
+      "close_callback_completed": true,
+      "stopped_at": "2026-10-17T11:43:35.331Z"
+    }
+  },
+  "target_ports_open_after_stop": [],
+  "all_target_ports_down": true
+}

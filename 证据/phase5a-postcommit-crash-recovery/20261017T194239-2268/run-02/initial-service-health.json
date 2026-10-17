@@ -1,0 +1,42 @@
+{
+  "started_at_utc": "2026-10-17T11:43:03.949Z",
+  "backend_a_generation1": {
+    "status": 200
+  },
+  "backend_b": {
+    "status": 200
+  },
+  "mock": {
+    "status": 200
+  },
+  "runtime_config": {
+    "started_at_utc": "2026-10-17T11:43:03.949Z",
+    "cycle_index": 2,
+    "database": "hgzuqiu_phase5a_20261017194239_2268_2",
+    "jwt_secret": "<process-memory-only>",
+    "upstream": "http://127.0.0.1:3301",
+    "backends": [
+      {
+        "role": "backend-a-generation1",
+        "port": 3202,
+        "pid": 24644,
+        "database": "hgzuqiu_phase5a_20261017194239_2268_2",
+        "log": "证据\\phase5a-postcommit-crash-recovery\\20261017T194239-2268\\run-02\\backend-a-generation1-log.txt"
+      },
+      {
+        "role": "backend-b",
+        "port": 3203,
+        "pid": 37036,
+        "database": "hgzuqiu_phase5a_20261017194239_2268_2",
+        "log": "证据\\phase5a-postcommit-crash-recovery\\20261017T194239-2268\\run-02\\backend-b-log.txt"
+      }
+    ],
+    "network_boundary": {
+      "crown_base_url": "http://127.0.0.1:3301",
+      "crown_base_url_candidates": "http://127.0.0.1:3301",
+      "all_service_hosts": [
+        "127.0.0.1"
+      ]
+    }
+  }
+}

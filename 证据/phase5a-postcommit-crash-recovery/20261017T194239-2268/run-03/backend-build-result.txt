@@ -1,0 +1,12 @@
+CYCLE=3
+STARTED_AT_UTC=2026-10-17T11:43:17.656Z
+COMMAND=node <npm-cli.js> run build
+EXIT=0
+SPAWN_ERROR=null
+STDOUT
+
+> backend@1.0.0 build
+> tsc
+
+
+STDERR

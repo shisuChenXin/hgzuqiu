@@ -1,0 +1,546 @@
+{
+  "phase": "phase5a-cycle",
+  "matrix_run_id": "20261017T194239-2268",
+  "cycle_index": 5,
+  "cycle_label": "run-05",
+  "cycle_started_at_utc": "2026-10-17T11:43:53.485Z",
+  "cycle_started_at_beijing": "2026-10-17 19:43:53 +08:00",
+  "database": "hgzuqiu_phase5a_20261017194239_2268_5",
+  "evidence_dir": "证据\\phase5a-postcommit-crash-recovery\\20261017T194239-2268\\run-05",
+  "assertions": [
+    {
+      "name": "target_ports_free_before",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "backend_build_passed",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "fresh_database_has_no_bets",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "fresh_database_has_no_idempotency_rows",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "initial_backend_processes_distinct",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        37736,
+        41536
+      ]
+    },
+    {
+      "name": "both_backends_configured_same_database",
+      "passed": true,
+      "expected": "hgzuqiu_phase5a_20261017194239_2268_5",
+      "actual": [
+        "hgzuqiu_phase5a_20261017194239_2268_5",
+        "hgzuqiu_phase5a_20261017194239_2268_5"
+      ]
+    },
+    {
+      "name": "both_backends_configured_loopback_upstream",
+      "passed": true,
+      "expected": "http://127.0.0.1:3301",
+      "actual": {
+        "crown_base_url": "http://127.0.0.1:3301",
+        "crown_base_url_candidates": "http://127.0.0.1:3301",
+        "all_service_hosts": [
+          "127.0.0.1"
+        ]
+      }
+    },
+    {
+      "name": "alpha_login_backend_a_generation1_success",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "alpha_login_backend_b_success",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "crash_request_http_202",
+      "passed": true,
+      "expected": 202,
+      "actual": 202
+    },
+    {
+      "name": "crash_request_success_true",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "before_kill_one_pending_crash_bet",
+      "passed": true,
+      "expected": {
+        "total": 1,
+        "status": "pending"
+      },
+      "actual": {
+        "total": 1,
+        "statuses": [
+          "pending"
+        ]
+      }
+    },
+    {
+      "name": "before_kill_idempotency_created_202",
+      "passed": true,
+      "expected": {
+        "status": "created",
+        "http_status": 202
+      },
+      "actual": {
+        "status": "created",
+        "http_status": 202
+      }
+    },
+    {
+      "name": "before_kill_response_snapshot_canonical_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "before_kill_no_charge_transaction",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "before_kill_mock_received_one_crash_ft_bet",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "backend_a_generation1_exited",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "role": "backend-a-generation1 after FT_bet receive",
+        "pid": 37736,
+        "kill_requested_at": "2026-10-17T11:43:59.432Z",
+        "already_exited": false,
+        "exit_code_before": null,
+        "signal_code_before": null,
+        "kill_method": "Node child.kill() default termination signal on Windows",
+        "kill_return": true,
+        "exit_code_after": null,
+        "signal_code_after": "SIGTERM",
+        "process_exited": true,
+        "exit_observed_at": "2026-10-17T11:43:59.453Z"
+      }
+    },
+    {
+      "name": "ft_bet_received_before_kill_request",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "ft_bet_received_at": "2026-10-17T11:43:59.352Z",
+        "kill_requested_at": "2026-10-17T11:43:59.432Z"
+      }
+    },
+    {
+      "name": "backend_exit_before_held_response_attempt",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "exit_observed_at": "2026-10-17T11:43:59.453Z",
+        "response_attempt_at": "2026-10-17T11:44:04.356Z"
+      }
+    },
+    {
+      "name": "held_response_socket_destroyed",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "after_delayed_response_crash_bet_still_pending",
+      "passed": true,
+      "expected": "pending",
+      "actual": "pending"
+    },
+    {
+      "name": "after_delayed_response_no_charge",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "after_delayed_response_no_extra_ft_bet",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "backend_a_port_free_before_restart",
+      "passed": true,
+      "expected": false,
+      "actual": false
+    },
+    {
+      "name": "backend_a_generation2_started",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "backend_a_generation_pid_changed",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "generation1": 37736,
+        "generation2": 8616
+      }
+    },
+    {
+      "name": "no_automatic_retry_during_restart_observation",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "crash_bet_pending_after_restart_observation",
+      "passed": true,
+      "expected": "pending",
+      "actual": "pending"
+    },
+    {
+      "name": "no_charge_after_restart_observation",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "integrity_issue_present_after_crash",
+      "passed": true,
+      "expected": [
+        {
+          "issue": "missing_transaction_for_active_bet",
+          "bet_id": 1
+        }
+      ],
+      "actual": [
+        {
+          "issue": "missing_transaction_for_active_bet",
+          "bet_id": 1
+        }
+      ]
+    },
+    {
+      "name": "restarted_backend_a_replay_202",
+      "passed": true,
+      "expected": 202,
+      "actual": 202
+    },
+    {
+      "name": "restarted_backend_a_replay_header_true",
+      "passed": true,
+      "expected": "true",
+      "actual": "true"
+    },
+    {
+      "name": "restarted_backend_a_replay_response_canonical_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "restarted_backend_a_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0,
+        "integrity_issues": 0
+      }
+    },
+    {
+      "name": "backend_b_replay_202",
+      "passed": true,
+      "expected": 202,
+      "actual": 202
+    },
+    {
+      "name": "backend_b_replay_header_true",
+      "passed": true,
+      "expected": "true",
+      "actual": "true"
+    },
+    {
+      "name": "backend_b_replay_response_canonical_equal",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "backend_b_replay_zero_side_effects",
+      "passed": true,
+      "expected": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0
+      },
+      "actual": {
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0,
+        "integrity_issues": 0
+      }
+    },
+    {
+      "name": "after_both_replays_crash_bet_still_pending",
+      "passed": true,
+      "expected": "pending",
+      "actual": "pending"
+    },
+    {
+      "name": "control_request_http_202",
+      "passed": true,
+      "expected": 202,
+      "actual": 202
+    },
+    {
+      "name": "control_bet_confirmed",
+      "passed": true,
+      "expected": "confirmed",
+      "actual": "confirmed"
+    },
+    {
+      "name": "control_mock_ft_bet_once",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "control_charge_once",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "final_two_bets_one_pending_one_confirmed",
+      "passed": true,
+      "expected": {
+        "pending": 1,
+        "confirmed": 1
+      },
+      "actual": {
+        "pending": 1,
+        "confirmed": 1
+      }
+    },
+    {
+      "name": "final_two_created_idempotency_rows",
+      "passed": true,
+      "expected": {
+        "total": 2,
+        "created": 2
+      },
+      "actual": {
+        "total": 2,
+        "created": 2
+      }
+    },
+    {
+      "name": "final_two_mock_ft_bet_requests",
+      "passed": true,
+      "expected": 2,
+      "actual": 2
+    },
+    {
+      "name": "final_one_charge_transaction",
+      "passed": true,
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "name": "final_integrity_one_orphaned_active_bet",
+      "passed": true,
+      "expected": 1,
+      "actual": [
+        {
+          "issue": "missing_transaction_for_active_bet",
+          "bet_id": 1
+        }
+      ]
+    },
+    {
+      "name": "final_official_ticket_only_on_control",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        {
+          "id": 1,
+          "match_id": 950001,
+          "status": "pending",
+          "official_bet_id": null
+        },
+        {
+          "id": 2,
+          "match_id": 950002,
+          "status": "confirmed",
+          "official_bet_id": "PHASE5A-C5-002"
+        }
+      ]
+    },
+    {
+      "name": "mock_only_local_remote_addresses",
+      "passed": true,
+      "expected": true,
+      "actual": [
+        "127.0.0.1"
+      ]
+    },
+    {
+      "name": "all_target_ports_down_after_stop",
+      "passed": true,
+      "expected": true,
+      "actual": []
+    },
+    {
+      "name": "target_ports_free_after",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "guard_db_sha256_unchanged",
+      "passed": true,
+      "expected": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc",
+      "actual": "80dd7a45e289571e2b8da5d6a1424900d4e8f17ea2b4b3faa8bce39ada6d11dc"
+    },
+    {
+      "name": "watched_files_unchanged_during_cycle",
+      "passed": true,
+      "expected": true,
+      "actual": {
+        "before": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase5a-postcommit-crash-recovery-run.js": "0a5105a5733bf7be2ffddfe2206dd2e4c3a9dc015a3ff829dccc01a9ec13493f"
+        },
+        "after": {
+          "backend/src/app.ts": "248f9b186de7988c2e1439dff6dd0e19b412063f88280ebcc4e0efb3f80c4d39",
+          "backend/src/models/database.ts": "64a543d34ffdaa34916288aee6c3694c49ea4eb15a27ba4041f6c502c96f09e4",
+          "backend/src/routes/auth.ts": "6be876608cc50be792a2425814d7aecaf46802bbb98b2280acdcbfb8cde1f97f",
+          "backend/src/routes/bets.ts": "85c016375f0b78f83c9bc8a8052a6a48d7f53f2d01252103061a79540236581f",
+          "backend/src/services/account-selection.ts": "f78d586c4c4af0439e4355674e7f781106d23d0fcd37a8c9c33cf803a9dbc09a",
+          "database/schema.sql": "016908d2614732acaa9ba4b741b744a57738828861a2693fc5850efa457dbad3",
+          "database/migrations/20261017_add_bet_idempotency_requests.sql": "7f5f3379f26d701f4b11935c2f49c92937c78425079b8333a58d70a4c8a70429",
+          ".verify-runtime/phase5a-postcommit-crash-recovery-run.js": "0a5105a5733bf7be2ffddfe2206dd2e4c3a9dc015a3ff829dccc01a9ec13493f"
+        }
+      }
+    },
+    {
+      "name": "cycle_evidence_secret_scan_clean",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    },
+    {
+      "name": "cycle_evidence_contains_only_loopback_urls",
+      "passed": true,
+      "expected": [],
+      "actual": []
+    }
+  ],
+  "fatal_errors": [],
+  "product_recovery_invariant_passed": false,
+  "summary": {
+    "cycle_index": 5,
+    "database": "hgzuqiu_phase5a_20261017194239_2268_5",
+    "backend_generation1_pid": 37736,
+    "backend_generation2_pid": 8616,
+    "backend_b_pid": 41536,
+    "crash": {
+      "initial_http_status": 202,
+      "ft_bet_received_at": "2026-10-17T11:43:59.352Z",
+      "kill_requested_at": "2026-10-17T11:43:59.432Z",
+      "backend_exit_observed_at": "2026-10-17T11:43:59.453Z",
+      "held_response_attempt_at": "2026-10-17T11:44:04.356Z",
+      "socket_destroyed_before_response_attempt": true,
+      "automatic_retry_during_observation": 0
+    },
+    "replay": {
+      "restarted_backend_a": {
+        "http_status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0,
+        "integrity_issues": 0
+      },
+      "backend_b": {
+        "http_status": 202,
+        "header": "true",
+        "canonical_equal": true,
+        "bets": 0,
+        "idempotency": 0,
+        "mock_ft_bet": 0,
+        "charge_transactions": 0,
+        "integrity_issues": 0
+      }
+    },
+    "control": {
+      "http_status": 202,
+      "bets": 1,
+      "idempotency": 1,
+      "mock_ft_bet": 1,
+      "charge_transactions": 1,
+      "integrity_issues": 0
+    },
+    "final": {
+      "bets": 2,
+      "statuses": {
+        "pending": 1,
+        "confirmed": 1
+      },
+      "idempotency_rows": 2,
+      "mock_ft_bet": 2,
+      "charge_transactions": 1,
+      "integrity_issues": 1
+    },
+    "product_recovery_invariant_passed": false
+  },
+  "success": true,
+  "checked_at_utc": "2026-10-17T11:44:11.128Z",
+  "checked_at_beijing": "2026-10-17 19:44:11 +08:00",
+  "assertions_passed": 56,
+  "assertions_failed": 0
+}

@@ -1,0 +1,9 @@
+{
+  "scanned_root": "证据\\phase5a-postcommit-crash-recovery\\20261017T194239-2268\\run-04",
+  "non_loopback_urls": [],
+  "allowed_hosts": [
+    "127.0.0.1",
+    "localhost",
+    "::1"
+  ]
+}

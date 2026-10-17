@@ -1,0 +1,25 @@
+{
+  "checked_at_utc": "2026-10-17T11:43:22.461Z",
+  "bets": [],
+  "idempotency": [],
+  "transactions": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "user_username": "phase5a-alpha-admin-c3",
+      "account_id": null,
+      "bet_id": null,
+      "transaction_id": "PHASE5A-C3-SEED",
+      "transaction_type": "充值",
+      "description": "Phase5A isolated seed",
+      "amount": "1000.00",
+      "balance_before": "0.00",
+      "balance_after": "1000.00",
+      "created_at": "2026-10-17T11:43:22.409Z"
+    }
+  ],
+  "charge_transactions": [],
+  "integrity": [],
+  "mock_ft_bet_events": [],
+  "mock_ft_bet_response_attempts": []
+}

@@ -1,0 +1,14 @@
+{
+  "role": "backend-a-generation1 after FT_bet receive",
+  "pid": 37736,
+  "kill_requested_at": "2026-10-17T11:43:59.432Z",
+  "already_exited": false,
+  "exit_code_before": null,
+  "signal_code_before": null,
+  "kill_method": "Node child.kill() default termination signal on Windows",
+  "kill_return": true,
+  "exit_code_after": null,
+  "signal_code_after": "SIGTERM",
+  "process_exited": true,
+  "exit_observed_at": "2026-10-17T11:43:59.453Z"
+}

@@ -1,0 +1,295 @@
+{
+  "observation_ms": 5000,
+  "observation_started_at_utc": "2026-10-17T11:43:47.845Z",
+  "observation_ended_at_utc": "2026-10-17T11:43:52.851Z",
+  "backend_a_generation2_pid": 31700,
+  "restart_started_state": {
+    "checked_at_utc": "2026-10-17T11:43:47.845Z",
+    "bets": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "account_id": 1,
+        "account_username": "phase5a-alpha-c4-crown",
+        "match_id": 950001,
+        "bet_type": "角球让球",
+        "bet_option": "Phase5A Phase5A Crash Home (角球 +1)",
+        "status": "pending",
+        "error_message": null,
+        "official_bet_id": null,
+        "bet_amount": "80.00",
+        "virtual_bet_amount": "100.00",
+        "created_at": "2026-10-17T11:43:41.671Z",
+        "confirmed_at": null,
+        "updated_at": "2026-10-17T11:43:41.671Z"
+      }
+    ],
+    "idempotency": [
+      {
+        "id": "1",
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "idempotency_key": "phase5a-crash-c4",
+        "request_hash": "1cbb994a97feaea1572b7d8c2bee7cc4a3757c9ff20f324668b278b4dc3deefe",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:43:41.618Z",
+        "updated_at": "2026-10-17T11:43:41.671Z"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE5A-C4-SEED",
+        "transaction_type": "充值",
+        "description": "Phase5A isolated seed",
+        "amount": "1000.00",
+        "balance_before": "0.00",
+        "balance_after": "1000.00",
+        "created_at": "2026-10-17T11:43:40.242Z"
+      }
+    ],
+    "charge_transactions": [],
+    "integrity": [
+      {
+        "issue": "missing_transaction_for_active_bet",
+        "bet_id": 1
+      }
+    ],
+    "mock_ft_bet_events": [
+      {
+        "event": "request_received",
+        "at": "2026-10-17T11:43:41.705Z",
+        "request_id": "mock-1792237421705-dd949b5f",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase5a-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "950001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792237421703",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE5A-C4-001",
+        "hold_first_ft_bet": true
+      }
+    ],
+    "mock_ft_bet_response_attempts": [
+      {
+        "event": "FT_bet_response_attempt",
+        "at": "2026-10-17T11:43:46.706Z",
+        "request_id": "mock-1792237421705-dd949b5f",
+        "ticket_id": "PHASE5A-C4-001",
+        "action": "FT_bet",
+        "delay_ms": 5000,
+        "remote_address": "127.0.0.1",
+        "socket_destroyed_before_response_attempt": true,
+        "planned_response_status": 200,
+        "planned_response_body": "<serverresponse><code>560</code><ticket_id>PHASE5A-C4-001</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+        "response_end_called": false
+      }
+    ]
+  },
+  "after_observation_state": {
+    "checked_at_utc": "2026-10-17T11:43:52.851Z",
+    "bets": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "account_id": 1,
+        "account_username": "phase5a-alpha-c4-crown",
+        "match_id": 950001,
+        "bet_type": "角球让球",
+        "bet_option": "Phase5A Phase5A Crash Home (角球 +1)",
+        "status": "pending",
+        "error_message": null,
+        "official_bet_id": null,
+        "bet_amount": "80.00",
+        "virtual_bet_amount": "100.00",
+        "created_at": "2026-10-17T11:43:41.671Z",
+        "confirmed_at": null,
+        "updated_at": "2026-10-17T11:43:41.671Z"
+      }
+    ],
+    "idempotency": [
+      {
+        "id": "1",
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "idempotency_key": "phase5a-crash-c4",
+        "request_hash": "1cbb994a97feaea1572b7d8c2bee7cc4a3757c9ff20f324668b278b4dc3deefe",
+        "status": "created",
+        "bet_ids": [
+          1
+        ],
+        "response_json": {
+          "data": {
+            "total": 1,
+            "queued": 1,
+            "bet_ids": [
+              1
+            ],
+            "cancelled": 0,
+            "processing": 1,
+            "selection_mapping": {
+              "mapping_mode": "identity",
+              "whitelabel_id": 1,
+              "mapping_applied": false,
+              "mapping_enabled": false,
+              "mapping_version": 1,
+              "executed_market_side": "home",
+              "displayed_market_side": "home",
+              "executed_market_rtype": "CNRH",
+              "displayed_market_rtype": "CNRH",
+              "executed_market_chose_team": null,
+              "displayed_market_chose_team": null
+            }
+          },
+          "message": "下注任务已提交，正在后台处理中。本次共选择 1 个账号，计划拆分 1 笔下注。",
+          "success": true
+        },
+        "http_status": 202,
+        "created_at": "2026-10-17T11:43:41.618Z",
+        "updated_at": "2026-10-17T11:43:41.671Z"
+      }
+    ],
+    "transactions": [
+      {
+        "id": 1,
+        "user_id": 2,
+        "user_username": "phase5a-alpha-admin-c4",
+        "account_id": null,
+        "bet_id": null,
+        "transaction_id": "PHASE5A-C4-SEED",
+        "transaction_type": "充值",
+        "description": "Phase5A isolated seed",
+        "amount": "1000.00",
+        "balance_before": "0.00",
+        "balance_after": "1000.00",
+        "created_at": "2026-10-17T11:43:40.242Z"
+      }
+    ],
+    "charge_transactions": [],
+    "integrity": [
+      {
+        "issue": "missing_transaction_for_active_bet",
+        "bet_id": 1
+      }
+    ],
+    "mock_ft_bet_events": [
+      {
+        "event": "request_received",
+        "at": "2026-10-17T11:43:41.705Z",
+        "request_id": "mock-1792237421705-dd949b5f",
+        "remote_address": "127.0.0.1",
+        "method": "POST",
+        "url": "/transform.php?ver=2025-10-16-fix342_120",
+        "action": "FT_bet",
+        "content_type": "application/x-www-form-urlencoded",
+        "params": {
+          "p": "FT_bet",
+          "uid": "phase5a-mock-uid",
+          "ver": "2025-10-16-fix342_120",
+          "langx": "zh-cn",
+          "odd_f_type": "H",
+          "golds": "100",
+          "gid": "950001",
+          "gtype": "FT",
+          "wtype": "CNR",
+          "rtype": "CNRH",
+          "chose_team": "H",
+          "ioratio": "1.90",
+          "con": "1",
+          "ratio": "1900",
+          "autoOdd": "Y",
+          "timestamp": "1792237421703",
+          "timestamp2": "",
+          "isRB": "N",
+          "imp": "N",
+          "ptype": "",
+          "isYesterday": "N",
+          "f": "1R"
+        },
+        "ticket_id": "PHASE5A-C4-001",
+        "hold_first_ft_bet": true
+      }
+    ],
+    "mock_ft_bet_response_attempts": [
+      {
+        "event": "FT_bet_response_attempt",
+        "at": "2026-10-17T11:43:46.706Z",
+        "request_id": "mock-1792237421705-dd949b5f",
+        "ticket_id": "PHASE5A-C4-001",
+        "action": "FT_bet",
+        "delay_ms": 5000,
+        "remote_address": "127.0.0.1",
+        "socket_destroyed_before_response_attempt": true,
+        "planned_response_status": 200,
+        "planned_response_body": "<serverresponse><code>560</code><ticket_id>PHASE5A-C4-001</ticket_id><ioratio>1.90</ioratio><gold>80</gold></serverresponse>",
+        "response_end_called": false
+      }
+    ]
+  },
+  "delta": {
+    "bets": 0,
+    "idempotency": 0,
+    "mock_ft_bet": 0,
+    "charge_transactions": 0,
+    "integrity_issues": 0
+  }
+}

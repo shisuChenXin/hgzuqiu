@@ -1,0 +1,48 @@
+{
+  "label": "alpha through backend B:POST /api/auth/login",
+  "method": "POST",
+  "url": "http://127.0.0.1:3203/api/auth/login",
+  "request_headers": {
+    "content_type": "application/json",
+    "authorization": null,
+    "idempotency_key": null
+  },
+  "request_body": {
+    "username": "phase5a-alpha-admin-c3",
+    "password": "<redacted>"
+  },
+  "response_status": 200,
+  "response_ok": true,
+  "response_headers": {
+    "idempotency_replayed": null,
+    "content_type": "application/json; charset=utf-8"
+  },
+  "response_body": {
+    "success": true,
+    "data": {
+      "user": {
+        "id": 2,
+        "username": "phase5a-alpha-admin-c3",
+        "email": "phase5a-alpha-c3@phase5a.local",
+        "role": "admin",
+        "parent_id": null,
+        "agent_id": null,
+        "whitelabel_id": 1,
+        "email_verified": true,
+        "created_at": "2026-10-17T11:43:22.409Z",
+        "updated_at": "2026-10-17T11:43:22.409Z"
+      },
+      "token": "<redacted>"
+    },
+    "message": "登录成功"
+  },
+  "started_at_utc": "2026-10-17T11:43:23.654Z",
+  "ended_at_utc": "2026-10-17T11:43:23.785Z",
+  "duration_ms": 131,
+  "transport_error": null,
+  "token_evidence": {
+    "stored": "memory only during this process",
+    "length": 340,
+    "sha256": "a39d3f58dc5324b1f58a3392f1fb436399d02ba57e74562178c70cc971cd4bf3"
+  }
+}
